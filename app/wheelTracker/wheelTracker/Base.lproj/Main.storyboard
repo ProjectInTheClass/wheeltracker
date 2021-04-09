@@ -58,7 +58,7 @@
         <!--UserTableViewController-->
         <scene sceneID="CCT-cs-wKQ">
             <objects>
-                <tableViewController title="UserTableViewController" id="8bz-jd-xqG" sceneMemberID="viewController">
+                <tableViewController title="UserTableViewController" id="8bz-jd-xqG" customClass="UserTableViewController" customModule="wheelTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Hqm-SP-uwa">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -99,16 +99,25 @@
         <!--DetailViewController-->
         <scene sceneID="deI-YV-OeU">
             <objects>
-                <viewController title="DetailViewController" id="wwf-Xo-lMa" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="glE-PJ-kpb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewController title="DetailViewController" id="wwf-Xo-lMa" customClass="DetailViewController" customModule="wheelTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qwa-oq-hdv">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sHe-9G-joE">
+                                <rect key="frame" x="186" y="437" width="41.5" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="zp3-Hm-Dcq"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="6r2-xV-iKe"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="glE-PJ-kpb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2867" y="678"/>
         </scene>
