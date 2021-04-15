@@ -22,7 +22,7 @@ for _ in 1...5{
 
 // 별찍기3(정삼각형)
 
-let n3 = 5
+let n3 = 5  
 let m = (n3+1)*2-1
 for i in 1...n3{
     let star = i*2-1
