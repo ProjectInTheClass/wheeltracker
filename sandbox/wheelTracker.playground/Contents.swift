@@ -2,19 +2,6 @@ import UIKit
 
 //과제
 
-
-//구구단
-
-let numbers = Array(arrayLiteral: 2, 3, 4, 5, 6, 7, 8, 9)
-let numbers2 = Array(arrayLiteral: 1, 2, 3, 4, 5, 6, 7, 8, 9)
-
-for number in numbers {
-    for number2 in numbers {
-        let res = number * number2
-        print (String(number) + " * " + String(number2) + " = " + String(res))
-    }
-}
-
 // 별찍기(정사각형)
 
 let n = 5
@@ -27,16 +14,6 @@ for _ in 1 ... n {
 
 // 별찍기2(직각 삼각형), There are two versions
 
-//ver 1.
-let n2 = 5
-for i in 1 ... n2 {
-    for _ in 1 ... i{
-        print("*", terminator:"")
-    }
-    print()
-}
-
-//ver 2.
 var s = "*"
 for _ in 1...5{
     print(s)
