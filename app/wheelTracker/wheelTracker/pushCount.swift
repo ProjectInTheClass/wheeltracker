@@ -11,7 +11,9 @@ struct PushCount {
     var userId : Int
     var date : Date
     var counts : Int
-    var steps : //이거 계산으로
+    var steps : Int{
+        return counts 
+    }//이거 계산으로
     var distance : Float
 }
 
