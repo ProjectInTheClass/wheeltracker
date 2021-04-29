@@ -17,6 +17,21 @@ class UserTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        
+        print(NSHomeDirectory())
+        print("Home:", NSHomeDirectory())
+        print("Bundle:", Bundle.main.bundlePath)
+        let data = [1:1.5, 2:2.0]
+        do{
+            let encoded: Data = try PropertyListEncoder().encode(data)
+            let path = NSHomeDirectory() + "/Documents/DistanceRecord.plist"
+            let url = URL(fileURLWithPath: path)
+            try encoded.write(to: url)
+            
+        }catch let _{
+            
+        }
     }
 
     // MARK: - Table view data source
