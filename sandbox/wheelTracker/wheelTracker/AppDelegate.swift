@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  wheeltracker
+//  wheelTracker
 //
-//  Created by 한경수 on 2021/04/29.
+//  Created by gaeun on 2021/04/08.
 //
 
 import UIKit
