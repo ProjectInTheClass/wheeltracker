@@ -7,16 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		13FFC1D09E7459D92581E363 /* Pods_wheeltracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F9C3FD9214EEADFBA4A4AEE /* Pods_wheeltracker.framework */; };
 		4699055A263AA85D004BCB77 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46990559263AA85D004BCB77 /* AppDelegate.swift */; };
 		4699055C263AA85D004BCB77 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4699055B263AA85D004BCB77 /* SceneDelegate.swift */; };
 		4699055E263AA85D004BCB77 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4699055D263AA85D004BCB77 /* ViewController.swift */; };
 		46990561263AA85D004BCB77 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4699055F263AA85D004BCB77 /* Main.storyboard */; };
 		46990563263AA85D004BCB77 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46990562263AA85D004BCB77 /* Assets.xcassets */; };
 		46990566263AA85D004BCB77 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46990564263AA85D004BCB77 /* LaunchScreen.storyboard */; };
+		46990574263BF295004BCB77 /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46990573263BF295004BCB77 /* Setting.storyboard */; };
+		46990576263BF434004BCB77 /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46990575263BF434004BCB77 /* RecordViewController.swift */; };
+		46990578263BF441004BCB77 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46990577263BF441004BCB77 /* SettingViewController.swift */; };
+		4699057A263BF76A004BCB77 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46990579263BF76A004BCB77 /* TabBarController.swift */; };
 		CCA75FC6263BEA7100A5985E /* Record.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCA75FC5263BEA7000A5985E /* Record.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		122C7227C709D593C3C6B8A9 /* Pods-wheeltracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wheeltracker.release.xcconfig"; path = "Target Support Files/Pods-wheeltracker/Pods-wheeltracker.release.xcconfig"; sourceTree = "<group>"; };
 		46990556263AA85D004BCB77 /* wheeltracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wheeltracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46990559263AA85D004BCB77 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4699055B263AA85D004BCB77 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -25,6 +31,12 @@
 		46990562263AA85D004BCB77 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		46990565263AA85D004BCB77 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		46990567263AA85E004BCB77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		46990573263BF295004BCB77 /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
+		46990575263BF434004BCB77 /* RecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
+		46990577263BF441004BCB77 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		46990579263BF76A004BCB77 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		8F9C3FD9214EEADFBA4A4AEE /* Pods_wheeltracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_wheeltracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C5312D8A452629ED99042C7 /* Pods-wheeltracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wheeltracker.debug.xcconfig"; path = "Target Support Files/Pods-wheeltracker/Pods-wheeltracker.debug.xcconfig"; sourceTree = "<group>"; };
 		CCA75FC5263BEA7000A5985E /* Record.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Record.storyboard; path = wheelTracker/Record.storyboard; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -33,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13FFC1D09E7459D92581E363 /* Pods_wheeltracker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +57,8 @@
 			children = (
 				46990558263AA85D004BCB77 /* wheeltracker */,
 				46990557263AA85D004BCB77 /* Products */,
+				CFB039EDB3BED914C59FA555 /* Pods */,
+				DC1DC722339381E804DAC31A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -66,8 +81,30 @@
 				46990562263AA85D004BCB77 /* Assets.xcassets */,
 				46990564263AA85D004BCB77 /* LaunchScreen.storyboard */,
 				46990567263AA85E004BCB77 /* Info.plist */,
+				46990573263BF295004BCB77 /* Setting.storyboard */,
+				46990575263BF434004BCB77 /* RecordViewController.swift */,
+				46990577263BF441004BCB77 /* SettingViewController.swift */,
+				46990579263BF76A004BCB77 /* TabBarController.swift */,
 			);
 			path = wheeltracker;
+			sourceTree = "<group>";
+		};
+		CFB039EDB3BED914C59FA555 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9C5312D8A452629ED99042C7 /* Pods-wheeltracker.debug.xcconfig */,
+				122C7227C709D593C3C6B8A9 /* Pods-wheeltracker.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		DC1DC722339381E804DAC31A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8F9C3FD9214EEADFBA4A4AEE /* Pods_wheeltracker.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -77,9 +114,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4699056A263AA85E004BCB77 /* Build configuration list for PBXNativeTarget "wheeltracker" */;
 			buildPhases = (
+				87E27A5C69FB69435D689516 /* [CP] Check Pods Manifest.lock */,
 				46990552263AA85D004BCB77 /* Sources */,
 				46990553263AA85D004BCB77 /* Frameworks */,
 				46990554263AA85D004BCB77 /* Resources */,
+				6320E1ACE12678C0403D5999 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -104,7 +143,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 46990551263AA85D004BCB77 /* Build configuration list for PBXProject "wheelTracker" */;
+			buildConfigurationList = 46990551263AA85D004BCB77 /* Build configuration list for PBXProject "wheeltracker" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -129,6 +168,7 @@
 			files = (
 				46990566263AA85D004BCB77 /* LaunchScreen.storyboard in Resources */,
 				46990563263AA85D004BCB77 /* Assets.xcassets in Resources */,
+				46990574263BF295004BCB77 /* Setting.storyboard in Resources */,
 				46990561263AA85D004BCB77 /* Main.storyboard in Resources */,
 				CCA75FC6263BEA7100A5985E /* Record.storyboard in Resources */,
 			);
@@ -136,14 +176,59 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		6320E1ACE12678C0403D5999 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-wheeltracker/Pods-wheeltracker-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-wheeltracker/Pods-wheeltracker-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-wheeltracker/Pods-wheeltracker-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		87E27A5C69FB69435D689516 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-wheeltracker-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		46990552263AA85D004BCB77 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46990578263BF441004BCB77 /* SettingViewController.swift in Sources */,
 				4699055E263AA85D004BCB77 /* ViewController.swift in Sources */,
 				4699055A263AA85D004BCB77 /* AppDelegate.swift in Sources */,
+				4699057A263BF76A004BCB77 /* TabBarController.swift in Sources */,
 				4699055C263AA85D004BCB77 /* SceneDelegate.swift in Sources */,
+				46990576263BF434004BCB77 /* RecordViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,6 +372,7 @@
 		};
 		4699056B263AA85E004BCB77 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9C5312D8A452629ED99042C7 /* Pods-wheeltracker.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -305,6 +391,7 @@
 		};
 		4699056C263AA85E004BCB77 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 122C7227C709D593C3C6B8A9 /* Pods-wheeltracker.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -324,7 +411,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		46990551263AA85D004BCB77 /* Build configuration list for PBXProject "wheelTracker" */ = {
+		46990551263AA85D004BCB77 /* Build configuration list for PBXProject "wheeltracker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				46990568263AA85E004BCB77 /* Debug */,
