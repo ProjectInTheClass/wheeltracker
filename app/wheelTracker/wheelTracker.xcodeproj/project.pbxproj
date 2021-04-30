@@ -13,6 +13,7 @@
 		46990561263AA85D004BCB77 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4699055F263AA85D004BCB77 /* Main.storyboard */; };
 		46990563263AA85D004BCB77 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46990562263AA85D004BCB77 /* Assets.xcassets */; };
 		46990566263AA85D004BCB77 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46990564263AA85D004BCB77 /* LaunchScreen.storyboard */; };
+		CCA75FC6263BEA7100A5985E /* Record.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCA75FC5263BEA7000A5985E /* Record.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		46990562263AA85D004BCB77 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		46990565263AA85D004BCB77 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		46990567263AA85E004BCB77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CCA75FC5263BEA7000A5985E /* Record.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Record.storyboard; path = wheelTracker/Record.storyboard; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 				4699055B263AA85D004BCB77 /* SceneDelegate.swift */,
 				4699055D263AA85D004BCB77 /* ViewController.swift */,
 				4699055F263AA85D004BCB77 /* Main.storyboard */,
+				CCA75FC5263BEA7000A5985E /* Record.storyboard */,
 				46990562263AA85D004BCB77 /* Assets.xcassets */,
 				46990564263AA85D004BCB77 /* LaunchScreen.storyboard */,
 				46990567263AA85E004BCB77 /* Info.plist */,
@@ -101,7 +104,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 46990551263AA85D004BCB77 /* Build configuration list for PBXProject "wheeltracker" */;
+			buildConfigurationList = 46990551263AA85D004BCB77 /* Build configuration list for PBXProject "wheelTracker" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -127,6 +130,7 @@
 				46990566263AA85D004BCB77 /* LaunchScreen.storyboard in Resources */,
 				46990563263AA85D004BCB77 /* Assets.xcassets in Resources */,
 				46990561263AA85D004BCB77 /* Main.storyboard in Resources */,
+				CCA75FC6263BEA7100A5985E /* Record.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,7 +324,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		46990551263AA85D004BCB77 /* Build configuration list for PBXProject "wheeltracker" */ = {
+		46990551263AA85D004BCB77 /* Build configuration list for PBXProject "wheelTracker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				46990568263AA85E004BCB77 /* Debug */,
