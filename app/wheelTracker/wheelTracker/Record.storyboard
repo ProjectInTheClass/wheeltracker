@@ -25,14 +25,23 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TFn-gn-Lr0">
                                                 <rect key="frame" x="0.0" y="0.0" width="124.5" height="30"/>
                                                 <state key="normal" title="Day"/>
+                                                <connections>
+                                                    <action selector="showLineChart:" destination="rq5-jp-x9w" eventType="touchUpInside" id="ncx-Cq-Yeq"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jaf-4b-ZaD">
                                                 <rect key="frame" x="124.5" y="0.0" width="125" height="30"/>
                                                 <state key="normal" title="Week"/>
+                                                <connections>
+                                                    <action selector="showLineChart:" destination="rq5-jp-x9w" eventType="touchUpInside" id="rI2-wN-uI3"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gLG-xv-mH9">
                                                 <rect key="frame" x="249.5" y="0.0" width="124.5" height="30"/>
                                                 <state key="normal" title="Month"/>
+                                                <connections>
+                                                    <action selector="showLineChart:" destination="rq5-jp-x9w" eventType="touchUpInside" id="VHG-EG-zL8"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -46,18 +55,30 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Lp-t0-nNw">
                                                 <rect key="frame" x="0.0" y="0.0" width="93.5" height="30"/>
                                                 <state key="normal" title="걸음수"/>
+                                                <connections>
+                                                    <action selector="selectValue:" destination="rq5-jp-x9w" eventType="touchUpInside" id="NYA-GM-YvT"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dfX-n5-0ln">
                                                 <rect key="frame" x="93.5" y="0.0" width="93.5" height="30"/>
                                                 <state key="normal" title="거리"/>
+                                                <connections>
+                                                    <action selector="selectValue:" destination="rq5-jp-x9w" eventType="touchUpInside" id="hk7-oE-hS2"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G19-Nc-D7d">
                                                 <rect key="frame" x="187" y="0.0" width="93.5" height="30"/>
                                                 <state key="normal" title="칼로리"/>
+                                                <connections>
+                                                    <action selector="selectValue:" destination="rq5-jp-x9w" eventType="touchUpInside" id="Tbd-80-fgv"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h77-XY-gWA">
                                                 <rect key="frame" x="280.5" y="0.0" width="93.5" height="30"/>
                                                 <state key="normal" title="시간"/>
+                                                <connections>
+                                                    <action selector="selectValue:" destination="rq5-jp-x9w" eventType="touchUpInside" id="oha-nD-B6B"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -84,7 +105,15 @@
                     <tabBarItem key="tabBarItem" title="Record" image="list.bullet.rectangle" catalog="system" id="hOL-S5-OZB"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="dayButton" destination="TFn-gn-Lr0" id="eKg-O7-aY8"/>
+                        <outlet property="distanceButton" destination="dfX-n5-0ln" id="SWi-Ij-Nhq"/>
+                        <outlet property="kalButton" destination="G19-Nc-D7d" id="I7d-KT-RPU"/>
                         <outlet property="lineChartView" destination="zgE-UX-f5T" id="F2k-fV-OKL"/>
+                        <outlet property="monthButton" destination="gLG-xv-mH9" id="OuX-97-cyC"/>
+                        <outlet property="stepsButton" destination="5Lp-t0-nNw" id="epn-Jn-tWN"/>
+                        <outlet property="tableView" destination="0TL-eM-VRf" id="N48-sx-yiq"/>
+                        <outlet property="time" destination="h77-XY-gWA" id="weq-mc-dKo"/>
+                        <outlet property="weekButton" destination="Jaf-4b-ZaD" id="NRo-ZS-Ohx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4A1-U3-eiE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

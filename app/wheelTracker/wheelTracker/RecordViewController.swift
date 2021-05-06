@@ -11,7 +11,15 @@ import Charts
 class RecordViewController: UIViewController {
 
     @IBOutlet var lineChartView: LineChartView!
+    @IBOutlet weak var dayButton: UIButton!
+    @IBOutlet weak var weekButton: UIButton!
+    @IBOutlet weak var monthButton: UIButton!
+    @IBOutlet weak var stepsButton: UIButton!
+    @IBOutlet weak var distanceButton: UIButton!
+    @IBOutlet weak var kalButton: UIButton!
+    @IBOutlet weak var time: UIButton!
     
+    @IBOutlet weak var tableView: UITableView!
     var day = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     var steps = [2000, 1000, 300, 500, 600, 1400, 2000, 1500, 800, 900]
     
@@ -24,11 +32,11 @@ class RecordViewController: UIViewController {
         lineChartView.noDataFont = .systemFont(ofSize: 20)
         lineChartView.noDataTextColor = .lightGray
         
-        setChart(dataPoint:day, values: steps)
+        setChart(dataPoint:day, values: steps, name: "걸음수")
     
     }
     
-    func setChart(dataPoint: [Int], values: [Int]){
+    func setChart(dataPoint: [Int], values: [Int], name: String){
         //데이터 생성
         var lineChartEntries = [ChartDataEntry]()
         
@@ -41,7 +49,7 @@ class RecordViewController: UIViewController {
             lineChartEntries.append(dataEntry)
         }
         
-        let chartDataSet = LineChartDataSet(entries: lineChartEntries, label: "기록")
+        let chartDataSet = LineChartDataSet(entries: lineChartEntries, label:name)
         //차트색
         chartDataSet.colors = [NSUIColor.blue]
         //데이터 삽입
@@ -55,12 +63,23 @@ class RecordViewController: UIViewController {
         lineChartView.xAxis.setLabelCount(dataPoint.count, force: true)
         
         
-        
-
-        
-        
     }
-
+    
+    
+    @IBAction func showLineChart(_ sender: UIButton) {
+        
+    
+    }
+    @IBAction func selectValue(_ sender: UIButton) {
+        
+        if let buttonTitle = sender.titleLabel?.text {
+            setChart(dataPoint:day, values: steps, name: buttonTitle)
+        }
+    }
+    
+    
+    
+    
 
 
 }
