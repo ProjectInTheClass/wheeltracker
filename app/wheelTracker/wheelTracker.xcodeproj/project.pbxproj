@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		13FFC1D09E7459D92581E363 /* Pods_wheeltracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F9C3FD9214EEADFBA4A4AEE /* Pods_wheeltracker.framework */; };
+		4625D6892643EC7100C448A7 /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4625D6882643EC7100C448A7 /* DummyData.swift */; };
 		4699055A263AA85D004BCB77 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46990559263AA85D004BCB77 /* AppDelegate.swift */; };
 		4699055C263AA85D004BCB77 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4699055B263AA85D004BCB77 /* SceneDelegate.swift */; };
 		4699055E263AA85D004BCB77 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4699055D263AA85D004BCB77 /* ViewController.swift */; };
@@ -23,6 +24,7 @@
 
 /* Begin PBXFileReference section */
 		122C7227C709D593C3C6B8A9 /* Pods-wheeltracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wheeltracker.release.xcconfig"; path = "Target Support Files/Pods-wheeltracker/Pods-wheeltracker.release.xcconfig"; sourceTree = "<group>"; };
+		4625D6882643EC7100C448A7 /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
 		46990556263AA85D004BCB77 /* wheeltracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wheeltracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46990559263AA85D004BCB77 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4699055B263AA85D004BCB77 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 				46990575263BF434004BCB77 /* RecordViewController.swift */,
 				46990577263BF441004BCB77 /* SettingViewController.swift */,
 				46990579263BF76A004BCB77 /* TabBarController.swift */,
+				4625D6882643EC7100C448A7 /* DummyData.swift */,
 			);
 			path = wheeltracker;
 			sourceTree = "<group>";
@@ -225,6 +228,7 @@
 				46990578263BF441004BCB77 /* SettingViewController.swift in Sources */,
 				4699055E263AA85D004BCB77 /* ViewController.swift in Sources */,
 				4699055A263AA85D004BCB77 /* AppDelegate.swift in Sources */,
+				4625D6892643EC7100C448A7 /* DummyData.swift in Sources */,
 				4699057A263BF76A004BCB77 /* TabBarController.swift in Sources */,
 				4699055C263AA85D004BCB77 /* SceneDelegate.swift in Sources */,
 				46990576263BF434004BCB77 /* RecordViewController.swift in Sources */,
