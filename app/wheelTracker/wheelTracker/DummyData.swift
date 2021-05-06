@@ -27,9 +27,9 @@ struct PushData {
 
 var pushDatas = [
     PushData(createdAt : Date(), distance : 1.8, duration : 60*15),
-    PushData(createdAt : Date(60*60*24), distance : 3.6, duration : 60*30),
-    PushData(createdAt : Date(60*60*24*2), distance : 3.6*2, duration : 60*30*2),
-    PushData(createdAt : Date(60*60*24*3), distance : 3.6*3, duration : 60*30*3),
+    PushData(createdAt : Date(timeIntervalSinceNow: 60*60*24), distance : 3.6, duration : 60*30),
+    PushData(createdAt : Date(timeIntervalSinceNow: 60*60*24*2), distance : 3.6*2, duration : 60*30*2),
+    PushData(createdAt : Date(timeIntervalSinceNow: 60*60*24*3), distance : 3.6*3, duration : 60*30*3),
 ]
 
 
