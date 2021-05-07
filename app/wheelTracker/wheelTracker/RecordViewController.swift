@@ -63,12 +63,12 @@ class RecordViewController: UIViewController {
     
     
     
-    extension Date{
-        func toString()->String{
+    class toString{
+        func toString(a:Date)->String{
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "MM"
             dateFormatter.timeZone = TimeZone(identifier: "UTC")
-            return dateFormatter.string(from: self)
+            return dateFormatter.string(from: a)
         }
     }
     
