@@ -45,7 +45,8 @@ class RecordViewController: UIViewController {
     }.map{
         $0.calorie
     }
-
+    
+    //var dayString = dateToString(day)
     
     
     
@@ -61,16 +62,13 @@ class RecordViewController: UIViewController {
     
     }
     
-    
-    
-    class toString{
-        func toString(a:Date)->String{
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "MM"
-            dateFormatter.timeZone = TimeZone(identifier: "UTC")
-            return dateFormatter.string(from: a)
-        }
+    func dateToString(date: Date)->String{
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM"
+        dateFormatter.timeZone = TimeZone(identifier: "UTC")
+        return dateFormatter.string(from: date)
     }
+    
     
     func setChart(dataPoint: [Date], values: [Double], name: String){
         //데이터 생성
@@ -94,7 +92,7 @@ class RecordViewController: UIViewController {
         lineChartView.data = data
         
         lineChartView.xAxis.labelPosition = .bottom
-        lineChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: String(day))
+        //lineChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: String(day))
         lineChartView.rightAxis.enabled = false
         
         lineChartView.xAxis.setLabelCount(dataPoint.count, force: true)
