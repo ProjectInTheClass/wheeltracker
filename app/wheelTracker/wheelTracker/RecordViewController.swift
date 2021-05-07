@@ -20,8 +20,33 @@ class RecordViewController: UIViewController {
     @IBOutlet weak var time: UIButton!
     
     @IBOutlet weak var tableView: UITableView!
-    var day = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-    var steps = [2000, 1000, 300, 500, 600, 1400, 2000, 1500, 800, 900]
+    var day = pushDatas.filter{
+        let nowCalendar = Calendar.current.dateComponents([.year, .month, .day], from: Date())
+        let dataCalendar = Calendar.current.dateComponents([.year, .month, .day], from: $0.createdAt)
+        if nowCalendar.year == dataCalendar.year && nowCalendar.month == dataCalendar.month && nowCalendar.day == dataCalendar.day{
+            return true
+        }
+        else{
+            return false
+        }
+    }.map{
+        $0.createdAt
+    }
+    
+    let calorieOfMonth = pushDatas.filter{
+        let nowCalendar = Calendar.current.dateComponents([.year, .month, .day], from: Date())
+        let dataCalendar = Calendar.current.dateComponents([.year, .month, .day], from: $0.createdAt)
+        if nowCalendar.year == dataCalendar.year && nowCalendar.month == dataCalendar.month && nowCalendar.day == dataCalendar.day{
+            return true
+        }
+        else{
+            return false
+        }
+    }.map{
+        $0.calorie
+    }
+
+    
     
     
     
@@ -32,11 +57,22 @@ class RecordViewController: UIViewController {
         lineChartView.noDataFont = .systemFont(ofSize: 20)
         lineChartView.noDataTextColor = .lightGray
         
-        setChart(dataPoint:day, values: steps, name: "걸음수")
+        setChart(dataPoint:day, values: calorieOfMonth, name: "걸음수")
     
     }
     
-    func setChart(dataPoint: [Int], values: [Int], name: String){
+    
+    
+    extension Date{
+        func toString()->String{
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "MM"
+            dateFormatter.timeZone = TimeZone(identifier: "UTC")
+            return dateFormatter.string(from: self)
+        }
+    }
+    
+    func setChart(dataPoint: [Date], values: [Double], name: String){
         //데이터 생성
         var lineChartEntries = [ChartDataEntry]()
         
@@ -44,7 +80,7 @@ class RecordViewController: UIViewController {
 
         for i in 0..<dataPoint.count{
             print(i, Double(i))
-            let dataEntry = ChartDataEntry(x: Double(day[i]), y: Double(steps[i]))
+            let dataEntry = ChartDataEntry(x: Double(i), y: Double(calorieOfMonth[i]))
         
             lineChartEntries.append(dataEntry)
         }
@@ -58,9 +94,11 @@ class RecordViewController: UIViewController {
         lineChartView.data = data
         
         lineChartView.xAxis.labelPosition = .bottom
+        lineChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: String(day))
         lineChartView.rightAxis.enabled = false
         
         lineChartView.xAxis.setLabelCount(dataPoint.count, force: true)
+        
         
         
     }
@@ -73,7 +111,7 @@ class RecordViewController: UIViewController {
     @IBAction func selectValue(_ sender: UIButton) {
         
         if let buttonTitle = sender.titleLabel?.text {
-            setChart(dataPoint:day, values: steps, name: buttonTitle)
+            setChart(dataPoint:day, values: calorieOfMonth, name: buttonTitle)
         }
     }
     
