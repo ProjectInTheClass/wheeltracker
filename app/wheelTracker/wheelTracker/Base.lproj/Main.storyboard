@@ -17,19 +17,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="AwN-CU-Sgq">
-                                <rect key="frame" x="55.5" y="165" width="303" height="566.5"/>
+                                <rect key="frame" x="-18" y="90" width="450" height="716.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DayPush" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ifS-ze-Ba7">
-                                        <rect key="frame" x="56" y="0.0" width="191.5" height="60"/>
+                                        <rect key="frame" x="129.5" y="0.0" width="191.5" height="60"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="바닥" translatesAutoresizingMaskIntoConstraints="NO" id="6Ol-hF-pYG">
-                                        <rect key="frame" x="1.5" y="110" width="300" height="300"/>
+                                        <rect key="frame" x="0.0" y="110" width="450" height="450"/>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="73" translatesAutoresizingMaskIntoConstraints="NO" id="r2S-CL-80D">
-                                        <rect key="frame" x="0.0" y="460" width="303" height="26.5"/>
+                                        <rect key="frame" x="73.5" y="610" width="303" height="26.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Km" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gsy-Iw-vXm" userLabel="Distance">
                                                 <rect key="frame" x="0.0" y="0.0" width="32" height="26.5"/>
@@ -52,13 +52,13 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fc8-RQ-LZp">
-                                        <rect key="frame" x="123.5" y="536.5" width="56" height="30"/>
+                                        <rect key="frame" x="197" y="686.5" width="56" height="30"/>
                                         <state key="normal" title="앨범 보기"/>
                                     </button>
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="MonthPush" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4mF-0H-OFk" userLabel="MonthPushCount">
-                                <rect key="frame" x="93" y="458" width="149" height="36"/>
+                                <rect key="frame" x="132" y="641" width="149" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <nil key="textColor"/>
@@ -78,6 +78,7 @@
                         <outlet property="dayPushCount" destination="ifS-ze-Ba7" id="i9D-yJ-hfa"/>
                         <outlet property="distance" destination="Gsy-Iw-vXm" id="Tqg-UW-5hT"/>
                         <outlet property="duration" destination="0Dc-rA-biN" id="bnX-f6-ULY"/>
+                        <outlet property="monthPushCount" destination="4mF-0H-OFk" id="MhH-qN-O02"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -128,7 +129,7 @@
     <resources>
         <image name="homekit" catalog="system" width="128" height="106"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
-        <image name="바닥" width="300" height="300"/>
+        <image name="바닥" width="450" height="450"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
