@@ -36,6 +36,7 @@ var pushDatas = [
     PushData(createdAt : Date(timeIntervalSinceNow: -60*60*24), distance : 3600, duration : 60*30),
     PushData(createdAt : Date(timeIntervalSinceNow: -60*60*24*2), distance : 3600*2, duration : 60*30*2),
     PushData(createdAt : Date(timeIntervalSinceNow: -60*60*24*3), distance : 3600*3, duration : 60*30*3),
+    PushData(createdAt: Date(timeIntervalSinceNow: -86400 * 20), distance: 1800, duration: 60 * 30)
 ]
 
 

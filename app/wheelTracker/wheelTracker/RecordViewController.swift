@@ -20,7 +20,13 @@ class RecordViewController: UIViewController {
     @IBOutlet weak var time: UIButton!
     
     @IBOutlet weak var tableView: UITableView!
-    var day = pushDatas.filter{
+    
+    // createdAt, distance, duration, pushCount, calorie
+    
+    
+    
+    
+    var day = pushDatas.sorted(by: {$0.createdAt < $1.createdAt}).filter{
         let nowCalendar = Calendar.current.dateComponents([.year, .month, .day], from: Date())
         let dataCalendar = Calendar.current.dateComponents([.year, .month, .day], from: $0.createdAt)
         if nowCalendar.year == dataCalendar.year && nowCalendar.month == dataCalendar.month {
@@ -33,7 +39,41 @@ class RecordViewController: UIViewController {
         $0.createdAt
     }
     
-    var calorieOfMonth = pushDatas.filter{
+    var week = pushDatas.sorted(by:{$0.createdAt < $1.createdAt}).filter{let nowCalendar = Calendar.current.dateComponents([.year, .month, .weekOfMonth], from: Date())
+        let dataCalendar = Calendar.current.dateComponents([.year, .month, .weekOfMonth], from: $0.createdAt)
+        
+        if nowCalendar.year == dataCalendar.year && nowCalendar.month == dataCalendar.month && nowCalendar.weekOfMonth == dataCalendar.weekOfMonth{
+            return true
+        }
+        else{
+            return false
+        }
+    }.map{ (v:PushData)-> (String) in
+        
+        let dataCalendar = Calendar.current.dateComponents([.month, .weekOfMonth], from: v.createdAt)
+        
+        var returnString = ""
+        if (dataCalendar.weekOfMonth != nil){
+             returnString = String(dataCalendar.month!) + "월" + String(dataCalendar.weekOfMonth!) + "째주"
+        }
+        
+        
+        return returnString
+        
+    }
+    
+    
+    
+    var month = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"]
+    
+    //ToDo : 각 날짜의 달을 받아와서 같은 달이면 값을 더해야해 어떻게 해야할까?
+    
+    var selectedValues = [Double]()
+    var selectedshow = [String]()
+
+
+    var calorieOfMonth = pushDatas.sorted(by:{$0.createdAt < $1.createdAt}).filter{
+        
         let nowCalendar = Calendar.current.dateComponents([.year, .month, .day], from: Date())
         let dataCalendar = Calendar.current.dateComponents([.year, .month, .day], from: $0.createdAt)
         if nowCalendar.year == dataCalendar.year && nowCalendar.month == dataCalendar.month {
@@ -46,7 +86,49 @@ class RecordViewController: UIViewController {
         $0.calorie
     }
     
-
+    var distanceOfMonth = pushDatas.sorted(by:{$0.createdAt < $1.createdAt}).filter{
+        
+        let nowCalendar = Calendar.current.dateComponents([.year, .month, .day], from: Date())
+        let dataCalendar = Calendar.current.dateComponents([.year, .month, .day], from: $0.createdAt)
+        if nowCalendar.year == dataCalendar.year && nowCalendar.month == dataCalendar.month {
+            return true
+        }
+        else{
+            return false
+        }
+    }.map{
+        $0.distance
+    }
+    
+    var durationOfMonth = pushDatas.sorted(by:{$0.createdAt < $1.createdAt}).filter{
+        
+        let nowCalendar = Calendar.current.dateComponents([.year, .month, .day], from: Date())
+        let dataCalendar = Calendar.current.dateComponents([.year, .month, .day], from: $0.createdAt)
+        if nowCalendar.year == dataCalendar.year && nowCalendar.month == dataCalendar.month {
+            return true
+        }
+        else{
+            return false
+        }
+    }.map{
+        $0.duration
+    }
+    var pushCountOfMonth = pushDatas.sorted(by:{$0.createdAt < $1.createdAt}).filter{
+        
+        let nowCalendar = Calendar.current.dateComponents([.year, .month, .day], from: Date())
+        let dataCalendar = Calendar.current.dateComponents([.year, .month, .day], from: $0.createdAt)
+        if nowCalendar.year == dataCalendar.year && nowCalendar.month == dataCalendar.month {
+            return true
+        }
+        else{
+            return false
+        }
+    }.map{
+        $0.pushCount
+    }.map{
+        Double($0)
+    }
+    
     
     
     
@@ -58,15 +140,23 @@ class RecordViewController: UIViewController {
         lineChartView.noDataFont = .systemFont(ofSize: 20)
         lineChartView.noDataTextColor = .lightGray
         
+        selectedValues = pushCountOfMonth
+        
+        
+        print("push count", pushCountOfMonth)
+        print("distance", distanceOfMonth)
+        print("calorie", calorieOfMonth)
+        print("duration", durationOfMonth)
+        
         let dayString = day.map{
             dateToString(date: $0)
         }
-        setChart(dataPoint:dayString, values: calorieOfMonth, name: "걸음수")
+        selectedshow = dayString
         
-    
 
-    
     }
+    
+    
     
     func dateToString(date: Date)->String{
         let dateFormatter = DateFormatter()
@@ -75,20 +165,20 @@ class RecordViewController: UIViewController {
         return dateFormatter.string(from: date)
     }
     
+    func weekToString(week: Int){
+        
+    }
+    
+
+    
     
     func setChart(dataPoint: [String], values: [Double], name: String){
         //데이터 생성
         var lineChartEntries = [ChartDataEntry]()
         
-        let dayString = day.map{
-            dateToString(date: $0)
-        }
         
-        // char data entry에 데이터 추가
-        print(calorieOfMonth)
+        for i in 0..<values.count{
 
-        for i in 0..<calorieOfMonth.count{
-            print(i, Double(i))
             let dataEntry = ChartDataEntry(x: Double(i), y: Double(calorieOfMonth[i]))
         
             lineChartEntries.append(dataEntry)
@@ -103,8 +193,7 @@ class RecordViewController: UIViewController {
         lineChartView.data = data
         
         lineChartView.xAxis.labelPosition = .bottom
-        lineChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: dayString)
-        print(dayString)
+        lineChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: dataPoint)
         lineChartView.rightAxis.enabled = false
         
         lineChartView.xAxis.setLabelCount(dataPoint.count, force: true)
@@ -112,21 +201,57 @@ class RecordViewController: UIViewController {
         
         
     }
-    
+        
     
     @IBAction func showLineChart(_ sender: UIButton) {
         
- 
+        if sender.titleLabel?.text == "Day"{
+            let dayString = day.map{
+                dateToString(date: $0)
+            }
+            selectedshow = dayString
+            setChart(dataPoint: selectedshow, values: selectedValues, name: "")
+            
+            
+        } else if sender.titleLabel?.text == "Week"{
+
+            selectedshow = week
+            print(selectedshow)
+            setChart(dataPoint: selectedshow, values: selectedValues, name: "")
+            
+            
+        } else if sender.titleLabel?.text == "Month"{
+
+            
+            selectedshow = month
+            setChart(dataPoint: selectedshow, values: selectedValues, name: "")
+            
+            
+        }
         
-        //setChart(dataPoint:dayString, values: calorieOfMonth, name: "걸음수")
+        
         
     
     }
     @IBAction func selectValue(_ sender: UIButton) {
-        
-        if let buttonTitle = sender.titleLabel?.text {
-          //  setChart(dataPoint:dayString, values: calorieOfMonth, name: "걸음수")
+        if sender.titleLabel?.text == "걸음수"{
+            selectedValues = pushCountOfMonth
+            setChart(dataPoint: selectedshow, values: selectedValues, name:"")
+            
+        }else if sender.titleLabel?.text == "거리"{
+            selectedValues = distanceOfMonth
+            setChart(dataPoint: selectedshow, values: selectedValues, name: "")
+            
+        }else if sender.titleLabel?.text == "칼로리"{
+            selectedValues = calorieOfMonth
+            setChart(dataPoint: selectedshow, values: selectedValues, name: "")
+            
+        }else if sender.titleLabel?.text == "시간"{
+            selectedValues = durationOfMonth
+            setChart(dataPoint: selectedshow, values: selectedValues, name: "")
+            
         }
+        
     }
     
     
