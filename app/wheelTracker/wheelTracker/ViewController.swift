@@ -15,10 +15,19 @@ class ViewController: UIViewController {
     @IBOutlet weak var calories: UILabel!
     @IBOutlet weak var duration: UILabel!
     @IBOutlet weak var monthPushCount: UILabel!
+    @IBOutlet weak var backgroundSuperview: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         loadUserData()
+        
+    }
+    
+    func loadImages(){
+        let floorImage = UIImage(named: "바닥")
+        let floorImageView = UIImageView(image: floorImage)
+        floorImageView.frame = CGRect(x:0, y:0, width: 400, height : 300)
+        backgroundSuperview.addSubview(floorImageView)
     }
     
     func loadUserData (){
@@ -32,10 +41,12 @@ class ViewController: UIViewController {
                 return false
             }
         }
+        
+        loadImages()
+        
         dayPushCount.text = String(todayData[0].pushCount)
         distance.text = String(Int(todayData[0].distance)) + "m"
         calories.text = String(todayData[0].calorie) + "kcal"
-        
         duration.text = String(Int(todayData[0].duration/60)) + "m" + String(Int(todayData[0].duration)%60) + "s"
         
         let monthDataCounts = pushDatas.filter{
@@ -52,7 +63,7 @@ class ViewController: UIViewController {
         }
         monthPushCount.text = String(monthDataCounts)
     }
-
+    
 
 }
 
