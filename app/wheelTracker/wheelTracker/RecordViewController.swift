@@ -32,13 +32,11 @@ class RecordViewController: UIViewController {
      
         let dataCalendar = $0.createdAt
     
-     
         if Calendar.current.ordinality(of: .day, in: .year, for: nowCalendar)! - Calendar.current.ordinality(of: .day, in: .year, for: dataCalendar)! < 7{
             return true
-        } else {
+        }else {
             return false
         }
-    
     }.map{
         $0.createdAt
     }
@@ -149,7 +147,6 @@ class RecordViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
         lineChartView.noDataText = "데이터가 없습니다."
         lineChartView.noDataFont = .systemFont(ofSize: 20)
@@ -282,10 +279,4 @@ class RecordViewController: UIViewController {
         }
         
     }
-    
-    
-    
-    
-
-
 }
