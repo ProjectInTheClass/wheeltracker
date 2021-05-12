@@ -16,6 +16,12 @@ var wheelSize: Double = 0.58
 struct PushData {
     var createdAt: Date
     var distance: Double
+    
+    var x1: Double?
+    var x2: Double?
+    var y1: Double?
+    var y2: Double?
+    
     var duration: TimeInterval
     var pushCount: Int{
         return Int(distance / (wheelSize * 6.28))
