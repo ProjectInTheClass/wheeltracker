@@ -25,6 +25,23 @@ class RecordViewController: UIViewController {
     
     
     
+    // 가로축. 그냥 day들이 쭉 나오는거. 한번에 몇개? 다 할순 없어. 갯수로 잘라야할듯 오늘 ~ 15개 정도
+    
+    var dayAxis = pushDatas.sorted(by: {$0.createdAt < $1.createdAt}).filter{
+        let nowCalendar = Date()
+     
+        let dataCalendar = $0.createdAt
+    
+     
+        if Calendar.current.ordinality(of: .day, in: .year, for: nowCalendar)! - Calendar.current.ordinality(of: .day, in: .year, for: dataCalendar)! < 15 {
+            return true
+        } else {
+            return false
+        }
+    
+    }.map{
+        $0.createdAt
+    }
     
     var day = pushDatas.sorted(by: {$0.createdAt < $1.createdAt}).filter{
         let nowCalendar = Calendar.current.dateComponents([.year, .month, .day], from: Date())
@@ -48,17 +65,15 @@ class RecordViewController: UIViewController {
         else{
             return false
         }
-    }.map{ (v:PushData)-> (String) in
+    }.map{ (v:PushData)-> (Int) in
         
         let dataCalendar = Calendar.current.dateComponents([.month, .weekOfMonth], from: v.createdAt)
         
-        var returnString = ""
-        if (dataCalendar.weekOfMonth != nil){
-             returnString = String(dataCalendar.month!) + "월" + String(dataCalendar.weekOfMonth!) + "째주"
+        if(dataCalendar.weekOfMonth != nil){
+            return dataCalendar.weekOfMonth!
         }
-        
-        
-        return returnString
+        return 0
+
         
     }
     
@@ -72,7 +87,7 @@ class RecordViewController: UIViewController {
     var selectedshow = [String]()
 
 
-    var calorieOfMonth = pushDatas.sorted(by:{$0.createdAt < $1.createdAt}).filter{
+    var calorieOfMonth = pushDatas.sorted(by:{$0.createdAt > $1.createdAt}).filter{
         
         let nowCalendar = Calendar.current.dateComponents([.year, .month, .day], from: Date())
         let dataCalendar = Calendar.current.dateComponents([.year, .month, .day], from: $0.createdAt)
@@ -86,7 +101,7 @@ class RecordViewController: UIViewController {
         $0.calorie
     }
     
-    var distanceOfMonth = pushDatas.sorted(by:{$0.createdAt < $1.createdAt}).filter{
+    var distanceOfMonth = pushDatas.sorted(by:{$0.createdAt > $1.createdAt}).filter{
         
         let nowCalendar = Calendar.current.dateComponents([.year, .month, .day], from: Date())
         let dataCalendar = Calendar.current.dateComponents([.year, .month, .day], from: $0.createdAt)
@@ -100,7 +115,7 @@ class RecordViewController: UIViewController {
         $0.distance
     }
     
-    var durationOfMonth = pushDatas.sorted(by:{$0.createdAt < $1.createdAt}).filter{
+    var durationOfMonth = pushDatas.sorted(by:{$0.createdAt > $1.createdAt}).filter{
         
         let nowCalendar = Calendar.current.dateComponents([.year, .month, .day], from: Date())
         let dataCalendar = Calendar.current.dateComponents([.year, .month, .day], from: $0.createdAt)
@@ -113,7 +128,7 @@ class RecordViewController: UIViewController {
     }.map{
         $0.duration
     }
-    var pushCountOfMonth = pushDatas.sorted(by:{$0.createdAt < $1.createdAt}).filter{
+    var pushCountOfMonth = pushDatas.sorted(by:{$0.createdAt > $1.createdAt}).filter{
         
         let nowCalendar = Calendar.current.dateComponents([.year, .month, .day], from: Date())
         let dataCalendar = Calendar.current.dateComponents([.year, .month, .day], from: $0.createdAt)
@@ -142,14 +157,8 @@ class RecordViewController: UIViewController {
         
         selectedValues = pushCountOfMonth
         
-        
-        print("push count", pushCountOfMonth)
-        print("distance", distanceOfMonth)
-        print("calorie", calorieOfMonth)
-        print("duration", durationOfMonth)
-        
         let dayString = day.map{
-            dateToString(date: $0)
+            dayToString(date: $0)
         }
         selectedshow = dayString
         
@@ -158,14 +167,22 @@ class RecordViewController: UIViewController {
     
     
     
-    func dateToString(date: Date)->String{
+    func dayToString(date: Date)->String{
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd"
         dateFormatter.timeZone = TimeZone(identifier: "UTC")
         return dateFormatter.string(from: date)
     }
     
-    func weekToString(week: Int){
+    func weekToString(week: Int) -> String{
+        
+        let nowCalendar = Calendar.current.dateComponents([.month], from: Date())
+        var returnString = ""
+
+        returnString = String(nowCalendar.month!) + "월" + String(week) + "째주"
+     
+        
+        return returnString
         
     }
     
@@ -176,23 +193,32 @@ class RecordViewController: UIViewController {
         //데이터 생성
         var lineChartEntries = [ChartDataEntry]()
         
-        
-        for i in 0..<values.count{
+        //selectedValues = selectedValues[0...dataPoint.count]
+        print("sorted and count", selectedValues)
 
-            let dataEntry = ChartDataEntry(x: Double(i), y: Double(calorieOfMonth[i]))
+        for i in 0..<dataPoint.count{
+
+            let dataEntry = ChartDataEntry(x: Double(i), y: Double(selectedValues[i]))
         
             lineChartEntries.append(dataEntry)
         }
         
         let chartDataSet = LineChartDataSet(entries: lineChartEntries, label:name)
+        
+        // 선택 안되게
+        chartDataSet.highlightEnabled = false
+        // 줌 안되게
+        lineChartView.doubleTapToZoomEnabled = false
+        
         //차트색
         chartDataSet.colors = [NSUIColor.blue]
         //데이터 삽입
-        let data = LineChartData()
-        data.addDataSet(chartDataSet)
-        lineChartView.data = data
+        let chartData = LineChartData(dataSet: chartDataSet)
+        lineChartView.data = chartData
         
+        //x축 레이블 위치 수정
         lineChartView.xAxis.labelPosition = .bottom
+        //x축 레이블 포맷 지정
         lineChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: dataPoint)
         lineChartView.rightAxis.enabled = false
         
@@ -206,17 +232,20 @@ class RecordViewController: UIViewController {
     @IBAction func showLineChart(_ sender: UIButton) {
         
         if sender.titleLabel?.text == "Day"{
-            let dayString = day.map{
-                dateToString(date: $0)
+            let dayString = dayAxis.map{
+                dayToString(date: $0)
             }
             selectedshow = dayString
             setChart(dataPoint: selectedshow, values: selectedValues, name: "")
             
             
         } else if sender.titleLabel?.text == "Week"{
-
-            selectedshow = week
-            print(selectedshow)
+            
+            let weekString = week.map{
+                weekToString(week: $0)
+            }
+            selectedshow = weekString
+ 
             setChart(dataPoint: selectedshow, values: selectedValues, name: "")
             
             
