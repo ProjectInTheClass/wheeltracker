@@ -32,11 +32,14 @@ class RecordViewController: UIViewController {
      
         let dataCalendar = $0.createdAt
     
-        if Calendar.current.ordinality(of: .day, in: .year, for: nowCalendar)! - Calendar.current.ordinality(of: .day, in: .year, for: dataCalendar)! < 7{
+
+     
+        if Calendar.current.ordinality(of: .day, in: .year, for: nowCalendar)! - Calendar.current.ordinality(of: .day, in: .year, for: dataCalendar)! < 7 {
             return true
-        }else {
+        } else {
             return false
         }
+    
     }.map{
         $0.createdAt
     }
@@ -191,9 +194,10 @@ class RecordViewController: UIViewController {
         var lineChartEntries = [ChartDataEntry]()
         
         //selectedValues = selectedValues[0...dataPoint.count]
-        print("sorted and count", selectedValues)
+
 
         for i in 0..<dataPoint.count{
+
 
             let dataEntry = ChartDataEntry(x: Double(i), y: Double(selectedValues[i]))
         
