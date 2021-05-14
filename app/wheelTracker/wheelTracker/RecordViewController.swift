@@ -33,7 +33,7 @@ class RecordViewController: UIViewController {
         let dataCalendar = $0.createdAt
     
      
-        if Calendar.current.ordinality(of: .day, in: .year, for: nowCalendar)! - Calendar.current.ordinality(of: .day, in: .year, for: dataCalendar)! < 15 {
+        if Calendar.current.ordinality(of: .day, in: .year, for: nowCalendar)! - Calendar.current.ordinality(of: .day, in: .year, for: dataCalendar)! < 7 {
             return true
         } else {
             return false
