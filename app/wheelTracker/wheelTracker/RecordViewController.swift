@@ -162,6 +162,7 @@ class RecordViewController: UIViewController {
         }
         selectedshow = dayString
         
+        
 
     }
     
