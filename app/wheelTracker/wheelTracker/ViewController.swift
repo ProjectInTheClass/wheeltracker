@@ -134,7 +134,7 @@ class ViewController: UIViewController {
         
         let imageIdentifiers = ["새싹", "풀", "꽃", "작은 나무", "큰 나무"]
         
-        for i in 0...29 {
+        for i in 0...Int.random(in: 0...29) {
             insertImage(view: plantImageViews[i], imageIdentifier: imageIdentifiers.randomElement()!, seedX: seedCoordinates[i].0, seedY: seedCoordinates[i].1)
             backgroundSuperview.addSubview(plantImageViews[i])
         }
