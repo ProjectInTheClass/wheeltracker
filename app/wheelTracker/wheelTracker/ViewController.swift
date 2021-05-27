@@ -16,11 +16,83 @@ class ViewController: UIViewController {
     @IBOutlet weak var calories: UILabel!
     @IBOutlet weak var duration: UILabel!
     @IBOutlet weak var backgroundSuperview: UIView!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         loadUserData()
+    }
+    
+    func insertImage(view:UIImageView, imageIdentifier:String, seedX: CGFloat, seedY: CGFloat){
+        let tileWidth = backgroundSuperview.frame.width/10
+        let tileHeight = backgroundSuperview.frame.height/10
         
+        let sproutImage = UIImage(named: "새싹")
+        let sproutWidth = tileWidth*0.8
+        let sproutHeight = tileHeight*1.2
+        
+        let grassImage = UIImage(named: "풀")
+        let grassWidth = tileWidth*1.2
+        let grassHeight = tileHeight*2
+        
+        let flowerImage = UIImage(named: "꽃")
+        let flowerWidth = tileWidth*2
+        let flowerHeight = tileHeight*1.5
+        
+        let seedlingImage = UIImage(named: "작은 나무")
+        let seedlingWidth = tileWidth*1.5
+        let seedlingHeight = tileHeight*2.25
+        
+        let treeImage = UIImage(named: "큰 나무")
+        let treeWidth = tileWidth*2
+        let treeHeight = tileHeight*3
+        
+        var objectWidth, objectHeight, objectX, objectY:CGFloat
+        var image:UIImage?
+        
+        switch imageIdentifier {
+        case "새싹":
+            objectWidth = sproutWidth
+            objectHeight = sproutHeight
+            objectX = seedX - sproutWidth/2.0
+            objectY = seedY - sproutHeight
+            image = sproutImage
+        case "풀":
+            objectWidth = grassWidth
+            objectHeight = grassHeight
+            objectX = seedX - grassWidth/2.0
+            objectY = seedY - grassHeight
+            image = grassImage
+        case "꽃":
+            // 꽃은 다른 것들보다 조금 더 아래로 내려야 정상적인 위치가 됨
+            objectWidth = flowerWidth
+            objectHeight = flowerHeight
+            objectX = seedX - flowerWidth/2.0
+            objectY = seedY - flowerHeight*0.8
+            image = flowerImage
+        case "작은 나무":
+            objectWidth = seedlingWidth
+            objectHeight = seedlingHeight
+            objectX = seedX - seedlingWidth/2.0
+            objectY = seedY - seedlingHeight
+            image = seedlingImage
+        case "큰 나무":
+            objectWidth = treeWidth
+            objectHeight = treeHeight
+            objectX = seedX - treeWidth/2.0
+            objectY = seedY - treeHeight
+            image = treeImage
+        default:
+            objectWidth = sproutWidth
+            objectHeight = sproutHeight
+            objectX = seedX - sproutWidth/2.0
+            objectY = seedY - sproutHeight
+            image = sproutImage
+        }
+        view.frame = CGRect(x: objectX, y: objectY, width: objectWidth, height: objectHeight)
+        view.image = image
     }
     
     func loadImages(){
@@ -30,28 +102,8 @@ class ViewController: UIViewController {
         backgroundSuperview.addSubview(floorImageView)
         floorImageView.backgroundColor = UIColor.clear
         
-        let tileWidth = backgroundSuperview.frame.width/5
+        let tileWidth = backgroundSuperview.frame.width/10
         let tileHeight = backgroundSuperview.frame.height/10
-        
-        let sproutImage = UIImage(named: "새싹")
-        let sproutWidth = tileWidth*0.4
-        let sproutHeight = tileHeight*1.2
-        
-        let grassImage = UIImage(named: "풀")
-        let grassWidth = tileWidth*0.6
-        let grassHeight = tileHeight*2
-        
-        let flowerImage = UIImage(named: "꽃")
-        let flowerWidth = tileWidth
-        let flowerHeight = tileHeight*1.5
-        
-        let seedlingImage = UIImage(named: "작은 나무")
-        let seedlingWidth = tileWidth
-        let seedlingHeight = tileHeight*3
-        
-        let treeImage = UIImage(named: "큰 나무")
-        let treeWidth = tileWidth*1.5
-        let treeHeight = tileHeight*4.5
         
         let plantImageViews = [
             UIImageView(), UIImageView(), UIImageView(),
@@ -65,25 +117,25 @@ class ViewController: UIViewController {
             UIImageView(), UIImageView(), UIImageView(),
             UIImageView(), UIImageView(), UIImageView(),
         ]
-        //첫 줄
-        plantImageViews[0].frame = CGRect(x: tileWidth*2.5 - treeWidth/2.0, y:0, width: treeWidth, height: treeHeight)
-        plantImageViews[0].image = treeImage
-        //둘째 줄
-        plantImageViews[1].frame = CGRect(x: tileWidth*2.0 - seedlingWidth/2.0 - 20, y:tileHeight + treeHeight - seedlingHeight - 20, width: seedlingWidth, height: seedlingHeight)
-        plantImageViews[2].frame = CGRect(x: tileWidth*3.0 - flowerWidth/2.0 - 135, y:tileHeight + treeHeight - seedlingHeight + 100, width: flowerWidth, height: flowerHeight)
         
-        plantImageViews[1].image = seedlingImage
-        plantImageViews[2].image = flowerImage
-        //셋째 줄
-        plantImageViews[3].frame = CGRect(x: tileWidth*1.5 - grassWidth/2.0 - 80, y:tileHeight*2.0 + treeHeight - seedlingHeight + 5, width: grassWidth, height: grassHeight)
-        plantImageViews[4].frame = CGRect(x: tileWidth*2.5 - sproutWidth/2.0 - 113, y:tileHeight*2.0 + treeHeight - seedlingHeight + 20, width: sproutWidth, height: sproutHeight)
-        plantImageViews[5].frame = CGRect(x: tileWidth*3.5 - seedlingWidth/2.0 - 130, y:tileHeight*2.0 + treeHeight - seedlingHeight + 20, width: grassWidth, height: grassHeight)
+        //위쪽 여백을 tileHeight*3으로 가정, 한 줄 간격을 tileHeight*0.5로 가정
+        let seedCoordinates = [
+            (tileWidth*5.0, tileHeight*3.5),
+            (tileWidth*4.0, tileHeight*4), (tileWidth*6.0, tileHeight*4),
+            (tileWidth*3, tileHeight*4.5), (tileWidth*5, tileHeight*4.5), (tileWidth*7, tileHeight*4.5),
+            (tileWidth*2, tileHeight*5), (tileWidth*4, tileHeight*5), (tileWidth*6, tileHeight*5), (tileWidth*8, tileHeight*5),
+            (tileWidth*1, tileHeight*5.5), (tileWidth*3, tileHeight*5.5), (tileWidth*5, tileHeight*5.5), (tileWidth*7, tileHeight*5.5), (tileWidth*9, tileHeight*5.5),
+            (tileWidth*1, tileHeight*6), (tileWidth*3, tileHeight*6), (tileWidth*5, tileHeight*6), (tileWidth*7, tileHeight*6), (tileWidth*9, tileHeight*6),
+            (tileWidth*2, tileHeight*6.5), (tileWidth*4, tileHeight*6.5), (tileWidth*6, tileHeight*6.5), (tileWidth*8, tileHeight*6.5),
+            (tileWidth*3, tileHeight*7), (tileWidth*5, tileHeight*7), (tileWidth*7, tileHeight*7),
+            (tileWidth*4.0, tileHeight*7.5), (tileWidth*6.0, tileHeight*7.5),
+            (tileWidth*5.0, tileHeight*8),
+        ]
         
-        plantImageViews[3].image = grassImage
-        plantImageViews[4].image = sproutImage
-        plantImageViews[5].image = grassImage
+        let imageIdentifiers = ["새싹", "풀", "꽃", "작은 나무", "큰 나무"]
         
-        for i in 0...5 {
+        for i in 0...29 {
+            insertImage(view: plantImageViews[i], imageIdentifier: imageIdentifiers.randomElement()!, seedX: seedCoordinates[i].0, seedY: seedCoordinates[i].1)
             backgroundSuperview.addSubview(plantImageViews[i])
         }
     }
