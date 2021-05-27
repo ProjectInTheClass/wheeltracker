@@ -8,7 +8,24 @@
 import UIKit
 import Charts
 
-class RecordViewController: UIViewController {
+class RecordViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return pushDatas.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        
+        cell.textLabel?.text = String(pushDatas[indexPath.row].calorie)
+        return cell
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
 
     @IBOutlet var lineChartView: LineChartView!
     @IBOutlet weak var dayButton: UIButton!
@@ -20,19 +37,19 @@ class RecordViewController: UIViewController {
     @IBOutlet weak var time: UIButton!
     
     @IBOutlet weak var tableView: UITableView!
+    let cellIdentifier: String = "cell"
     
     // createdAt, distance, duration, pushCount, calorie
     
     
     
-    // 가로축. 그냥 day들이 쭉 나오는거. 한번에 몇개? 다 할순 없어. 갯수로 잘라야할듯 오늘 ~ 15개 정도
+    // 가로축. x, y, z
     
     var dayAxis = pushDatas.sorted(by: {$0.createdAt < $1.createdAt}).filter{
         let nowCalendar = Date()
      
         let dataCalendar = $0.createdAt
     
-
      
         if Calendar.current.ordinality(of: .day, in: .year, for: nowCalendar)! - Calendar.current.ordinality(of: .day, in: .year, for: dataCalendar)! < 7 {
             return true
@@ -43,6 +60,53 @@ class RecordViewController: UIViewController {
     }.map{
         $0.createdAt
     }
+    
+    var weekAxis = pushDatas.sorted(by:{$0.createdAt < $1.createdAt}).filter{
+        let nowCalendar = Date()
+        
+     
+        let dataCalendar = $0.createdAt
+        
+     
+        if Calendar.current.ordinality(of: .weekOfYear, in: .year, for: nowCalendar)! - Calendar.current.ordinality(of: .weekOfYear, in: .year, for: dataCalendar)! < 7 {
+            return true
+        } else {
+            return false
+        }
+    
+    }.map{ (v:PushData)-> (Int?, Int?, Int?) in
+        
+        let dataCalendar = Calendar.current.dateComponents([.month, .weekOfYear, .weekOfMonth], from: v.createdAt)
+        
+        if(dataCalendar.weekOfYear != nil && dataCalendar.weekOfMonth != nil && dataCalendar.month != nil){
+            return (dataCalendar.weekOfYear!, dataCalendar.weekOfMonth, dataCalendar.month)
+        }
+        return (0, 0, 0)
+
+    }
+    
+
+    
+    
+    var monthAxis = pushDatas.sorted(by: {$0.createdAt < $1.createdAt}).filter{
+        let nowCalendar = Date()
+     
+        let dataCalendar = $0.createdAt
+    
+     
+        if Calendar.current.ordinality(of: .month, in: .year, for: nowCalendar)! - Calendar.current.ordinality(of: .month, in: .year, for: dataCalendar)! < 7 {
+            return true
+        } else {
+            return false
+        }
+    
+    }.map{
+        $0.createdAt
+    }
+    //data들
+    
+    
+    
     
     var day = pushDatas.sorted(by: {$0.createdAt < $1.createdAt}).filter{
         let nowCalendar = Calendar.current.dateComponents([.year, .month, .day], from: Date())
@@ -57,26 +121,25 @@ class RecordViewController: UIViewController {
         $0.createdAt
     }
     
-    var week = pushDatas.sorted(by:{$0.createdAt < $1.createdAt}).filter{let nowCalendar = Calendar.current.dateComponents([.year, .month, .weekOfMonth], from: Date())
-        let dataCalendar = Calendar.current.dateComponents([.year, .month, .weekOfMonth], from: $0.createdAt)
+ 
+    
+    var week = pushDatas.sorted(by: {$0.createdAt < $1.createdAt}).filter{
+        let nowCalendar = Date()
         
-        if nowCalendar.year == dataCalendar.year && nowCalendar.month == dataCalendar.month && nowCalendar.weekOfMonth == dataCalendar.weekOfMonth{
+     
+        let dataCalendar = $0.createdAt
+        
+     
+        if Calendar.current.ordinality(of: .weekOfYear, in: .year, for: nowCalendar)! - Calendar.current.ordinality(of: .weekOfYear, in: .year, for: dataCalendar)! < 7 {
             return true
-        }
-        else{
+        } else {
             return false
         }
-    }.map{ (v:PushData)-> (Int) in
-        
-        let dataCalendar = Calendar.current.dateComponents([.month, .weekOfMonth], from: v.createdAt)
-        
-        if(dataCalendar.weekOfMonth != nil){
-            return dataCalendar.weekOfMonth!
-        }
-        return 0
-
-        
+    
+    }.map{
+        $0.createdAt
     }
+    
     
     
     
@@ -162,6 +225,10 @@ class RecordViewController: UIViewController {
         }
         selectedshow = dayString
         
+        //table view
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
+        
         
 
     }
@@ -175,12 +242,14 @@ class RecordViewController: UIViewController {
         return dateFormatter.string(from: date)
     }
     
-    func weekToString(week: Int) -> String{
+    func weekToString(now: (Int?, Int?, Int?)) -> String{
         
-        let nowCalendar = Calendar.current.dateComponents([.month], from: Date())
+        
+        
+        //let nowCalendar = Calendar.current.dateComponents([.month], from: Date())
         var returnString = ""
-
-        returnString = String(nowCalendar.month!) + "월" + String(week) + "째주"
+        
+        returnString = String(now.2!) + "월" + String(now.1!) + "째주"
      
         
         return returnString
@@ -238,16 +307,24 @@ class RecordViewController: UIViewController {
                 dayToString(date: $0)
             }
             selectedshow = dayString
+            print(dayAxis)
             setChart(dataPoint: selectedshow, values: selectedValues, name: "")
             
             
         } else if sender.titleLabel?.text == "Week"{
             
-            let weekString = week.map{
-                weekToString(week: $0)
+            //let weekString = week.map{
+                //weekToString(week: $0)
+            //}
+            
+
+            let weekString = weekAxis.map{i in
+                
+                weekToString(now: i)
             }
             selectedshow = weekString
- 
+            //selectedshow = weekAxis
+            print("weekAxis : ", weekString)
             setChart(dataPoint: selectedshow, values: selectedValues, name: "")
             
             
@@ -255,6 +332,8 @@ class RecordViewController: UIViewController {
 
             
             selectedshow = month
+            //selectedshow = monthAxis
+            print(monthAxis)
             setChart(dataPoint: selectedshow, values: selectedValues, name: "")
             
             
