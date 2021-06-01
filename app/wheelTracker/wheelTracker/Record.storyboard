@@ -48,6 +48,9 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zgE-UX-f5T" customClass="LineChartView" customModule="Charts">
                                         <rect key="frame" x="0.0" y="24.5" width="374" height="451.5"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="374" id="gW4-QJ-bkf"/>
+                                        </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="1Qa-S5-3Je">
                                         <rect key="frame" x="0.0" y="459.5" width="374" height="30"/>
@@ -98,6 +101,10 @@
                                                 </tableViewCellContentView>
                                             </tableViewCell>
                                         </prototypes>
+                                        <connections>
+                                            <outlet property="dataSource" destination="rq5-jp-x9w" id="fKJ-71-bWU"/>
+                                            <outlet property="delegate" destination="rq5-jp-x9w" id="QkB-e1-zcw"/>
+                                        </connections>
                                     </tableView>
                                 </subviews>
                             </stackView>
