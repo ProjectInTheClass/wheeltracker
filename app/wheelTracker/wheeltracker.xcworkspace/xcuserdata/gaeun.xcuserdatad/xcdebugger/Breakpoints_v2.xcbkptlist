@@ -7,17 +7,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "CC3CDC71-7033-4A50-8C3A-466A3D9D8898"
+            uuid = "D55A1C26-EACB-41CA-9AF5-C164615ABBCA"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "wheeltracker/RecordViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
-            landmarkName = "weekAxis"
-            landmarkType = "24">
+            startingLineNumber = "376"
+            endingLineNumber = "376">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
