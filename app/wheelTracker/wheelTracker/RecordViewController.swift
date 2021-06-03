@@ -267,8 +267,7 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
         //selectedValues = selectedValues[0...dataPoint.count]
 
 
-        for i in 0..<dataPoint.count{
-
+        for i in 0..<values.count{
 
             let dataEntry = ChartDataEntry(x: Double(i), y: Double(selectedValues[i]))
         
