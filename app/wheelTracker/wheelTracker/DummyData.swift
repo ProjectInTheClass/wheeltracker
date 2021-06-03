@@ -36,6 +36,7 @@ struct PushData {
     }
 }
 
+
 var pushDatas = [
     PushData(createdAt : Date(), distance : 1800, duration : 60*15),
     PushData(createdAt : Date(timeIntervalSinceNow: -60*60*24), distance : 3600, duration : 60*30),
