@@ -29,6 +29,11 @@ struct PushData {
     var calorie: Double{
         return distance * 0.075
     }
+    
+    static func +=(lhs: inout PushData, rhs: PushData) {
+        lhs.distance += rhs.distance
+        lhs.duration += rhs.duration
+    }
 }
 
 var pushDatas = [
