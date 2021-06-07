@@ -85,8 +85,7 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
         self.tableView.dataSource = self
         self.tableView.delegate = self
         
-        //print("dataPoint  ", selectedshow)
-        //print("values ", selectedValues)
+        print(pushDatas)
     
 
     }
@@ -563,5 +562,4 @@ extension Date {
     var isInTheFuture: Bool { self > Date() }
     var isInThePast:   Bool { self < Date() }
 }
-
 
