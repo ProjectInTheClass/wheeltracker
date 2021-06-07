@@ -35,8 +35,7 @@ struct PushData {
         lhs.duration += rhs.duration
     }
 }
-
-
+/*
 var pushDatas = [
     PushData(createdAt : Date(), distance : 1800, duration : 60*15),
     PushData(createdAt : Date(timeIntervalSinceNow: -60*60*24), distance : 3600, duration : 60*30),
@@ -70,3 +69,15 @@ var pushDatas = [
     PushData(createdAt: Date(timeIntervalSinceNow: -86400 * 29), distance: 1000*4, duration: 60 * 30),
     PushData(createdAt: Date(timeIntervalSinceNow: -86400 * 30), distance: 1000*5, duration: 60 * 30),
 ]
+*/
+var pushDatas = [
+    PushData(createdAt : Date(), distance : 1800, duration : 60*15)
+]
+
+
+public func initPushDatas(){
+    for i in 1...24*30{
+        pushDatas.append(PushData(createdAt: Date(timeIntervalSinceNow: -86400 * Double(i)), distance: 1000*5*Double(Int.random(in: 1...10)), duration: 60 * 30*Double(Int.random(in: 1...10))))
+    }
+}
+

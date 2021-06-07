@@ -58,7 +58,7 @@ class ViewController: UIViewController {
                 messageLabel.isHidden = false
                 messageLabel.text = "HealthKit is not available on this device."
             }*/
-
+        initPushDatas()
         loadUserData()
     }
     func getTodayPushes(completion: @escaping (Double) -> Void) {
