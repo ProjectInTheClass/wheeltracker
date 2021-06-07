@@ -20,6 +20,7 @@
 		46990578263BF441004BCB77 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46990577263BF441004BCB77 /* SettingViewController.swift */; };
 		4699057A263BF76A004BCB77 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46990579263BF76A004BCB77 /* TabBarController.swift */; };
 		CCA75FC6263BEA7100A5985E /* Record.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCA75FC5263BEA7000A5985E /* Record.storyboard */; };
+		DD7F92B0266B7D4A0083CAF7 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD7F92AF266B7D4A0083CAF7 /* HealthKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,8 @@
 		8F9C3FD9214EEADFBA4A4AEE /* Pods_wheeltracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_wheeltracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C5312D8A452629ED99042C7 /* Pods-wheeltracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wheeltracker.debug.xcconfig"; path = "Target Support Files/Pods-wheeltracker/Pods-wheeltracker.debug.xcconfig"; sourceTree = "<group>"; };
 		CCA75FC5263BEA7000A5985E /* Record.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Record.storyboard; path = wheelTracker/Record.storyboard; sourceTree = SOURCE_ROOT; };
+		DD7F92AE266B7D4A0083CAF7 /* wheeltracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = wheeltracker.entitlements; sourceTree = "<group>"; };
+		DD7F92AF266B7D4A0083CAF7 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +51,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13FFC1D09E7459D92581E363 /* Pods_wheeltracker.framework in Frameworks */,
+				DD7F92B0266B7D4A0083CAF7 /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +79,7 @@
 		46990558263AA85D004BCB77 /* wheeltracker */ = {
 			isa = PBXGroup;
 			children = (
+				DD7F92AE266B7D4A0083CAF7 /* wheeltracker.entitlements */,
 				46990559263AA85D004BCB77 /* AppDelegate.swift */,
 				4699055B263AA85D004BCB77 /* SceneDelegate.swift */,
 				4699055D263AA85D004BCB77 /* ViewController.swift */,
@@ -104,6 +109,7 @@
 		DC1DC722339381E804DAC31A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DD7F92AF266B7D4A0083CAF7 /* HealthKit.framework */,
 				8F9C3FD9214EEADFBA4A4AEE /* Pods_wheeltracker.framework */,
 			);
 			name = Frameworks;
@@ -145,7 +151,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 46990551263AA85D004BCB77 /* Build configuration list for PBXProject "wheeltracker" */;
+			buildConfigurationList = 46990551263AA85D004BCB77 /* Build configuration list for PBXProject "wheelTracker" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -379,6 +385,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = wheeltracker/wheeltracker.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4QG3GC35LA;
 				INFOPLIST_FILE = wheeltracker/Info.plist;
@@ -387,7 +394,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.lingostar.wheeltrack;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lingostar.WT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -400,6 +407,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = wheeltracker/wheeltracker.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4QG3GC35LA;
 				INFOPLIST_FILE = wheeltracker/Info.plist;
@@ -408,7 +416,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.lingostar.wheeltrack;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lingostar.WT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -418,7 +426,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		46990551263AA85D004BCB77 /* Build configuration list for PBXProject "wheeltracker" */ = {
+		46990551263AA85D004BCB77 /* Build configuration list for PBXProject "wheelTracker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				46990568263AA85E004BCB77 /* Debug */,
