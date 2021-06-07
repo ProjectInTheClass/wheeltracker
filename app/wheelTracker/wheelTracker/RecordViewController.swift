@@ -8,17 +8,29 @@
 import UIKit
 import Charts
 
+public var dayWeekMonth = ""
+public var pushDistanceCalorieDuration = ""
+
+
+public var selectedValues = [Double]()
+public var selectedshow = [String]()
+
+
+
 class RecordViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
+        print(pushDatas.count)
         return pushDatas.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        cell.textLabel?.text = pushDistanceCalorieDuration + " : " +  String(selectedValues[indexPath.row])
         
-        cell.textLabel?.text = String(pushDatas[indexPath.row].calorie)
+        
         return cell
     }
     
@@ -38,103 +50,86 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
     
     @IBOutlet weak var tableView: UITableView!
     let cellIdentifier: String = "cell"
+    var dayAxis = [Date]()
+    var weekAxis = [(Int?, Int?, Int?)].init()
+    var monthAxis = [String]()
+    var day = [PushData]()
+    var week = [PushData]()
+    var month = [PushData]()
     
-    // createdAt, distance, duration, pushCount, calorie
+    let creationNotificationo = Notification.Name("InformationCreated")
     
-    
-    
-    // 가로축. x, y, z
-    
-    var dayAxis = pushDatas.sorted(by: {$0.createdAt < $1.createdAt}).filter{
-        let nowCalendar = Date()
-     
-        let dataCalendar = $0.createdAt
-    
-     
-        if Calendar.current.ordinality(of: .day, in: .year, for: nowCalendar)! - Calendar.current.ordinality(of: .day, in: .year, for: dataCalendar)! < 7 {
-            return true
-        } else {
-            return false
-        }
-    
-    }.map{
-        $0.createdAt
-        
-    }
-    
-    var weekAxis = pushDatas.sorted(by:{$0.createdAt < $1.createdAt}).filter{
-        let nowCalendar = Date()
-        
-     
-        let dataCalendar = $0.createdAt
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        UpdateUI()
         
         
-        if Calendar.current.ordinality(of: .weekOfYear, in: .year, for: nowCalendar)! - Calendar.current.ordinality(of: .weekOfYear, in: .year, for: dataCalendar)! < 5 {
-            return true
-        } else {
-            return false
-        }
-    
-    }.reduce([PushData](), { result, item in
-        var arr = result
-        if(arr.count == 0){
-            arr.append(item)
-            return arr
-        }
-        let lastCalender = arr[arr.count - 1].createdAt
-        let elementCalender = item.createdAt
-
+        lineChartView.noDataText = "데이터가 없습니다."
+        lineChartView.noDataFont = .systemFont(ofSize: 20)
+        lineChartView.noDataTextColor = .lightGray
         
-        if Calendar.current.ordinality(of: .weekOfYear, in: .year, for: lastCalender) == Calendar.current.ordinality(of: .weekOfYear, in: .year, for: elementCalender){
-            arr[arr.count - 1] += item
-        }
-        else{
-            arr.append(item)
+        selectedValues = day.map{
+            i in Double(i.pushCount)
         }
         
-        return arr
-    }).map{ (v:PushData)-> (Int?, Int?, Int?) in
-        
-        let dataCalendar = Calendar.current.dateComponents([.month, .weekOfYear, .weekOfMonth], from: v.createdAt)
-        
-        if(dataCalendar.weekOfYear != nil && dataCalendar.weekOfMonth != nil && dataCalendar.month != nil){
-            return (dataCalendar.weekOfYear!, dataCalendar.weekOfMonth, dataCalendar.month)
+        let dayString = dayAxis.map{
+            dayToString(date: $0)
         }
-        return (0, 0, 0)
+        selectedshow = dayString
+        pushDistanceCalorieDuration = "push"
+        dayWeekMonth = "day"
+        setChart(dataPoint: selectedshow, values: selectedValues, name: "")
+        
+        
+        //table view
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
+        
+        //print("dataPoint  ", selectedshow)
+        //print("values ", selectedValues)
+    
 
     }
     
-    var monthAxis = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"]
-    
-    
-    //data들
-    
-    var day = pushDatas.sorted(by: {$0.createdAt < $1.createdAt}).filter{
-        let nowCalendar = Date()
+    func UpdateUI(){
         
-     
-        let dataCalendar = $0.createdAt
+        // 가로축. x, y, z
+  
         
-     
-        if Calendar.current.ordinality(of: .day, in: .year, for: nowCalendar)! - Calendar.current.ordinality(of: .day, in: .year, for: dataCalendar)! < 7 {
-            return true
-        } else {
-            return false
+        dayAxis = pushDatas.sorted(by: {$0.createdAt < $1.createdAt}).filter{
+            let nowCalendar = Date()
+         
+            let dataCalendar = $0.createdAt
+            
+            let now = Calendar.current.ordinality(of: .day, in: .year, for: nowCalendar)!
+            let data = Calendar.current.ordinality(of: .day, in: .year, for: dataCalendar)!
+            
+            if now - data < 7  && now - data >= 0  && dataCalendar.isInThisYear{
+                return true
+            } else {
+                return false
+            }
+        
+        }.map{
+            
+            $0.createdAt
+            
         }
-    
-    }.map{
-        $0
-    }
-    
-    
-    var week = pushDatas.sorted(by: {$0.createdAt < $1.createdAt}).filter{
+        
+        
+        weekAxis = pushDatas.sorted(by: {$0.createdAt < $1.createdAt}).filter{
             let nowCalendar = Date()
             
          
             let dataCalendar = $0.createdAt
             
-         
-            if Calendar.current.ordinality(of: .weekOfYear, in: .year, for: nowCalendar)! - Calendar.current.ordinality(of: .weekOfYear, in: .year, for: dataCalendar)! < 5 {
+            
+            
+            let now = Calendar.current.ordinality(of: .weekOfYear, in: .year, for: nowCalendar)!
+            let data = Calendar.current.ordinality(of: .weekOfYear, in: .year, for: dataCalendar)!
+ 
+            
+            if now - data < 5  && dataCalendar.isInThisYear{
                 return true
             } else {
                 return false
@@ -156,86 +151,120 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
             else{
                 arr.append(item)
             }
-            
             return arr
-        })
+        }).map{ (v:PushData)-> (Int?, Int?, Int?) in
+            
+            let dataCalendar = Calendar.current.dateComponents([.month, .weekOfYear, .weekOfMonth], from: v.createdAt)
+            
+            if(dataCalendar.weekOfYear != nil && dataCalendar.weekOfMonth != nil && dataCalendar.month != nil){
+                return (dataCalendar.weekOfYear!, dataCalendar.weekOfMonth, dataCalendar.month)
+            }
+            return (0, 0, 0)
+
+        }
         
-    var month = pushDatas.sorted(by: {$0.createdAt < $1.createdAt}).filter{
+        monthAxis = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"]
+        
+        
+        //data들
+        
+        day = pushDatas.sorted(by: {$0.createdAt < $1.createdAt}).filter{
+            
             let nowCalendar = Date()
             
          
             let dataCalendar = $0.createdAt
             
-         
-            if Calendar.current.ordinality(of: .month, in: .year, for: nowCalendar)! - Calendar.current.ordinality(of: .month, in: .year, for: dataCalendar)! < 12 {
+            let now = Calendar.current.ordinality(of: .day, in: .year, for: nowCalendar)!
+            let data = Calendar.current.ordinality(of: .day, in: .year, for: dataCalendar)!
+            //print("day : ", $0.createdAt, day)
+            if now - data < 7  && now - data >= 0 && dataCalendar.isInThisYear{
                 return true
             } else {
                 return false
             }
         
-        }.reduce([PushData](), { result, item in
-            var arr = result
+        }.map{
+            $0
+        }
+        
+        
+        week = pushDatas.sorted(by: {$0.createdAt < $1.createdAt}).filter{
+            let nowCalendar = Date()
+                
+             
+            let dataCalendar = $0.createdAt
+                
+             
+            let now = Calendar.current.ordinality(of: .weekOfYear, in: .year, for: nowCalendar)!
+            let data = Calendar.current.ordinality(of: .weekOfYear, in: .year, for: dataCalendar)!
+            //print("week : ", $0.createdAt, now - data)
+            if now - data < 5 && dataCalendar.isInThisYear{
+                    return true
+                } else {
+                    return false
+                }
             
-            if(arr.count == 0){
-                arr.append(item)
+            }.reduce([PushData](), { result, item in
+                var arr = result
+                if(arr.count == 0){
+                    arr.append(item)
+                    return arr
+                }
+                let lastCalender = arr[arr.count - 1].createdAt
+                let elementCalender = item.createdAt
+
+                
+                if Calendar.current.ordinality(of: .weekOfYear, in: .year, for: lastCalender) == Calendar.current.ordinality(of: .weekOfYear, in: .year, for: elementCalender){
+                    arr[arr.count - 1] += item
+                }
+                else{
+                    arr.append(item)
+                }
+                
                 return arr
-            }
+            })
             
-            let lastCalender = arr[arr.count - 1].createdAt
-            let elementCalender = item.createdAt
+        month = pushDatas.sorted(by: {$0.createdAt < $1.createdAt}).filter{
+                let nowCalendar = Date()
+                
+             
+                let dataCalendar = $0.createdAt
+                
+             
+            let now = Calendar.current.ordinality(of: .month, in: .year, for: nowCalendar)!
+            let data = Calendar.current.ordinality(of: .month, in: .year, for: dataCalendar)!
+            //print("month : ", $0.createdAt, now-data)
+            if now - data < 12 && dataCalendar.isInThisYear{
+                    return true
+                } else {
+                    return false
+                }
             
-            if Calendar.current.ordinality(of: .month, in: .year, for: lastCalender) == Calendar.current.ordinality(of: .month, in: .year, for: elementCalender){
-                arr[arr.count - 1] += item
-            }
-            else{
-                arr.append(item)
-            }
-            
-            return arr
-            
-        })
-    
-    
-   
-    
-    //ToDo : 각 날짜의 달을 받아와서 같은 달이면 값을 더해야해 어떻게 해야할까?
-    
-    var selectedValues = [Double]()
-    var selectedshow = [String]()
-    var dayWeekMonth = ""
-    var pushDistanceCalorieDuration = ""
-    
-
-    
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        lineChartView.noDataText = "데이터가 없습니다."
-        lineChartView.noDataFont = .systemFont(ofSize: 20)
-        lineChartView.noDataTextColor = .lightGray
-        
-        selectedValues = day.map{
-            i in Double(i.pushCount)
-        }
-        
-        let dayString = dayAxis.map{
-            dayToString(date: $0)
-        }
-        selectedshow = dayString
-        pushDistanceCalorieDuration = "push"
-        dayWeekMonth = "day"
-        setChart(dataPoint: selectedshow, values: selectedValues, name: "")
+            }.reduce([PushData](), { result, item in
+                var arr = result
+                
+                if(arr.count == 0){
+                    arr.append(item)
+                    return arr
+                }
+                
+                let lastCalender = arr[arr.count - 1].createdAt
+                let elementCalender = item.createdAt
+                
+                if Calendar.current.ordinality(of: .month, in: .year, for: lastCalender) == Calendar.current.ordinality(of: .month, in: .year, for: elementCalender){
+                    arr[arr.count - 1] += item
+                }
+                else{
+                    arr.append(item)
+                }
+                
+                return arr
+                
+            })
         
         
         
-        //table view
-        self.tableView.dataSource = self
-        self.tableView.delegate = self
-        
-        
-
     }
     
     
@@ -261,6 +290,12 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
         
     }
     
+    
+    
+    
+   
+    
+    //ToDo : 각 날짜의 달을 받아와서 같은 달이면 값을 더해야해 어떻게 해야할까?
 
     
     func setChart(dataPoint: [String], values: [Double], name: String){
@@ -377,9 +412,9 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
 
             
             let a = monthAxis[0..<month.count]
-            print("a : ", a)
+            
             selectedshow = Array(a)
-            print("selectedshow", monthAxis)
+            
             //selectedshow = monthAxis
             dayWeekMonth = "month"
             if pushDistanceCalorieDuration == "push"{
@@ -404,15 +439,17 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
                 
             }
             setChart(dataPoint: selectedshow, values: selectedValues, name: "")
-            
+
             
         }
+        
         
         
         
     
     }
     @IBAction func selectValue(_ sender: UIButton) {
+        
         
         
         if sender.titleLabel?.text == "걸음수"{
@@ -494,8 +531,37 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
             setChart(dataPoint: selectedshow, values: selectedValues, name: "")
             
         }
-        
-    }
-    
 
+    
+    }
+
+    
 }
+
+
+
+extension Date {
+
+    func isEqual(to date: Date, toGranularity component: Calendar.Component, in calendar: Calendar = .current) -> Bool {
+        calendar.isDate(self, equalTo: date, toGranularity: component)
+    }
+
+    func isInSameYear(as date: Date) -> Bool { isEqual(to: date, toGranularity: .year) }
+    func isInSameMonth(as date: Date) -> Bool { isEqual(to: date, toGranularity: .month) }
+    func isInSameWeek(as date: Date) -> Bool { isEqual(to: date, toGranularity: .weekOfYear) }
+
+    func isInSameDay(as date: Date) -> Bool { Calendar.current.isDate(self, inSameDayAs: date) }
+
+    var isInThisYear:  Bool { isInSameYear(as: Date()) }
+    var isInThisMonth: Bool { isInSameMonth(as: Date()) }
+    var isInThisWeek:  Bool { isInSameWeek(as: Date()) }
+
+    var isInYesterday: Bool { Calendar.current.isDateInYesterday(self) }
+    var isInToday:     Bool { Calendar.current.isDateInToday(self) }
+    var isInTomorrow:  Bool { Calendar.current.isDateInTomorrow(self) }
+
+    var isInTheFuture: Bool { self > Date() }
+    var isInThePast:   Bool { self < Date() }
+}
+
+
