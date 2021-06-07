@@ -14,13 +14,14 @@ public var pushDistanceCalorieDuration = ""
 
 public var selectedValues = [Double]()
 public var selectedshow = [String]()
+public var check = 0
 
 
 
 class RecordViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     
-    
+    /*
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print(pushDatas.count)
         return pushDatas.count
@@ -28,15 +29,36 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = pushDistanceCalorieDuration + " : " +  String(selectedValues[indexPath.row])
-        
-        
+        let text: String = pushDistanceCalorieDuration + " : " +  String(selectedValues[indexPath.row])
+        cell.textLabel?.text = text
+        print(indexPath)
+        print(text)
         return cell
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
+    */
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
+        return pushDatas.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+      //  cell.textLabel?.text = pushDistanceCalorieDuration + " : " + String(selectedValues[indexPath.row])
+        //print(indexPath)
+        //print(selectedValues)
+        cell.textLabel?.text = String(pushDatas[indexPath.row].calorie)
+        return cell
+    }
+
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
     
 
     @IBOutlet var lineChartView: LineChartView!
@@ -57,7 +79,7 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
     var week = [PushData]()
     var month = [PushData]()
     
-    let creationNotificationo = Notification.Name("InformationCreated")
+    let creationNotification = Notification.Name("InformationCreated")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,6 +97,7 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
         let dayString = dayAxis.map{
             dayToString(date: $0)
         }
+        
         selectedshow = dayString
         pushDistanceCalorieDuration = "push"
         dayWeekMonth = "day"
@@ -85,9 +108,14 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
         self.tableView.dataSource = self
         self.tableView.delegate = self
         
-        print(pushDatas)
+        //print("dataPoint  ", selectedshow)
+        //print("values ", selectedValues)
     
 
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.tableView.reloadData()
     }
     
     func UpdateUI(){
@@ -128,7 +156,7 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
             let data = Calendar.current.ordinality(of: .weekOfYear, in: .year, for: dataCalendar)!
  
             
-            if now - data < 5  && dataCalendar.isInThisYear{
+            if now - data < 7  && dataCalendar.isInThisYear{
                 return true
             } else {
                 return false
@@ -198,7 +226,7 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
             let now = Calendar.current.ordinality(of: .weekOfYear, in: .year, for: nowCalendar)!
             let data = Calendar.current.ordinality(of: .weekOfYear, in: .year, for: dataCalendar)!
             //print("week : ", $0.createdAt, now - data)
-            if now - data < 5 && dataCalendar.isInThisYear{
+            if now - data < 7 && dataCalendar.isInThisYear{
                     return true
                 } else {
                     return false
@@ -233,8 +261,8 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
              
             let now = Calendar.current.ordinality(of: .month, in: .year, for: nowCalendar)!
             let data = Calendar.current.ordinality(of: .month, in: .year, for: dataCalendar)!
-            //print("month : ", $0.createdAt, now-data)
-            if now - data < 12 && dataCalendar.isInThisYear{
+            print("month : ", $0.createdAt, now-data)
+            if now - data < 12 {//&& dataCalendar.isInThisYear{
                     return true
                 } else {
                     return false
@@ -257,10 +285,11 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
                 else{
                     arr.append(item)
                 }
-                
+
                 return arr
                 
             })
+        
         
         
         
@@ -332,6 +361,7 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
         
         lineChartView.xAxis.setLabelCount(dataPoint.count, force: true)
         
+        viewWillAppear(true)
 
         
         
@@ -339,6 +369,15 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
         
     
     @IBAction func showLineChart(_ sender: UIButton) {
+        
+        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+            let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+            cell.textLabel?.text = pushDistanceCalorieDuration + " : " + String(selectedValues[indexPath.row])
+            print(selectedValues.count)
+            print("reload")
+            return cell
+        }
+        
         
         if sender.titleLabel?.text == "Day"{
             let dayString = dayAxis.map{
@@ -411,6 +450,7 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
 
             
             let a = monthAxis[0..<month.count]
+            print(month)
             
             selectedshow = Array(a)
             
@@ -448,8 +488,6 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
     
     }
     @IBAction func selectValue(_ sender: UIButton) {
-        
-        
         
         if sender.titleLabel?.text == "걸음수"{
             pushDistanceCalorieDuration = "push"
@@ -534,6 +572,9 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
     
     }
 
+
+    
+
     
 }
 
@@ -562,4 +603,3 @@ extension Date {
     var isInTheFuture: Bool { self > Date() }
     var isInThePast:   Bool { self < Date() }
 }
-
