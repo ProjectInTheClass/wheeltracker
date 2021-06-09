@@ -9,8 +9,10 @@ import UIKit
 import CoreLocation
 import HealthKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, CLLocationManagerDelegate {
 
+    // 위치
+    let locationManager = CLLocationManager()
     
     @IBOutlet weak var dayPushCount: UILabel!
     @IBOutlet weak var distance: UILabel!
@@ -26,6 +28,12 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestAlwaysAuthorization()
+        locationManager.startUpdatingLocation()
+                
         // Do any additional setup after loading the view.
         
       /*  let healthKitTypes: Set = [
@@ -68,6 +76,25 @@ class ViewController: UIViewController {
         authorizeHealthKit()
         loadUserData()
     }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]){
+        let location = locations[locations.count-1]
+        if(locations.count > 1){
+            CLLocationDistance = location.distance(from: nowLocation)
+            let lastPushData = pushDatas[pushDatas.count-1]
+            let nowCalendar = Calendar.current.dateComponents([.year, .month, .day], from: Date())
+            let dataCalendar = Calendar.current.dateComponents([.year, .month, .day], from: lastPushData.createdAt)
+            if nowCalendar.year == dataCalendar.year && nowCalendar.month == dataCalendar.month && nowCalendar.day == dataCalendar.day{
+                
+            }
+            else{
+                
+            }
+            
+        }
+        nowLocation = locations[locations.count-1]
+    }
+    
     private func authorizeHealthKit() {
         HealthKitSetupAssistant.authorizeHealthKit { (authorized, error) in
             guard authorized else {
@@ -243,4 +270,3 @@ class ViewController: UIViewController {
     
 
 }
-

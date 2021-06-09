@@ -13,6 +13,7 @@ class SettingViewController: UIViewController {
     @IBOutlet weak var heightLabel: UILabel!
     @IBOutlet weak var weightLabel: UILabel!
     @IBOutlet weak var wheelsizeLabel: UILabel!
+    @IBOutlet weak var zeroing: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()

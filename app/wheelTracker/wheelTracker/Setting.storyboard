@@ -39,6 +39,11 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vEk-60-u8a">
+                                <rect key="frame" x="115" y="124" width="184" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="휠체어 영점조절"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -53,6 +58,7 @@
                         <outlet property="heightLabel" destination="2V9-2Y-kLu" id="pxb-NX-bQj"/>
                         <outlet property="weightLabel" destination="Jr7-um-k0T" id="I8m-XR-yPJ"/>
                         <outlet property="wheelsizeLabel" destination="wRt-dO-zQz" id="fCq-RQ-ECu"/>
+                        <outlet property="zeroing" destination="vEk-60-u8a" id="8R6-F3-zLm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
