@@ -21,6 +21,7 @@
 		46990578263BF441004BCB77 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46990577263BF441004BCB77 /* SettingViewController.swift */; };
 		4699057A263BF76A004BCB77 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46990579263BF76A004BCB77 /* TabBarController.swift */; };
 		CCA75FC6263BEA7100A5985E /* Record.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCA75FC5263BEA7000A5985E /* Record.storyboard */; };
+		DD4E422D26710CDD00DE797F /* ProfileDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4E422C26710CDD00DE797F /* ProfileDataStore.swift */; };
 		DD7F92B0266B7D4A0083CAF7 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD7F92AF266B7D4A0083CAF7 /* HealthKit.framework */; };
 		DD871A622670CA6D004AD08A /* HealthkitAssistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD871A612670CA6D004AD08A /* HealthkitAssistant.swift */; };
 /* End PBXBuildFile section */
@@ -44,6 +45,7 @@
 		8F9C3FD9214EEADFBA4A4AEE /* Pods_wheeltracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_wheeltracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C5312D8A452629ED99042C7 /* Pods-wheeltracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wheeltracker.debug.xcconfig"; path = "Target Support Files/Pods-wheeltracker/Pods-wheeltracker.debug.xcconfig"; sourceTree = "<group>"; };
 		CCA75FC5263BEA7000A5985E /* Record.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Record.storyboard; path = wheelTracker/Record.storyboard; sourceTree = SOURCE_ROOT; };
+		DD4E422C26710CDD00DE797F /* ProfileDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileDataStore.swift; path = wheelTracker/ProfileDataStore.swift; sourceTree = SOURCE_ROOT; };
 		DD7F92AE266B7D4A0083CAF7 /* wheeltracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = wheeltracker.entitlements; sourceTree = "<group>"; };
 		DD7F92AF266B7D4A0083CAF7 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		DD871A612670CA6D004AD08A /* HealthkitAssistant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HealthkitAssistant.swift; path = wheelTracker/HealthkitAssistant.swift; sourceTree = SOURCE_ROOT; };
@@ -98,6 +100,7 @@
 				46990579263BF76A004BCB77 /* TabBarController.swift */,
 				4625D6882643EC7100C448A7 /* DummyData.swift */,
 				DD871A612670CA6D004AD08A /* HealthkitAssistant.swift */,
+				DD4E422C26710CDD00DE797F /* ProfileDataStore.swift */,
 				4631089B2671044400B820ED /* AlbumViewController.swift */,
 			);
 			path = wheeltracker;
@@ -238,6 +241,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				46990578263BF441004BCB77 /* SettingViewController.swift in Sources */,
+				DD4E422D26710CDD00DE797F /* ProfileDataStore.swift in Sources */,
 				4699055E263AA85D004BCB77 /* ViewController.swift in Sources */,
 				4699055A263AA85D004BCB77 /* AppDelegate.swift in Sources */,
 				4631089C2671044400B820ED /* AlbumViewController.swift in Sources */,

@@ -9,21 +9,24 @@ import UIKit
 
 class SettingViewController: UIViewController {
 
+    
+    @IBOutlet weak var heightLabel: UILabel!
+    @IBOutlet weak var weightLabel: UILabel!
+    @IBOutlet weak var wheelsizeLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        heightLabel.text = String(height)+" cm"
+        weightLabel.text = String(weight)+" kg"
+        wheelsizeLabel.text = String(wheelSize)+" inch"
+        
+        
+        do{
+            try print(ProfileDataStore.getAge())
+        }catch{
 
+        }
         // Do any additional setup after loading the view.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
