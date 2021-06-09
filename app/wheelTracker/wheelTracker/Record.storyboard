@@ -24,73 +24,81 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TFn-gn-Lr0">
                                                 <rect key="frame" x="0.0" y="0.0" width="124.5" height="30"/>
-                                                <state key="normal" title="Day"/>
+                                                <state key="normal" title="Day">
+                                                    <color key="titleColor" red="0.5450980392" green="0.41176470590000003" blue="0.4941176471" alpha="0.74304366440000003" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="showLineChart:" destination="rq5-jp-x9w" eventType="touchUpInside" id="ncx-Cq-Yeq"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jaf-4b-ZaD">
                                                 <rect key="frame" x="124.5" y="0.0" width="125" height="30"/>
-                                                <state key="normal" title="Week"/>
+                                                <state key="normal" title="Week">
+                                                    <color key="titleColor" red="0.5450980392" green="0.41176470590000003" blue="0.4941176471" alpha="0.74304366440000003" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="showLineChart:" destination="rq5-jp-x9w" eventType="touchUpInside" id="rI2-wN-uI3"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gLG-xv-mH9">
                                                 <rect key="frame" x="249.5" y="0.0" width="124.5" height="30"/>
-                                                <state key="normal" title="Month"/>
+                                                <state key="normal" title="Month">
+                                                    <color key="titleColor" red="0.5450980392" green="0.41176470590000003" blue="0.4941176471" alpha="0.74304366440000003" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="showLineChart:" destination="rq5-jp-x9w" eventType="touchUpInside" id="VHG-EG-zL8"/>
                                                 </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zgE-UX-f5T" customClass="LineChartView" customModule="Charts">
-                                        <rect key="frame" x="0.0" y="24.5" width="374" height="451.5"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="374" id="gW4-QJ-bkf"/>
-                                        </constraints>
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zgE-UX-f5T" customClass="LineChartView" customModule="Charts">
+                                        <rect key="frame" x="0.0" y="15.5" width="374" height="488.5"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="1Qa-S5-3Je">
-                                        <rect key="frame" x="0.0" y="459.5" width="374" height="30"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="1Qa-S5-3Je">
+                                        <rect key="frame" x="0.0" y="478.5" width="374" height="30"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Lp-t0-nNw">
                                                 <rect key="frame" x="0.0" y="0.0" width="93.5" height="30"/>
-                                                <state key="normal" title="걸음수"/>
+                                                <state key="normal" title="걸음수">
+                                                    <color key="titleColor" red="0.54509803921568623" green="0.41176470588235292" blue="0.49411764705882355" alpha="0.74304366440000003" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="selectValue:" destination="rq5-jp-x9w" eventType="touchUpInside" id="NYA-GM-YvT"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dfX-n5-0ln">
                                                 <rect key="frame" x="93.5" y="0.0" width="93.5" height="30"/>
-                                                <state key="normal" title="거리"/>
+                                                <state key="normal" title="거리">
+                                                    <color key="titleColor" red="0.54509803921568623" green="0.41176470588235292" blue="0.49411764705882355" alpha="0.74304366440000003" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="selectValue:" destination="rq5-jp-x9w" eventType="touchUpInside" id="hk7-oE-hS2"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G19-Nc-D7d">
                                                 <rect key="frame" x="187" y="0.0" width="93.5" height="30"/>
-                                                <state key="normal" title="칼로리"/>
+                                                <state key="normal" title="칼로리">
+                                                    <color key="titleColor" red="0.54509803921568623" green="0.41176470588235292" blue="0.49411764705882355" alpha="0.74304366440000003" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="selectValue:" destination="rq5-jp-x9w" eventType="touchUpInside" id="Tbd-80-fgv"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h77-XY-gWA">
                                                 <rect key="frame" x="280.5" y="0.0" width="93.5" height="30"/>
-                                                <state key="normal" title="시간"/>
+                                                <state key="normal" title="시간">
+                                                    <color key="titleColor" red="0.54509803921568623" green="0.41176470588235292" blue="0.49411764705882355" alpha="0.74304366440000003" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="selectValue:" destination="rq5-jp-x9w" eventType="touchUpInside" id="oha-nD-B6B"/>
                                                 </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0TL-eM-VRf">
-                                        <rect key="frame" x="0.0" y="484" width="374" height="268"/>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0TL-eM-VRf">
+                                        <rect key="frame" x="0.0" y="494" width="374" height="258"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="268" id="LoG-hH-tup"/>
-                                        </constraints>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="5st-0M-hAb">
                                                 <rect key="frame" x="0.0" y="28" width="374" height="43.5"/>
