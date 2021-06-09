@@ -23,9 +23,7 @@ class HealthKitSetupAssistant {
     
     //2. Prepare the data types that will interact with HealthKit
     guard let dateOfBirth = HKObjectType.characteristicType(forIdentifier: .dateOfBirth),
-          let bloodType = HKObjectType.characteristicType(forIdentifier: .bloodType),
-          let biologicalSex = HKObjectType.characteristicType(forIdentifier: .biologicalSex),
-          let bodyMassIndex = HKObjectType.quantityType(forIdentifier: .bodyMassIndex),
+          let pushCount = HKObjectType.quantityType(forIdentifier: .pushCount),
           let height = HKObjectType.quantityType(forIdentifier: .height),
           let bodyMass = HKObjectType.quantityType(forIdentifier: .bodyMass),
           let activeEnergy = HKObjectType.quantityType(forIdentifier: .activeEnergyBurned)else {
@@ -35,17 +33,13 @@ class HealthKitSetupAssistant {
     }
     
     //3. Prepare a list of types you want HealthKit to read and write
-    let healthKitTypesToWrite: Set<HKSampleType> = [bodyMassIndex,
-                                                    activeEnergy,
-                                                    HKObjectType.workoutType()]
+    let healthKitTypesToWrite: Set<HKSampleType> = [pushCount]
     
     let healthKitTypesToRead: Set<HKObjectType> = [dateOfBirth,
-                                                   bloodType,
-                                                   biologicalSex,
-                                                   bodyMassIndex,
+                                                   pushCount,
                                                    height,
                                                    bodyMass,
-                                                   HKObjectType.workoutType()]
+                                                   activeEnergy]
 
     
     //4. Request Authorization
