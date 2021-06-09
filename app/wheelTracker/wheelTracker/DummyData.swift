@@ -16,6 +16,7 @@ var wheelSize: Double = 0.58
 
 var nowLocation: CLLocation?
 
+let distanceEvent = EventManager()
 
 // date용 함수들
 extension Date {
