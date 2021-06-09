@@ -81,12 +81,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             if(pushDatas[pushDatas.count-1].createdAt.isInToday){
                 pushDatas[pushDatas.count-1].distance += unitDistance
                 nowDistance = pushDatas[pushDatas.count-1].distance
-                print(pushDatas[pushDatas.count-1].distance)
-                print(pushDatas[pushDatas.count-1].createdAt)
+                //print(pushDatas[pushDatas.count-1].distance)
+                //print(pushDatas[pushDatas.count-1].createdAt)
             }
             
         }
         nowLocation = locations[locations.count-1]
+        distanceEvent.trigger(eventName: "distance", information: "distance has been changed!")
     }
     
     private func authorizeHealthKit() {
