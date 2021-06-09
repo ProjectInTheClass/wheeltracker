@@ -28,6 +28,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="15" id="WE8-2g-RGE"/>
                                                 </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <state key="normal" title="Day">
                                                     <color key="titleColor" red="0.5450980392" green="0.41176470590000003" blue="0.4941176471" alpha="0.74304366440000003" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
@@ -37,6 +38,7 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jaf-4b-ZaD">
                                                 <rect key="frame" x="124.5" y="0.0" width="125" height="15"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <state key="normal" title="Week">
                                                     <color key="titleColor" red="0.5450980392" green="0.41176470590000003" blue="0.4941176471" alpha="0.74304366440000003" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
@@ -46,6 +48,7 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gLG-xv-mH9">
                                                 <rect key="frame" x="249.5" y="0.0" width="124.5" height="15"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <state key="normal" title="Month">
                                                     <color key="titleColor" red="0.5450980392" green="0.41176470590000003" blue="0.4941176471" alpha="0.74304366440000003" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
@@ -67,6 +70,7 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Lp-t0-nNw">
                                                 <rect key="frame" x="0.0" y="0.0" width="93.5" height="22"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <state key="normal" title="Push Count">
                                                     <color key="titleColor" red="0.5450980392" green="0.41176470590000003" blue="0.4941176471" alpha="0.74304366440000003" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
@@ -76,6 +80,7 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dfX-n5-0ln">
                                                 <rect key="frame" x="93.5" y="0.0" width="93.5" height="22"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <state key="normal" title="Distance">
                                                     <color key="titleColor" red="0.5450980392" green="0.41176470590000003" blue="0.4941176471" alpha="0.74304366440000003" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
@@ -85,6 +90,7 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G19-Nc-D7d">
                                                 <rect key="frame" x="187" y="0.0" width="93.5" height="22"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <state key="normal" title="Calorie">
                                                     <color key="titleColor" red="0.5450980392" green="0.41176470590000003" blue="0.4941176471" alpha="0.74304366440000003" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
@@ -94,6 +100,7 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h77-XY-gWA">
                                                 <rect key="frame" x="280.5" y="0.0" width="93.5" height="22"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <state key="normal" title="Duration">
                                                     <color key="titleColor" red="0.5450980392" green="0.41176470590000003" blue="0.4941176471" alpha="0.74304366440000003" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
@@ -143,14 +150,14 @@
                     <tabBarItem key="tabBarItem" title="Record" image="list.bullet.rectangle" catalog="system" id="hOL-S5-OZB"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="calButton" destination="G19-Nc-D7d" id="hyD-PZ-ivx"/>
                         <outlet property="dayButton" destination="TFn-gn-Lr0" id="eKg-O7-aY8"/>
                         <outlet property="distanceButton" destination="dfX-n5-0ln" id="SWi-Ij-Nhq"/>
-                        <outlet property="kalButton" destination="G19-Nc-D7d" id="I7d-KT-RPU"/>
+                        <outlet property="durationButton" destination="h77-XY-gWA" id="cry-Z6-Kaw"/>
                         <outlet property="lineChartView" destination="zgE-UX-f5T" id="F2k-fV-OKL"/>
                         <outlet property="monthButton" destination="gLG-xv-mH9" id="OuX-97-cyC"/>
-                        <outlet property="stepsButton" destination="5Lp-t0-nNw" id="epn-Jn-tWN"/>
+                        <outlet property="pushButton" destination="5Lp-t0-nNw" id="MWm-hG-JgD"/>
                         <outlet property="tableView" destination="0TL-eM-VRf" id="N48-sx-yiq"/>
-                        <outlet property="time" destination="h77-XY-gWA" id="weq-mc-dKo"/>
                         <outlet property="weekButton" destination="Jaf-4b-ZaD" id="NRo-ZS-Ohx"/>
                     </connections>
                 </viewController>
