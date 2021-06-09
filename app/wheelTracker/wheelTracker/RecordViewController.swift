@@ -21,7 +21,7 @@ public var check = 0
 class RecordViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     
-    
+    // tableview 설정
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
         return selectedValues.count
@@ -29,8 +29,8 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-
-
+        
+        // cell 설정
         if dayWeekMonth == "day" {
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "MM월 dd일"
@@ -99,9 +99,7 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
     var day = [PushData]()
     var week = [PushData]()
     var month = [PushData]()
-    
-    let creationNotificationo = Notification.Name("InformationCreated")
-    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         UpdateUI()
@@ -143,14 +141,12 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
     
 
     }
-    
+    // reloadData
     override func viewWillAppear(_ animated: Bool) {
         self.tableView.reloadData()
-        
-        
-        
-    }
     
+    }
+    // update datas
     func UpdateUI(){
         
         // 가로축. x, y, z
@@ -419,9 +415,7 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
         
     }
     
-    
-        
-    
+    // 일, 주, 월 선택
     @IBAction func showLineChart(_ sender: UIButton) {
 
         
@@ -432,10 +426,6 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
             $0?.setTitleColor(($0 == sender) ? clickColor : defaultColor, for: .normal)
             $0?.titleLabel?.font = ($0 == sender) ? UIFont.boldSystemFont(ofSize: 16.0) : UIFont.systemFont(ofSize: 15.0)
         }
-        
-
-        
-        
         
         if sender.titleLabel?.text == "Day"{
             let dayString = dayAxis.map{
@@ -540,11 +530,9 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
         }
         
         
-        
-        
     
     }
- 
+    // push count, distance, calorie, duration 선택
     @IBAction func selectValue(_ sender: UIButton) {
         
         let clickColor = #colorLiteral(red: 0.8470588235, green: 0.8745098039, blue: 0.3098039216, alpha: 0.7430436644)
@@ -648,7 +636,7 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
 }
 
 
-
+// date용 함수들
 extension Date {
 
     func isEqual(to date: Date, toGranularity component: Calendar.Component, in calendar: Calendar = .current) -> Bool {
