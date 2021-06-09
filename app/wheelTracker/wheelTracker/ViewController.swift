@@ -20,10 +20,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var duration: UILabel!
     @IBOutlet weak var backgroundSuperview: UIView!
     
-    let clickColor = #colorLiteral(red: 0.8470588235, green: 0.8745098039, blue: 0.3098039216, alpha: 0.8118578767)
-    let defaultColor = #colorLiteral(red: 0.5450980392, green: 0.4117647059, blue: 0.4941176471, alpha: 0.7430436644)
-    let textColor = #colorLiteral(red: 0.1529411765, green: 0.1568627451, blue: 0.06274509804, alpha: 0.7430436644)
-    
+    var nowDistance = pushDatas[pushDatas.count-1].distance {didSet{loadUserData()}}
     //let healthStore = HKHealthStore()
 
     override func viewDidLoad() {
@@ -79,16 +76,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]){
         let location = locations[locations.count-1]
-        if(locations.count > 1){
-            CLLocationDistance = location.distance(from: nowLocation)
-            let lastPushData = pushDatas[pushDatas.count-1]
-            let nowCalendar = Calendar.current.dateComponents([.year, .month, .day], from: Date())
-            let dataCalendar = Calendar.current.dateComponents([.year, .month, .day], from: lastPushData.createdAt)
-            if nowCalendar.year == dataCalendar.year && nowCalendar.month == dataCalendar.month && nowCalendar.day == dataCalendar.day{
-                
-            }
-            else{
-                
+        if let previousLocation = nowLocation {
+            let unitDistance = location.distance(from: previousLocation)
+            if(pushDatas[pushDatas.count-1].createdAt.isInToday){
+                pushDatas[pushDatas.count-1].distance += unitDistance
+                nowDistance = pushDatas[pushDatas.count-1].distance
+                print(pushDatas[pushDatas.count-1].distance)
+                print(pushDatas[pushDatas.count-1].createdAt)
             }
             
         }
@@ -263,7 +257,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         
         dayPushCount.text = String(todayData[0].pushCount)
         distance.text = String(Int(todayData[0].distance)) + "m"
-        calories.text = String(todayData[0].calorie) + "kcal"
+        calories.text = String(Int(todayData[0].calorie)) + "kcal"
         duration.text = String(Int(todayData[0].duration/60)) + "m" + String(Int(todayData[0].duration)%60) + "s"
         
     }
