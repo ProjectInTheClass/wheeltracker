@@ -21,37 +21,55 @@ public var check = 0
 class RecordViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     
-    /*
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(pushDatas.count)
-        return pushDatas.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        let text: String = pushDistanceCalorieDuration + " : " +  String(selectedValues[indexPath.row])
-        cell.textLabel?.text = text
-        print(indexPath)
-        print(text)
-        return cell
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    */
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        return pushDatas.count
+        return selectedValues.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-      //  cell.textLabel?.text = pushDistanceCalorieDuration + " : " + String(selectedValues[indexPath.row])
-        //print(indexPath)
-        //print(selectedValues)
-        cell.textLabel?.text = String(pushDatas[indexPath.row].calorie)
+
+
+        if dayWeekMonth == "day" {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "MM월 dd일"
+            dateFormatter.timeZone = TimeZone(identifier: "UTC")
+            
+            let dayString = dayAxis.map{
+                dateFormatter.string(from: $0)
+                
+            }
+            cell.textLabel?.text = "[" + String(dayString[indexPath.row]) + "] " + pushDistanceCalorieDuration + " : " + String(selectedValues[indexPath.row])
+            
+        } else if dayWeekMonth == "week"{
+            
+        
+            
+            let weekString = weekAxis.map{
+                String(String(($0.2)!) + "월 " + String(($0.1)!) + "째주")
+                
+            }
+            cell.textLabel?.text = "[" + String(weekString[indexPath.row]) + "] " + pushDistanceCalorieDuration + " : " + String(selectedValues[indexPath.row])
+            
+        } else if dayWeekMonth == "month"{
+            
+            let a = monthAxis[0..<month.count]
+            
+            Array(a)
+            
+            let monthString = Array(a).map{
+                String($0 + "월")
+            }
+            
+            cell.textLabel?.text = "[" + String(monthString[indexPath.row]) + "] " + pushDistanceCalorieDuration + " : " + String(selectedValues[indexPath.row])
+            
+            
+            
+        }
+
+
+
         return cell
     }
 
@@ -90,6 +108,7 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
         lineChartView.noDataFont = .systemFont(ofSize: 20)
         lineChartView.noDataTextColor = .lightGray
         
+        
         selectedValues = day.map{
             i in Double(i.pushCount)
         }
@@ -108,8 +127,7 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
         self.tableView.dataSource = self
         self.tableView.delegate = self
         
-        //print("dataPoint  ", selectedshow)
-        //print("values ", selectedValues)
+
     
 
     }
@@ -204,7 +222,7 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
             
             let now = Calendar.current.ordinality(of: .day, in: .year, for: nowCalendar)!
             let data = Calendar.current.ordinality(of: .day, in: .year, for: dataCalendar)!
-            //print("day : ", $0.createdAt, day)
+
             if now - data < 7  && now - data >= 0 && dataCalendar.isInThisYear{
                 return true
             } else {
@@ -225,7 +243,7 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
              
             let now = Calendar.current.ordinality(of: .weekOfYear, in: .year, for: nowCalendar)!
             let data = Calendar.current.ordinality(of: .weekOfYear, in: .year, for: dataCalendar)!
-            //print("week : ", $0.createdAt, now - data)
+
             if now - data < 7 && dataCalendar.isInThisYear{
                     return true
                 } else {
@@ -262,7 +280,7 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
             let now = Calendar.current.ordinality(of: .month, in: .year, for: nowCalendar)!
             let data = Calendar.current.ordinality(of: .month, in: .year, for: dataCalendar)!
 
-            if now - data < 12 {//&& dataCalendar.isInThisYear{
+            if now - data < 12 && dataCalendar.isInThisYear {//&& dataCalendar.isInThisYear{
                     return true
                 } else {
                     return false
@@ -318,18 +336,14 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
         
     }
     
-    
-    
-    
-   
+
     
     //ToDo : 각 날짜의 달을 받아와서 같은 달이면 값을 더해야해 어떻게 해야할까?
 
     
     func setChart(dataPoint: [String], values: [Double], name: String){
         
-        print(selectedshow)
-        print(selectedValues)
+
         //데이터 생성
         var lineChartEntries = [ChartDataEntry]()
         
@@ -343,18 +357,35 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
             lineChartEntries.append(dataEntry)
         }
         
-        let chartDataSet = LineChartDataSet(entries: lineChartEntries, label:name)
+        let chartDataSet = LineChartDataSet(entries: lineChartEntries, label: nil)
+        lineChartView.xAxis.forceLabelsEnabled = true
+        lineChartView.xAxis.avoidFirstLastClippingEnabled = true
+        lineChartView.legend.enabled = false
+        
         
         // 선택 안되게
-        chartDataSet.highlightEnabled = false
+        //chartDataSet.highlightEnabled = false
         // 줌 안되게
-        lineChartView.doubleTapToZoomEnabled = false
+        //lineChartView.doubleTapToZoomEnabled = false
         
+        //let TimeColorString = [NSUIColor(cgColor: UIColor(hex: "#d8df4f").cgColor)]
+        //dataSet.colors = TimeColorString
+        
+        let colorLiteral = #colorLiteral(red: 0.8470588235, green: 0.8745098039, blue: 0.3098039216, alpha: 0.7430436644)
+        let circleLiteral = #colorLiteral(red: 0.9764705882, green: 0.8588235294, blue: 0.7254901961, alpha: 0.7430436644)
+        print(chartDataSet.colors)
+        //d8df4f
+        //216, 223, 79
         //차트색
-        chartDataSet.colors = [NSUIColor.blue]
+        chartDataSet.colors = [colorLiteral]
+        chartDataSet.circleColors = [circleLiteral]
+        chartDataSet.lineWidth = 5.0
+        
+        
         //데이터 삽입
         let chartData = LineChartData(dataSet: chartDataSet)
         lineChartView.data = chartData
+        chartDataSet.label = nil
         
         //x축 레이블 위치 수정
         lineChartView.xAxis.labelPosition = .bottom
@@ -369,17 +400,12 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
         
         
     }
+    
+    
         
     
     @IBAction func showLineChart(_ sender: UIButton) {
-        
-        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-            cell.textLabel?.text = pushDistanceCalorieDuration + " : " + String(selectedValues[indexPath.row])
-            print(selectedValues.count)
-            print("reload")
-            return cell
-        }
+
         
         
         if sender.titleLabel?.text == "Day"{
@@ -452,7 +478,7 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
         } else if sender.titleLabel?.text == "Month"{
 
             
-            let a = monthAxis
+            let a = monthAxis[0..<month.count]
             
             selectedshow = Array(a)
             
@@ -491,7 +517,7 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
     }
     @IBAction func selectValue(_ sender: UIButton) {
         
-        if sender.titleLabel?.text == "걸음수"{
+        if sender.titleLabel?.text == "Push Count"{
             pushDistanceCalorieDuration = "push"
             if dayWeekMonth == "day"{
                 selectedValues = day.map{
@@ -510,7 +536,7 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
             }
             setChart(dataPoint: selectedshow, values: selectedValues, name:"")
             
-        }else if sender.titleLabel?.text == "거리"{
+        }else if sender.titleLabel?.text == "Distance"{
             pushDistanceCalorieDuration = "distance"
             if dayWeekMonth == "day"{
                 selectedValues = day.map{
@@ -530,7 +556,7 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
             
             setChart(dataPoint: selectedshow, values: selectedValues, name: "")
             
-        }else if sender.titleLabel?.text == "칼로리"{
+        }else if sender.titleLabel?.text == "Calorie"{
             pushDistanceCalorieDuration = "calorie"
             if dayWeekMonth == "day"{
                 selectedValues = day.map{
@@ -550,7 +576,7 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
     
             setChart(dataPoint: selectedshow, values: selectedValues, name: "")
             
-        }else if sender.titleLabel?.text == "시간"{
+        }else if sender.titleLabel?.text == "Duration"{
             pushDistanceCalorieDuration = "duration"
             if dayWeekMonth == "day"{
                 selectedValues = day.map{

@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,28 +17,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" spacing="4" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="anK-yj-cfb">
+                            <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" spacingType="standard" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="anK-yj-cfb">
                                 <rect key="frame" x="20" y="44" width="374" height="752"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="3MP-SA-CwV">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="15"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TFn-gn-Lr0">
-                                                <rect key="frame" x="0.0" y="0.0" width="124.5" height="30"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="124.5" height="15"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="15" id="WE8-2g-RGE"/>
+                                                </constraints>
                                                 <state key="normal" title="Day"/>
                                                 <connections>
                                                     <action selector="showLineChart:" destination="rq5-jp-x9w" eventType="touchUpInside" id="ncx-Cq-Yeq"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jaf-4b-ZaD">
-                                                <rect key="frame" x="124.5" y="0.0" width="125" height="30"/>
+                                                <rect key="frame" x="124.5" y="0.0" width="125" height="15"/>
                                                 <state key="normal" title="Week"/>
                                                 <connections>
                                                     <action selector="showLineChart:" destination="rq5-jp-x9w" eventType="touchUpInside" id="rI2-wN-uI3"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gLG-xv-mH9">
-                                                <rect key="frame" x="249.5" y="0.0" width="124.5" height="30"/>
+                                                <rect key="frame" x="249.5" y="0.0" width="124.5" height="15"/>
                                                 <state key="normal" title="Month"/>
                                                 <connections>
                                                     <action selector="showLineChart:" destination="rq5-jp-x9w" eventType="touchUpInside" id="VHG-EG-zL8"/>
@@ -46,51 +50,51 @@
                                         </subviews>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zgE-UX-f5T" customClass="LineChartView" customModule="Charts">
-                                        <rect key="frame" x="0.0" y="24.5" width="374" height="451.5"/>
+                                        <rect key="frame" x="0.0" y="15.5" width="374" height="445.5"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="374" id="gW4-QJ-bkf"/>
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="1Qa-S5-3Je">
-                                        <rect key="frame" x="0.0" y="459.5" width="374" height="30"/>
+                                        <rect key="frame" x="0.0" y="465" width="374" height="22"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Lp-t0-nNw">
-                                                <rect key="frame" x="0.0" y="0.0" width="93.5" height="30"/>
-                                                <state key="normal" title="걸음수"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="93.5" height="22"/>
+                                                <state key="normal" title="Push Count"/>
                                                 <connections>
                                                     <action selector="selectValue:" destination="rq5-jp-x9w" eventType="touchUpInside" id="NYA-GM-YvT"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dfX-n5-0ln">
-                                                <rect key="frame" x="93.5" y="0.0" width="93.5" height="30"/>
-                                                <state key="normal" title="거리"/>
+                                                <rect key="frame" x="93.5" y="0.0" width="93.5" height="22"/>
+                                                <state key="normal" title="Distance"/>
                                                 <connections>
                                                     <action selector="selectValue:" destination="rq5-jp-x9w" eventType="touchUpInside" id="hk7-oE-hS2"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G19-Nc-D7d">
-                                                <rect key="frame" x="187" y="0.0" width="93.5" height="30"/>
-                                                <state key="normal" title="칼로리"/>
+                                                <rect key="frame" x="187" y="0.0" width="93.5" height="22"/>
+                                                <state key="normal" title="Calorie"/>
                                                 <connections>
                                                     <action selector="selectValue:" destination="rq5-jp-x9w" eventType="touchUpInside" id="Tbd-80-fgv"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h77-XY-gWA">
-                                                <rect key="frame" x="280.5" y="0.0" width="93.5" height="30"/>
-                                                <state key="normal" title="시간"/>
+                                                <rect key="frame" x="280.5" y="0.0" width="93.5" height="22"/>
+                                                <state key="normal" title="Duration"/>
                                                 <connections>
                                                     <action selector="selectValue:" destination="rq5-jp-x9w" eventType="touchUpInside" id="oha-nD-B6B"/>
                                                 </connections>
                                             </button>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="22" id="lr5-AK-k7w"/>
+                                        </constraints>
                                     </stackView>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0TL-eM-VRf">
                                         <rect key="frame" x="0.0" y="484" width="374" height="268"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="268" id="LoG-hH-tup"/>
-                                        </constraints>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="5st-0M-hAb">
                                                 <rect key="frame" x="0.0" y="28" width="374" height="43.5"/>
@@ -107,6 +111,9 @@
                                         </connections>
                                     </tableView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="1Qa-S5-3Je" firstAttribute="top" secondItem="3MP-SA-CwV" secondAttribute="bottom" constant="450" id="PcR-PY-sJR"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="DUz-Md-JUA"/>
