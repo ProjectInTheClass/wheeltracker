@@ -43,6 +43,9 @@
                                 <rect key="frame" x="115" y="124" width="184" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="휠체어 영점조절"/>
+                                <connections>
+                                    <segue destination="6tQ-tu-Ebi" kind="presentation" id="ivl-lJ-x6y"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
@@ -64,6 +67,48 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="105.80357142857143"/>
+        </scene>
+        <!--Zeroing View Controller-->
+        <scene sceneID="dM9-JI-BBV">
+            <objects>
+                <viewController id="6tQ-tu-Ebi" customClass="ZeroingViewController" customModule="wheeltracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3xj-jA-pb3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TeT-48-lS4">
+                                <rect key="frame" x="57" y="411" width="300" height="20.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="O38-7b-L91"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Igu-mz-EcS">
+                                <rect key="frame" x="150" y="567" width="115" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="측정시작"/>
+                                <connections>
+                                    <action selector="start:" destination="6tQ-tu-Ebi" eventType="touchUpInside" id="NbG-bd-3T6"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="QDx-hC-giP"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="TeT-48-lS4" firstAttribute="centerX" secondItem="3xj-jA-pb3" secondAttribute="centerX" id="ZU1-9y-xhe"/>
+                            <constraint firstItem="TeT-48-lS4" firstAttribute="centerY" secondItem="3xj-jA-pb3" secondAttribute="centerY" id="xkc-qe-M9c"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="start" destination="Igu-mz-EcS" id="PQs-Gc-77L"/>
+                        <outlet property="zeroing" destination="TeT-48-lS4" id="9S4-ui-ikh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eEJ-cP-FB4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-352.17391304347831" y="-567.1875"/>
         </scene>
     </scenes>
     <resources>
