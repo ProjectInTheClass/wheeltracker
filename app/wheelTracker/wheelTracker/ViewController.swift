@@ -19,14 +19,17 @@ class ViewController: UIViewController {
     @IBOutlet weak var backgroundSuperview: UIView!
     
     
-    let healthStore = HKHealthStore()
+    //let healthStore = HKHealthStore()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        let healthKitTypes: Set = [
+        
+      /*  let healthKitTypes: Set = [
                 // access push count
                 HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.pushCount)!
+    
+            
             ]
             healthStore.requestAuthorization(toShare: healthKitTypes, read: healthKitTypes) { (_, _) in
                 print("authorized???")
@@ -57,11 +60,27 @@ class ViewController: UIViewController {
             } else{
                 messageLabel.isHidden = false
                 messageLabel.text = "HealthKit is not available on this device."
-            }*/
-        initPushDatas()
+            }*/*/
+        
+        authorizeHealthKit()
         loadUserData()
     }
-    func getTodayPushes(completion: @escaping (Double) -> Void) {
+    private func authorizeHealthKit() {
+        HealthKitSetupAssistant.authorizeHealthKit { (authorized, error) in
+            guard authorized else {
+                let baseMessage = "HealthKit Authorization Failed"
+                if let error = error {
+                    print("\(baseMessage). Reason: \(error.localizedDescription)")
+                    
+                } else {
+                    print(baseMessage)
+                }
+                return
+            }
+            print("HealthKit Successfully Authorized.")
+        }
+    }
+    /*func getTodayPushes(completion: @escaping (Double) -> Void) {
         let stepsQuantityType = HKQuantityType.quantityType(forIdentifier: .pushCount)!
         let now = Date()
         let startOfDay = Calendar.current.startOfDay(for: now)
@@ -81,7 +100,8 @@ class ViewController: UIViewController {
             }
         }
         healthStore.execute(query)
-    }
+    }*/
+    
     func insertImage(view:UIImageView, imageIdentifier:String, seedX: CGFloat, seedY: CGFloat){
         let tileWidth = backgroundSuperview.frame.width/10
         let tileHeight = backgroundSuperview.frame.height/10
@@ -220,3 +240,4 @@ class ViewController: UIViewController {
     
 
 }
+

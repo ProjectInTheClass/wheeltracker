@@ -21,6 +21,7 @@
 		4699057A263BF76A004BCB77 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46990579263BF76A004BCB77 /* TabBarController.swift */; };
 		CCA75FC6263BEA7100A5985E /* Record.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCA75FC5263BEA7000A5985E /* Record.storyboard */; };
 		DD7F92B0266B7D4A0083CAF7 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD7F92AF266B7D4A0083CAF7 /* HealthKit.framework */; };
+		DD871A622670CA6D004AD08A /* HealthkitAssistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD871A612670CA6D004AD08A /* HealthkitAssistant.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		CCA75FC5263BEA7000A5985E /* Record.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Record.storyboard; path = wheelTracker/Record.storyboard; sourceTree = SOURCE_ROOT; };
 		DD7F92AE266B7D4A0083CAF7 /* wheeltracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = wheeltracker.entitlements; sourceTree = "<group>"; };
 		DD7F92AF266B7D4A0083CAF7 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		DD871A612670CA6D004AD08A /* HealthkitAssistant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HealthkitAssistant.swift; path = wheelTracker/HealthkitAssistant.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 				46990577263BF441004BCB77 /* SettingViewController.swift */,
 				46990579263BF76A004BCB77 /* TabBarController.swift */,
 				4625D6882643EC7100C448A7 /* DummyData.swift */,
+				DD871A612670CA6D004AD08A /* HealthkitAssistant.swift */,
 			);
 			path = wheeltracker;
 			sourceTree = "<group>";
@@ -151,7 +154,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 46990551263AA85D004BCB77 /* Build configuration list for PBXProject "wheelTracker" */;
+			buildConfigurationList = 46990551263AA85D004BCB77 /* Build configuration list for PBXProject "wheeltracker" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -234,6 +237,7 @@
 				46990578263BF441004BCB77 /* SettingViewController.swift in Sources */,
 				4699055E263AA85D004BCB77 /* ViewController.swift in Sources */,
 				4699055A263AA85D004BCB77 /* AppDelegate.swift in Sources */,
+				DD871A622670CA6D004AD08A /* HealthkitAssistant.swift in Sources */,
 				4625D6892643EC7100C448A7 /* DummyData.swift in Sources */,
 				4699057A263BF76A004BCB77 /* TabBarController.swift in Sources */,
 				4699055C263AA85D004BCB77 /* SceneDelegate.swift in Sources */,
@@ -426,7 +430,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		46990551263AA85D004BCB77 /* Build configuration list for PBXProject "wheelTracker" */ = {
+		46990551263AA85D004BCB77 /* Build configuration list for PBXProject "wheeltracker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				46990568263AA85E004BCB77 /* Debug */,
