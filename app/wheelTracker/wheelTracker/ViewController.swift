@@ -197,6 +197,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func loadImages(){
+        for view in backgroundSuperview.subviews{
+            view.removeFromSuperview()
+        }
         let floorImage = UIImage(named: "floor")
         let floorImageView = UIImageView(image: floorImage)
         floorImageView.frame = CGRect(x:0, y:backgroundSuperview.frame.height/4.0, width: backgroundSuperview.frame.width, height : backgroundSuperview.frame.height*0.75)
@@ -235,8 +238,15 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         
         let imageIdentifiers = ["sprout", "grass", "flower", "seedling", "tree"]
         
-        for i in 0...Int.random(in: 0...29) {
-            insertImage(view: plantImageViews[i], imageIdentifier: imageIdentifiers.randomElement()!, seedX: seedCoordinates[i].0, seedY: seedCoordinates[i].1)
+        let monthPushDatas = pushDatas.filter{
+            return $0.createdAt.isInThisMonth
+        }
+        for i in 0..<monthPushDatas.count {
+            var imageIndex = monthPushDatas[i].pushCount/1000
+            if(imageIndex > 4){
+                imageIndex = 4
+            }
+            insertImage(view: plantImageViews[i], imageIdentifier: imageIdentifiers[imageIndex], seedX: seedCoordinates[i].0, seedY: seedCoordinates[i].1)
             backgroundSuperview.addSubview(plantImageViews[i])
         }
     }
