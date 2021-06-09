@@ -24,52 +24,40 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
     // tableview 설정
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        return selectedValues.count
+        return pushDatas.count
     }
+
+    
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
-        // cell 설정
-        if dayWeekMonth == "day" {
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "MM월 dd일"
-            dateFormatter.timeZone = TimeZone(identifier: "UTC")
-            
-            let dayString = dayAxis.map{
-                dateFormatter.string(from: $0)
-                
-            }
-            cell.textLabel?.text = "[" + String(dayString[indexPath.row]) + "] " + pushDistanceCalorieDuration + " : " + String(selectedValues[indexPath.row])
-            
-        } else if dayWeekMonth == "week"{
-            
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        dateFormatter.timeZone = TimeZone(identifier: "UTC")
         
-            
-            let weekString = weekAxis.map{
-                String(String(($0.2)!) + "월 " + String(($0.1)!) + "째주")
-                
-            }
-            cell.textLabel?.text = "[" + String(weekString[indexPath.row]) + "] " + pushDistanceCalorieDuration + " : " + String(selectedValues[indexPath.row])
-            
-        } else if dayWeekMonth == "month"{
-            
-            let a = monthAxis[0..<month.count]
-            
-            
-            let monthString = Array(a).map{
-                String($0 + "월")
-            }
-            
-            cell.textLabel?.text = "[" + String(monthString[indexPath.row]) + "] " + pushDistanceCalorieDuration + " : " + String(selectedValues[indexPath.row])
-        
-            
+        let dateString = pushDatas.sorted(by: {$0.createdAt > $1.createdAt}).map{
+            dateFormatter.string(from: $0.createdAt)
         }
+        let calorie = pushDatas.sorted(by: {$0.createdAt > $1.createdAt}).map{
+            $0.calorie
+        }
+        let distance = pushDatas.sorted(by: {$0.createdAt > $1.createdAt}).map{
+            $0.distance
+        }
+        let duration = pushDatas.sorted(by: {$0.createdAt > $1.createdAt}).map{
+            $0.duration
+        }
+        let pushCount = pushDatas.sorted(by: {$0.createdAt > $1.createdAt}).map{
+            $0.pushCount
+        }
+        cell.textLabel?.font = .systemFont(ofSize: 16)
+        cell.textLabel?.text = "[" + String(dateString[indexPath.row]) + "]\n" + "push : " + String(pushCount[indexPath.row]) + " distance : " + String(distance[indexPath.row]) + "\ncalorie : " + String(calorie[indexPath.row]) + " duration : " + String(duration[indexPath.row])
+        
         let textColor = #colorLiteral(red: 0.1520237625, green: 0.1570370793, blue: 0.06181135774, alpha: 0.7430436644)
         cell.textLabel!.textColor = textColor
-
-
-
+        cell.textLabel!.lineBreakMode = .byWordWrapping
+        cell.textLabel!.numberOfLines = 0
 
         return cell
     }
@@ -78,6 +66,8 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
         return 1
     }
     
+
+ 
     
 
     @IBOutlet var lineChartView: LineChartView!
@@ -128,6 +118,8 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
         self.tableView.dataSource = self
         self.tableView.delegate = self
         
+
+
         let clickColor = #colorLiteral(red: 0.8470588235, green: 0.8745098039, blue: 0.3098039216, alpha: 0.7430436644)
 
         

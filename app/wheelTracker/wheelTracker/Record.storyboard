@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rq5-jp-x9w">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rq5-jp-x9w">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18092"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -66,10 +66,10 @@
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="1Qa-S5-3Je">
-                                        <rect key="frame" x="0.0" y="465" width="374" height="22"/>
+                                        <rect key="frame" x="0.0" y="465" width="374" height="23"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Lp-t0-nNw">
-                                                <rect key="frame" x="0.0" y="0.0" width="93.5" height="22"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="93.5" height="23"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <state key="normal" title="Push Count">
                                                     <color key="titleColor" red="0.5450980392" green="0.41176470590000003" blue="0.4941176471" alpha="0.74304366440000003" colorSpace="custom" customColorSpace="sRGB"/>
@@ -79,7 +79,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dfX-n5-0ln">
-                                                <rect key="frame" x="93.5" y="0.0" width="93.5" height="22"/>
+                                                <rect key="frame" x="93.5" y="0.0" width="93.5" height="23"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <state key="normal" title="Distance">
                                                     <color key="titleColor" red="0.5450980392" green="0.41176470590000003" blue="0.4941176471" alpha="0.74304366440000003" colorSpace="custom" customColorSpace="sRGB"/>
@@ -89,7 +89,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G19-Nc-D7d">
-                                                <rect key="frame" x="187" y="0.0" width="93.5" height="22"/>
+                                                <rect key="frame" x="187" y="0.0" width="93.5" height="23"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <state key="normal" title="Calorie">
                                                     <color key="titleColor" red="0.5450980392" green="0.41176470590000003" blue="0.4941176471" alpha="0.74304366440000003" colorSpace="custom" customColorSpace="sRGB"/>
@@ -99,7 +99,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h77-XY-gWA">
-                                                <rect key="frame" x="280.5" y="0.0" width="93.5" height="22"/>
+                                                <rect key="frame" x="280.5" y="0.0" width="93.5" height="23"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <state key="normal" title="Duration">
                                                     <color key="titleColor" red="0.5450980392" green="0.41176470590000003" blue="0.4941176471" alpha="0.74304366440000003" colorSpace="custom" customColorSpace="sRGB"/>
@@ -110,15 +110,15 @@
                                             </button>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="22" id="lr5-AK-k7w"/>
+                                            <constraint firstAttribute="height" constant="23" id="lr5-AK-k7w"/>
                                         </constraints>
                                     </stackView>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0TL-eM-VRf">
-                                        <rect key="frame" x="0.0" y="484" width="374" height="268"/>
+                                        <rect key="frame" x="0.0" y="484.5" width="374" height="267.5"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="5st-0M-hAb">
-                                                <rect key="frame" x="0.0" y="24.5" width="374" height="43.5"/>
+                                                <rect key="frame" x="0.0" y="28" width="374" height="43.5"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5st-0M-hAb" id="xC6-ID-TsM">
                                                     <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
