@@ -54,7 +54,7 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
         cell.textLabel?.font = .systemFont(ofSize: 16)
         cell.textLabel?.text = "[" + String(dateString[indexPath.row]) + "]\n" + "push : " + String(pushCount[indexPath.row]) + " distance : " + String(distance[indexPath.row]) + "\ncalorie : " + String(calorie[indexPath.row]) + " duration : " + String(duration[indexPath.row])
         
-        let textColor = #colorLiteral(red: 0.1520237625, green: 0.1570370793, blue: 0.06181135774, alpha: 0.7430436644)
+        let textColor =  colorLiteral(red: 0.1520237625, green: 0.1570370793, blue: 0.06181135774, alpha: 0.7430436644)
         cell.textLabel!.textColor = textColor
         cell.textLabel!.lineBreakMode = .byWordWrapping
         cell.textLabel!.numberOfLines = 0
@@ -120,7 +120,7 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
         
 
 
-        let clickColor = #colorLiteral(red: 0.8470588235, green: 0.8745098039, blue: 0.3098039216, alpha: 0.7430436644)
+        let clickColor =  colorLiteral(red: 0.8470588235, green: 0.8745098039, blue: 0.3098039216, alpha: 0.7430436644)
 
         
         pushButton.setTitleColor(clickColor, for: .normal)
@@ -374,8 +374,8 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
         //let TimeColorString = [NSUIColor(cgColor: UIColor(hex: "#d8df4f").cgColor)]
         //dataSet.colors = TimeColorString
         
-        let colorLiteral = #colorLiteral(red: 0.8470588235, green: 0.8745098039, blue: 0.3098039216, alpha: 0.7430436644)
-        let circleLiteral = #colorLiteral(red: 0.9764705882, green: 0.8588235294, blue: 0.7254901961, alpha: 0.7430436644)
+        let colorLiteral =  colorLiteral(red: 0.8470588235, green: 0.8745098039, blue: 0.3098039216, alpha: 0.7430436644)
+        let circleLiteral =  colorLiteral(red: 0.9764705882, green: 0.8588235294, blue: 0.7254901961, alpha: 0.7430436644)
        
         //d8df4f
         //216, 223, 79
@@ -391,7 +391,7 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
         chartDataSet.label = nil
         lineChartView.xAxis.labelTextColor = UIColor(displayP3Red: 39/255, green: 40/255, blue: 19/255, alpha: 0.74)
         lineChartView.leftAxis.labelTextColor = UIColor(displayP3Red: 39/255, green: 40/255, blue: 19/255, alpha: 0.74)
-        let textColor = #colorLiteral(red: 0.1520237625, green: 0.1570370793, blue: 0.06181135774, alpha: 0.7430436644)
+        let textColor =  colorLiteral(red: 0.1520237625, green: 0.1570370793, blue: 0.06181135774, alpha: 0.7430436644)
         lineChartView.data?.setValueTextColor(textColor)
         //x축 레이블 위치 수정
         lineChartView.xAxis.labelPosition = .bottom
@@ -411,8 +411,8 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
     @IBAction func showLineChart(_ sender: UIButton) {
 
         
-        let clickColor = #colorLiteral(red: 0.8470588235, green: 0.8745098039, blue: 0.3098039216, alpha: 0.8118578767)
-        let defaultColor = #colorLiteral(red: 0.5450980392, green: 0.4117647059, blue: 0.4941176471, alpha: 0.7430436644)
+        let clickColor =  colorLiteral(red: 0.8470588235, green: 0.8745098039, blue: 0.3098039216, alpha: 0.8118578767)
+        let defaultColor =  colorLiteral(red: 0.5450980392, green: 0.4117647059, blue: 0.4941176471, alpha: 0.7430436644)
         let buttons = [dayButton, weekButton, monthButton]
         buttons.forEach {
             $0?.setTitleColor(($0 == sender) ? clickColor : defaultColor, for: .normal)
@@ -527,8 +527,8 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
     // push count, distance, calorie, duration 선택
     @IBAction func selectValue(_ sender: UIButton) {
         
-        let clickColor = #colorLiteral(red: 0.8470588235, green: 0.8745098039, blue: 0.3098039216, alpha: 0.7430436644)
-        let defaultColor = #colorLiteral(red: 0.5450980392, green: 0.4117647059, blue: 0.4941176471, alpha: 0.7430436644)
+        let clickColor =  colorLiteral(red: 0.8470588235, green: 0.8745098039, blue: 0.3098039216, alpha: 0.7430436644)
+        let defaultColor =  colorLiteral(red: 0.5450980392, green: 0.4117647059, blue: 0.4941176471, alpha: 0.7430436644)
         let buttons = [pushButton, distanceButton, calButton, durationButton]
         buttons.forEach {
             $0?.setTitleColor(($0 == sender) ? clickColor : defaultColor, for: .normal)
@@ -625,30 +625,4 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
     
 
     
-}
-
-
-// date용 함수들
-extension Date {
-
-    func isEqual(to date: Date, toGranularity component: Calendar.Component, in calendar: Calendar = .current) -> Bool {
-        calendar.isDate(self, equalTo: date, toGranularity: component)
-    }
-
-    func isInSameYear(as date: Date) -> Bool { isEqual(to: date, toGranularity: .year) }
-    func isInSameMonth(as date: Date) -> Bool { isEqual(to: date, toGranularity: .month) }
-    func isInSameWeek(as date: Date) -> Bool { isEqual(to: date, toGranularity: .weekOfYear) }
-
-    func isInSameDay(as date: Date) -> Bool { Calendar.current.isDate(self, inSameDayAs: date) }
-
-    var isInThisYear:  Bool { isInSameYear(as: Date()) }
-    var isInThisMonth: Bool { isInSameMonth(as: Date()) }
-    var isInThisWeek:  Bool { isInSameWeek(as: Date()) }
-
-    var isInYesterday: Bool { Calendar.current.isDateInYesterday(self) }
-    var isInToday:     Bool { Calendar.current.isDateInToday(self) }
-    var isInTomorrow:  Bool { Calendar.current.isDateInTomorrow(self) }
-
-    var isInTheFuture: Bool { self > Date() }
-    var isInThePast:   Bool { self < Date() }
 }
