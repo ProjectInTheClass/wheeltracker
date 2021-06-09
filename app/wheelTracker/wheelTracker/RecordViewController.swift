@@ -56,17 +56,18 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
             
             let a = monthAxis[0..<month.count]
             
-            Array(a)
             
             let monthString = Array(a).map{
                 String($0 + "월")
             }
             
             cell.textLabel?.text = "[" + String(monthString[indexPath.row]) + "] " + pushDistanceCalorieDuration + " : " + String(selectedValues[indexPath.row])
-            
-            
+        
             
         }
+        let textColor = #colorLiteral(red: 0.1520237625, green: 0.1570370793, blue: 0.06181135774, alpha: 0.7430436644)
+        cell.textLabel!.textColor = textColor
+
 
 
 
@@ -373,7 +374,7 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
         
         let colorLiteral = #colorLiteral(red: 0.8470588235, green: 0.8745098039, blue: 0.3098039216, alpha: 0.7430436644)
         let circleLiteral = #colorLiteral(red: 0.9764705882, green: 0.8588235294, blue: 0.7254901961, alpha: 0.7430436644)
-        print(chartDataSet.colors)
+       
         //d8df4f
         //216, 223, 79
         //차트색
@@ -386,7 +387,10 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
         let chartData = LineChartData(dataSet: chartDataSet)
         lineChartView.data = chartData
         chartDataSet.label = nil
-        
+        lineChartView.xAxis.labelTextColor = UIColor(displayP3Red: 39/255, green: 40/255, blue: 19/255, alpha: 0.74)
+        lineChartView.leftAxis.labelTextColor = UIColor(displayP3Red: 39/255, green: 40/255, blue: 19/255, alpha: 0.74)
+        let textColor = #colorLiteral(red: 0.1520237625, green: 0.1570370793, blue: 0.06181135774, alpha: 0.7430436644)
+        lineChartView.data?.setValueTextColor(textColor)
         //x축 레이블 위치 수정
         lineChartView.xAxis.labelPosition = .bottom
         //x축 레이블 포맷 지정

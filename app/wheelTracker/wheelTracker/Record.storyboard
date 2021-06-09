@@ -28,21 +28,27 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="15" id="WE8-2g-RGE"/>
                                                 </constraints>
-                                                <state key="normal" title="Day"/>
+                                                <state key="normal" title="Day">
+                                                    <color key="titleColor" red="0.5450980392" green="0.41176470590000003" blue="0.4941176471" alpha="0.74304366440000003" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="showLineChart:" destination="rq5-jp-x9w" eventType="touchUpInside" id="ncx-Cq-Yeq"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jaf-4b-ZaD">
                                                 <rect key="frame" x="124.5" y="0.0" width="125" height="15"/>
-                                                <state key="normal" title="Week"/>
+                                                <state key="normal" title="Week">
+                                                    <color key="titleColor" red="0.5450980392" green="0.41176470590000003" blue="0.4941176471" alpha="0.74304366440000003" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="showLineChart:" destination="rq5-jp-x9w" eventType="touchUpInside" id="rI2-wN-uI3"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gLG-xv-mH9">
                                                 <rect key="frame" x="249.5" y="0.0" width="124.5" height="15"/>
-                                                <state key="normal" title="Month"/>
+                                                <state key="normal" title="Month">
+                                                    <color key="titleColor" red="0.5450980392" green="0.41176470590000003" blue="0.4941176471" alpha="0.74304366440000003" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="showLineChart:" destination="rq5-jp-x9w" eventType="touchUpInside" id="VHG-EG-zL8"/>
                                                 </connections>
@@ -61,28 +67,36 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Lp-t0-nNw">
                                                 <rect key="frame" x="0.0" y="0.0" width="93.5" height="22"/>
-                                                <state key="normal" title="Push Count"/>
+                                                <state key="normal" title="Push Count">
+                                                    <color key="titleColor" red="0.5450980392" green="0.41176470590000003" blue="0.4941176471" alpha="0.74304366440000003" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="selectValue:" destination="rq5-jp-x9w" eventType="touchUpInside" id="NYA-GM-YvT"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dfX-n5-0ln">
                                                 <rect key="frame" x="93.5" y="0.0" width="93.5" height="22"/>
-                                                <state key="normal" title="Distance"/>
+                                                <state key="normal" title="Distance">
+                                                    <color key="titleColor" red="0.5450980392" green="0.41176470590000003" blue="0.4941176471" alpha="0.74304366440000003" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="selectValue:" destination="rq5-jp-x9w" eventType="touchUpInside" id="hk7-oE-hS2"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G19-Nc-D7d">
                                                 <rect key="frame" x="187" y="0.0" width="93.5" height="22"/>
-                                                <state key="normal" title="Calorie"/>
+                                                <state key="normal" title="Calorie">
+                                                    <color key="titleColor" red="0.5450980392" green="0.41176470590000003" blue="0.4941176471" alpha="0.74304366440000003" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="selectValue:" destination="rq5-jp-x9w" eventType="touchUpInside" id="Tbd-80-fgv"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h77-XY-gWA">
                                                 <rect key="frame" x="280.5" y="0.0" width="93.5" height="22"/>
-                                                <state key="normal" title="Duration"/>
+                                                <state key="normal" title="Duration">
+                                                    <color key="titleColor" red="0.5450980392" green="0.41176470590000003" blue="0.4941176471" alpha="0.74304366440000003" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="selectValue:" destination="rq5-jp-x9w" eventType="touchUpInside" id="oha-nD-B6B"/>
                                                 </connections>
