@@ -84,10 +84,12 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var dayButton: UIButton!
     @IBOutlet weak var weekButton: UIButton!
     @IBOutlet weak var monthButton: UIButton!
-    @IBOutlet weak var stepsButton: UIButton!
+    @IBOutlet weak var pushButton: UIButton!
     @IBOutlet weak var distanceButton: UIButton!
-    @IBOutlet weak var kalButton: UIButton!
-    @IBOutlet weak var time: UIButton!
+    @IBOutlet weak var calButton: UIButton!
+    @IBOutlet weak var durationButton: UIButton!
+    
+
     
     @IBOutlet weak var tableView: UITableView!
     let cellIdentifier: String = "cell"
@@ -128,6 +130,15 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
         self.tableView.dataSource = self
         self.tableView.delegate = self
         
+        let clickColor = #colorLiteral(red: 0.8470588235, green: 0.8745098039, blue: 0.3098039216, alpha: 0.7430436644)
+
+        
+        pushButton.setTitleColor(clickColor, for: .normal)
+        pushButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16.0)
+        
+        dayButton.setTitleColor(clickColor, for: .normal)
+        dayButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16.0)
+        
 
     
 
@@ -135,6 +146,9 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
     
     override func viewWillAppear(_ animated: Bool) {
         self.tableView.reloadData()
+        
+        
+        
     }
     
     func UpdateUI(){
@@ -365,9 +379,9 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
         
         
         // 선택 안되게
-        //chartDataSet.highlightEnabled = false
+        chartDataSet.highlightEnabled = false
         // 줌 안되게
-        //lineChartView.doubleTapToZoomEnabled = false
+        lineChartView.doubleTapToZoomEnabled = false
         
         //let TimeColorString = [NSUIColor(cgColor: UIColor(hex: "#d8df4f").cgColor)]
         //dataSet.colors = TimeColorString
@@ -410,6 +424,17 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
     
     @IBAction func showLineChart(_ sender: UIButton) {
 
+        
+        let clickColor = #colorLiteral(red: 0.8470588235, green: 0.8745098039, blue: 0.3098039216, alpha: 0.8118578767)
+        let defaultColor = #colorLiteral(red: 0.5450980392, green: 0.4117647059, blue: 0.4941176471, alpha: 0.7430436644)
+        let buttons = [dayButton, weekButton, monthButton]
+        buttons.forEach {
+            $0?.setTitleColor(($0 == sender) ? clickColor : defaultColor, for: .normal)
+            $0?.titleLabel?.font = ($0 == sender) ? UIFont.boldSystemFont(ofSize: 16.0) : UIFont.systemFont(ofSize: 15.0)
+        }
+        
+
+        
         
         
         if sender.titleLabel?.text == "Day"{
@@ -519,7 +544,17 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
         
     
     }
+ 
     @IBAction func selectValue(_ sender: UIButton) {
+        
+        let clickColor = #colorLiteral(red: 0.8470588235, green: 0.8745098039, blue: 0.3098039216, alpha: 0.7430436644)
+        let defaultColor = #colorLiteral(red: 0.5450980392, green: 0.4117647059, blue: 0.4941176471, alpha: 0.7430436644)
+        let buttons = [pushButton, distanceButton, calButton, durationButton]
+        buttons.forEach {
+            $0?.setTitleColor(($0 == sender) ? clickColor : defaultColor, for: .normal)
+            $0?.titleLabel?.font = ($0 == sender) ? UIFont.boldSystemFont(ofSize: 16.0) : UIFont.systemFont(ofSize: 15.0)
+            
+        }
         
         if sender.titleLabel?.text == "Push Count"{
             pushDistanceCalorieDuration = "push"
@@ -539,6 +574,7 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
                 }
             }
             setChart(dataPoint: selectedshow, values: selectedValues, name:"")
+  
             
         }else if sender.titleLabel?.text == "Distance"{
             pushDistanceCalorieDuration = "distance"
@@ -579,6 +615,7 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
             }
     
             setChart(dataPoint: selectedshow, values: selectedValues, name: "")
+
             
         }else if sender.titleLabel?.text == "Duration"{
             pushDistanceCalorieDuration = "duration"
@@ -598,7 +635,7 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
                 }
             }
             setChart(dataPoint: selectedshow, values: selectedValues, name: "")
-            
+   
         }
 
     
