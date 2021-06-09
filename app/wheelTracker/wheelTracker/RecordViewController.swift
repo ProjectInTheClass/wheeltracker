@@ -29,7 +29,45 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = pushDistanceCalorieDuration + " : " + String(selectedValues[indexPath.row])
+
+
+        if dayWeekMonth == "day" {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "MM월 dd일"
+            dateFormatter.timeZone = TimeZone(identifier: "UTC")
+            
+            let dayString = dayAxis.map{
+                dateFormatter.string(from: $0)
+                
+            }
+            cell.textLabel?.text = "[" + String(dayString[indexPath.row]) + "] " + pushDistanceCalorieDuration + " : " + String(selectedValues[indexPath.row])
+            
+        } else if dayWeekMonth == "week"{
+            
+        
+            
+            let weekString = weekAxis.map{
+                String(String(($0.2)!) + "월 " + String(($0.1)!) + "째주")
+                
+            }
+            cell.textLabel?.text = "[" + String(weekString[indexPath.row]) + "] " + pushDistanceCalorieDuration + " : " + String(selectedValues[indexPath.row])
+            
+        } else if dayWeekMonth == "month"{
+            
+            let a = monthAxis[0..<month.count]
+            
+            Array(a)
+            
+            let monthString = Array(a).map{
+                String($0 + "월")
+            }
+            
+            cell.textLabel?.text = "[" + String(monthString[indexPath.row]) + "] " + pushDistanceCalorieDuration + " : " + String(selectedValues[indexPath.row])
+            
+            
+            
+        }
+
 
 
         return cell
@@ -479,7 +517,7 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
     }
     @IBAction func selectValue(_ sender: UIButton) {
         
-        if sender.titleLabel?.text == "걸음수"{
+        if sender.titleLabel?.text == "Push Count"{
             pushDistanceCalorieDuration = "push"
             if dayWeekMonth == "day"{
                 selectedValues = day.map{
@@ -498,7 +536,7 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
             }
             setChart(dataPoint: selectedshow, values: selectedValues, name:"")
             
-        }else if sender.titleLabel?.text == "거리"{
+        }else if sender.titleLabel?.text == "Distance"{
             pushDistanceCalorieDuration = "distance"
             if dayWeekMonth == "day"{
                 selectedValues = day.map{
@@ -518,7 +556,7 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
             
             setChart(dataPoint: selectedshow, values: selectedValues, name: "")
             
-        }else if sender.titleLabel?.text == "칼로리"{
+        }else if sender.titleLabel?.text == "Calorie"{
             pushDistanceCalorieDuration = "calorie"
             if dayWeekMonth == "day"{
                 selectedValues = day.map{
@@ -538,7 +576,7 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
     
             setChart(dataPoint: selectedshow, values: selectedValues, name: "")
             
-        }else if sender.titleLabel?.text == "시간"{
+        }else if sender.titleLabel?.text == "Duration"{
             pushDistanceCalorieDuration = "duration"
             if dayWeekMonth == "day"{
                 selectedValues = day.map{
