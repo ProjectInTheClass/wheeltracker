@@ -24,7 +24,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="15"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TFn-gn-Lr0">
-                                                <rect key="frame" x="0.0" y="0.0" width="93.5" height="15"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="124.5" height="15"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="15" id="WE8-2g-RGE"/>
                                                 </constraints>
@@ -37,7 +37,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jaf-4b-ZaD">
-                                                <rect key="frame" x="93.5" y="0.0" width="93.5" height="15"/>
+                                                <rect key="frame" x="124.5" y="0.0" width="125" height="15"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <state key="normal" title="Week">
                                                     <color key="titleColor" red="0.5450980392" green="0.41176470590000003" blue="0.4941176471" alpha="0.74304366440000003" colorSpace="custom" customColorSpace="sRGB"/>
@@ -47,7 +47,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gLG-xv-mH9">
-                                                <rect key="frame" x="187" y="0.0" width="93.5" height="15"/>
+                                                <rect key="frame" x="249.5" y="0.0" width="124.5" height="15"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <state key="normal" title="Month">
                                                     <color key="titleColor" red="0.5450980392" green="0.41176470590000003" blue="0.4941176471" alpha="0.74304366440000003" colorSpace="custom" customColorSpace="sRGB"/>
@@ -55,12 +55,6 @@
                                                 <connections>
                                                     <action selector="showLineChart:" destination="rq5-jp-x9w" eventType="touchUpInside" id="VHG-EG-zL8"/>
                                                 </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eYk-u0-tIK">
-                                                <rect key="frame" x="280.5" y="0.0" width="93.5" height="15"/>
-                                                <state key="normal" title="Year">
-                                                    <color key="titleColor" red="0.5450980392" green="0.41176470590000003" blue="0.4941176471" alpha="0.74304366440000003" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </state>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -165,12 +159,11 @@
                         <outlet property="pushButton" destination="5Lp-t0-nNw" id="MWm-hG-JgD"/>
                         <outlet property="tableView" destination="0TL-eM-VRf" id="N48-sx-yiq"/>
                         <outlet property="weekButton" destination="Jaf-4b-ZaD" id="NRo-ZS-Ohx"/>
-                        <outlet property="yearButton" destination="eYk-u0-tIK" id="YjV-85-mRJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4A1-U3-eiE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-810.14492753623199" y="-308.03571428571428"/>
+            <point key="canvasLocation" x="-570" y="-330"/>
         </scene>
     </scenes>
     <resources>
