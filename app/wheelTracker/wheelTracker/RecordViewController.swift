@@ -78,6 +78,7 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var distanceButton: UIButton!
     @IBOutlet weak var calButton: UIButton!
     @IBOutlet weak var durationButton: UIButton!
+    @IBOutlet weak var yearButton: UIButton!
     
 
     
@@ -86,6 +87,7 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
     var dayAxis = [Date]()
     var weekAxis = [(Int?, Int?, Int?)].init()
     var monthAxis = [String]()
+    var yearAxis = [PushData]()
     var day = [PushData]()
     var week = [PushData]()
     var month = [PushData]()
@@ -213,6 +215,26 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
         
         monthAxis = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"]
         
+        yearAxis = pushDatas.sorted(by: {$0.createdAt < $1.createdAt}).reduce([PushData](), { result, item in
+            var arr = result
+            if(arr.count == 0){
+                arr.append(item)
+                return arr
+            }
+            let lastCalender = arr[arr.count - 1].createdAt
+            let elementCalender = item.createdAt
+
+            
+            if Calendar.current.ordinality(of: .year, in: .year, for: lastCalender) == Calendar.current.ordinality(of: .year, in: .year, for: elementCalender){
+                arr[arr.count - 1] += item
+            }
+            else{
+                arr.append(item)
+            }
+            return arr
+        })
+        print("year : ", yearAxis)
+        
         
         //data들
         
@@ -239,39 +261,37 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
         
         week = pushDatas.sorted(by: {$0.createdAt < $1.createdAt}).filter{
             let nowCalendar = Date()
-                
-             
-            let dataCalendar = $0.createdAt
-                
-             
-            let now = Calendar.current.ordinality(of: .weekOfYear, in: .year, for: nowCalendar)!
-            let data = Calendar.current.ordinality(of: .weekOfYear, in: .year, for: dataCalendar)!
-
-            if now - data < 7 && dataCalendar.isInThisYear{
-                    return true
-                } else {
-                    return false
-                }
             
-            }.reduce([PushData](), { result, item in
-                var arr = result
-                if(arr.count == 0){
-                    arr.append(item)
-                    return arr
-                }
-                let lastCalender = arr[arr.count - 1].createdAt
-                let elementCalender = item.createdAt
+         
+            let dataCalendar = $0.createdAt
+            
+         
+        let now = Calendar.current.ordinality(of: .month, in: .year, for: nowCalendar)!
+        let data = Calendar.current.ordinality(of: .month, in: .year, for: dataCalendar)!
 
-                
-                if Calendar.current.ordinality(of: .weekOfYear, in: .year, for: lastCalender) == Calendar.current.ordinality(of: .weekOfYear, in: .year, for: elementCalender){
-                    arr[arr.count - 1] += item
-                }
-                else{
-                    arr.append(item)
-                }
-                
+        return true
+        
+        }.reduce([PushData](), { result, item in
+            var arr = result
+            
+            if(arr.count == 0){
+                arr.append(item)
                 return arr
-            })
+            }
+            
+            let lastCalender = arr[arr.count - 1].createdAt
+            let elementCalender = item.createdAt
+            
+            if Calendar.current.ordinality(of: .month, in: .year, for: lastCalender) == Calendar.current.ordinality(of: .month, in: .year, for: elementCalender){
+                arr[arr.count - 1] += item
+            }
+            else{
+                arr.append(item)
+            }
+
+            return arr
+            
+        })
             
         month = pushDatas.sorted(by: {$0.createdAt < $1.createdAt}).filter{
                 let nowCalendar = Date()
@@ -312,8 +332,6 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
             })
         
         
-        
-        
     }
     
     
@@ -346,7 +364,7 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
     
     func setChart(dataPoint: [String], values: [Double], name: String){
         
-
+        
         //데이터 생성
         var lineChartEntries = [ChartDataEntry]()
         
