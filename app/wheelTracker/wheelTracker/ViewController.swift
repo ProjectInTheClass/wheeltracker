@@ -109,23 +109,23 @@ class ViewController: UIViewController {
         let tileWidth = backgroundSuperview.frame.width/10
         let tileHeight = backgroundSuperview.frame.height/10
         
-        let sproutImage = UIImage(named: "새싹")
+        let sproutImage = UIImage(named: "sprout")
         let sproutWidth = tileWidth*0.8
         let sproutHeight = tileHeight*1.2
         
-        let grassImage = UIImage(named: "풀")
+        let grassImage = UIImage(named: "grass")
         let grassWidth = tileWidth*1.2
         let grassHeight = tileHeight*2
         
-        let flowerImage = UIImage(named: "꽃")
+        let flowerImage = UIImage(named: "flower")
         let flowerWidth = tileWidth*2
         let flowerHeight = tileHeight*1.5
         
-        let seedlingImage = UIImage(named: "작은 나무")
+        let seedlingImage = UIImage(named: "seedling")
         let seedlingWidth = tileWidth*1.5
         let seedlingHeight = tileHeight*2.25
         
-        let treeImage = UIImage(named: "큰 나무")
+        let treeImage = UIImage(named: "tree")
         let treeWidth = tileWidth*2
         let treeHeight = tileHeight*3
         
@@ -133,32 +133,32 @@ class ViewController: UIViewController {
         var image:UIImage?
         
         switch imageIdentifier {
-        case "새싹":
+        case "sprout":
             objectWidth = sproutWidth
             objectHeight = sproutHeight
             objectX = seedX - sproutWidth/2.0
             objectY = seedY - sproutHeight
             image = sproutImage
-        case "풀":
+        case "grass":
             objectWidth = grassWidth
             objectHeight = grassHeight
             objectX = seedX - grassWidth/2.0
             objectY = seedY - grassHeight
             image = grassImage
-        case "꽃":
-            // 꽃은 다른 것들보다 조금 더 아래로 내려야 정상적인 위치가 됨
+        case "flower":
+            // flower은 다른 것들보다 조금 더 아래로 내려야 정상적인 위치가 됨
             objectWidth = flowerWidth
             objectHeight = flowerHeight
             objectX = seedX - flowerWidth/2.0
             objectY = seedY - flowerHeight*0.8
             image = flowerImage
-        case "작은 나무":
+        case "seedling":
             objectWidth = seedlingWidth
             objectHeight = seedlingHeight
             objectX = seedX - seedlingWidth/2.0
             objectY = seedY - seedlingHeight
             image = seedlingImage
-        case "큰 나무":
+        case "tree":
             objectWidth = treeWidth
             objectHeight = treeHeight
             objectX = seedX - treeWidth/2.0
@@ -176,7 +176,7 @@ class ViewController: UIViewController {
     }
     
     func loadImages(){
-        let floorImage = UIImage(named: "바닥")
+        let floorImage = UIImage(named: "floor")
         let floorImageView = UIImageView(image: floorImage)
         floorImageView.frame = CGRect(x:0, y:backgroundSuperview.frame.height/4.0, width: backgroundSuperview.frame.width, height : backgroundSuperview.frame.height*0.75)
         backgroundSuperview.addSubview(floorImageView)
@@ -212,7 +212,7 @@ class ViewController: UIViewController {
             (tileWidth*5.0, tileHeight*8),
         ]
         
-        let imageIdentifiers = ["새싹", "풀", "꽃", "작은 나무", "큰 나무"]
+        let imageIdentifiers = ["sprout", "grass", "flower", "seedling", "tree"]
         
         for i in 0...Int.random(in: 0...29) {
             insertImage(view: plantImageViews[i], imageIdentifier: imageIdentifiers.randomElement()!, seedX: seedCoordinates[i].0, seedY: seedCoordinates[i].1)

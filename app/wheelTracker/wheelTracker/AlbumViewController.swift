@@ -12,7 +12,7 @@ class AlbumViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var monthLabel: UILabel!
-    let albumImageViews = [UIImageView(image: UIImage(named: "앨범1")), UIImageView(image: UIImage(named: "앨범2")), UIImageView(image: UIImage(named: "앨범3"))]
+    let albumImageViews = [UIImageView(image: UIImage(named: "album1")), UIImageView(image: UIImage(named: "album2")), UIImageView(image: UIImage(named: "album3"))]
     
     override func viewDidLoad() {
         super.viewDidLoad()
