@@ -61,7 +61,7 @@ class ViewController: UIViewController {
                 messageLabel.isHidden = false
                 messageLabel.text = "HealthKit is not available on this device."
             }*/*/
-        
+        initPushDatas()
         authorizeHealthKit()
         loadUserData()
     }
