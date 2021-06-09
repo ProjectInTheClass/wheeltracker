@@ -18,6 +18,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var duration: UILabel!
     @IBOutlet weak var backgroundSuperview: UIView!
     
+    let clickColor = #colorLiteral(red: 0.8470588235, green: 0.8745098039, blue: 0.3098039216, alpha: 0.8118578767)
+    let defaultColor = #colorLiteral(red: 0.5450980392, green: 0.4117647059, blue: 0.4941176471, alpha: 0.7430436644)
+    let textColor = #colorLiteral(red: 0.1529411765, green: 0.1568627451, blue: 0.06274509804, alpha: 0.7430436644)
     
     //let healthStore = HKHealthStore()
 
