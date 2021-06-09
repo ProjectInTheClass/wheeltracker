@@ -79,7 +79,7 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
     var week = [PushData]()
     var month = [PushData]()
     
-    let creationNotification = Notification.Name("InformationCreated")
+    let creationNotificationo = Notification.Name("InformationCreated")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -261,7 +261,7 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
              
             let now = Calendar.current.ordinality(of: .month, in: .year, for: nowCalendar)!
             let data = Calendar.current.ordinality(of: .month, in: .year, for: dataCalendar)!
-            print("month : ", $0.createdAt, now-data)
+
             if now - data < 12 {//&& dataCalendar.isInThisYear{
                     return true
                 } else {
@@ -327,6 +327,9 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
 
     
     func setChart(dataPoint: [String], values: [Double], name: String){
+        
+        print(selectedshow)
+        print(selectedValues)
         //데이터 생성
         var lineChartEntries = [ChartDataEntry]()
         
@@ -449,8 +452,7 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
         } else if sender.titleLabel?.text == "Month"{
 
             
-            let a = monthAxis[0..<month.count]
-            print(month)
+            let a = monthAxis
             
             selectedshow = Array(a)
             

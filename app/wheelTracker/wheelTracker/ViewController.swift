@@ -7,7 +7,6 @@
 
 import UIKit
 import CoreLocation
-import HealthKit
 
 class ViewController: UIViewController {
 
@@ -19,69 +18,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var backgroundSuperview: UIView!
     
     
-    let healthStore = HKHealthStore()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        let healthKitTypes: Set = [
-                // access push count
-                HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.pushCount)!
-            ]
-            healthStore.requestAuthorization(toShare: healthKitTypes, read: healthKitTypes) { (_, _) in
-                print("authorized???")
-                
-            }
-            healthStore.requestAuthorization(toShare: healthKitTypes, read: healthKitTypes) { (bool, error) in
-                if let e = error {
-                    print("oops something went wrong during authorisation \(e.localizedDescription)")
-                    
-                } else {
-                    print("User has completed the authorization flow")
-                    self.getTodayPushes(completion: { (step) in
-                        print(step)
-                    })
-            
-                }
-                
-            }
-            /*if HKHealthStore.isHealthDataAvailable() {
-                let authorizationStatus = healthStore.authorizationStatus(for: .workoutType())
-                if authorizationStatus == .notDetermined {
-                    enableHealthKitButton.isHidden = false
-                    
-                } else if authorizationStatus == .sharingDenied {
-                    messageLabel.isHidden = false
-                    messageLabel.text = "Meditations doesn't have access to your workout data. You can enable access in the Settings application."         }
-                    
-            } else{
-                messageLabel.isHidden = false
-                messageLabel.text = "HealthKit is not available on this device."
-            }*/
         initPushDatas()
         loadUserData()
     }
-    func getTodayPushes(completion: @escaping (Double) -> Void) {
-        let stepsQuantityType = HKQuantityType.quantityType(forIdentifier: .pushCount)!
-        let now = Date()
-        let startOfDay = Calendar.current.startOfDay(for: now)
-        let predicate = HKQuery.predicateForSamples(withStart: startOfDay, end: now, options: .strictStartDate)
-        let query = HKStatisticsQuery(quantityType: stepsQuantityType, quantitySamplePredicate: predicate, options: .cumulativeSum) { (_, result, error) in
-            guard let result = result,
-                  let sum = result.sumQuantity()
-            else {
-                print("Failed to fetch steps = \(error?.localizedDescription ?? "N/A")")
-                completion(0.0)
-                return
-                
-            }
-            DispatchQueue.main.async{
-                completion(sum.doubleValue(for: HKUnit.count()))
-                
-            }
-        }
-        healthStore.execute(query)
-    }
+    
     func insertImage(view:UIImageView, imageIdentifier:String, seedX: CGFloat, seedY: CGFloat){
         let tileWidth = backgroundSuperview.frame.width/10
         let tileHeight = backgroundSuperview.frame.height/10
