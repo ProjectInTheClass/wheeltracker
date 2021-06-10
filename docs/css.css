@@ -75,10 +75,41 @@
         margin: 0 auto;
         overflow: hidden;
     }
-    .contribution p {
-        font-size: 18px;
+    .dot {
+        width: 0.208rem;
+        height: 0.208rem;
+        border-radius: 0.104rem;
+        background-color: white;
+        margin: 0.208rem auto;
+        margin-bottom: 0.5rem;
+    }
+    .contribution > div > div {
+        width: 190px;
+        margin: 0 62px;
+        float: left;
+    }
+    .profile {
+        width: 190px;
+        height: 190px;
+        border-radius: 95px;
+        border: 2px solid white;
+        margin: 0 auto;
+        overflow: hidden;
+    }
+    .contribution p:first-of-type {
+        font-size: 20px;
+        font-family: 'paybooc-Light';
+        font-weight: 600;
         margin: 0 auto;
         margin-top: 8vh;
+    }
+    .contribution p:last-of-type {
+        font-size: 15px;
+        font-family: 'paybooc-Light';
+        font-weight: 600;
+        line-height: 26px;
+        margin: 0 auto;
+        margin-top: 2vh;
     }
 }
 
@@ -127,10 +158,41 @@
         margin: 0 auto;
         overflow: hidden;
     }
-    .contribution p {
+    .dot {
+        width: 0.208rem;
+        height: 0.208rem;
+        border-radius: 0.104rem;
+        background-color: white;
+        margin: 0.208rem auto;
+        margin-bottom: 0.5rem;
+    }
+    .contribution > div > div {
+        width: 190px;
+        margin: 0 62px;
+        float: left;
+    }
+    .profile {
+        width: 190px;
+        height: 190px;
+        border-radius: 95px;
+        border: 2px solid white;
+        margin: 0 auto;
+        overflow: hidden;
+    }
+    .contribution p:first-of-type {
         font-size: 18px;
+        font-family: 'paybooc-Light';
+        font-weight: 600;
         margin: 0 auto;
         margin-top: 8vh;
+    }
+    .contribution p:last-of-type {
+        font-size: 15px;
+        font-family: 'paybooc-Light';
+        font-weight: 600;
+        line-height: 26px;
+        margin: 0 auto;
+        margin-top: 2vh;
     }
 }
 
@@ -200,14 +262,49 @@
         margin-top: 8vh;
     }
     .contribution > div {
-        width: 314px;
-        margin: 0 auto;
+        width: 470px;
+        margin: 3vh auto;
         overflow: hidden;
     }
-    .contribution p {
-        font-size: 18px;
+    .dot {
+        width: 0.208rem;
+        height: 0.208rem;
+        border-radius: 0.104rem;
+        background-color: white;
+        margin: 0.208rem auto;
+        margin-bottom: 0;
+    }
+    .contribution > div > div {
+        width: 340px;
+        margin: 0 62px;
+        float: left;
+    }
+    .profile {
+        width: 160px;
+        height: 160px;
+        border-radius: 80px;
+        border: 2px solid white;
         margin: 0 auto;
-        margin-top: 3vh;
+        overflow: hidden;
+        float: left;
+    }
+    .contribution p:first-of-type {
+        font-size: 18px;
+        font-family: 'paybooc-Light';
+        font-weight: 600;
+        margin: 0 auto;
+        margin-top: 5vh;
+    }
+    .contribution p:last-of-type {
+        font-size: 15px;
+        font-family: 'paybooc-Light';
+        font-weight: 600;
+        line-height: 22px;
+        margin: 0 auto;
+        display: block;
+        width: 340px;
+        height: 140px;
+        padding-top: 50px;
     }
 }
     
@@ -287,34 +384,10 @@ h4 {
     left: 0.833rem;
 }
 
-.contribution > div > div {
-    width: 190px;
-    margin: 0 62px;
-    float: left;
-}
-
 #name {
     font-size: 18px;
     margin: 0 auto;
     margin-top: 8vh;
-}
-
-.dot {
-    width: 0.208rem;
-    height: 0.208rem;
-    border-radius: 0.104rem;
-    background-color: white;
-    margin: 0.208rem auto;
-    margin-bottom: 0.416rem;
-}
-
-.profile {
-    width: 190px;
-    height: 190px;
-    border-radius: 95px;
-    border: 2px solid white;
-    margin: 0 auto;
-    overflow: hidden;
 }
 
 .ycg {
