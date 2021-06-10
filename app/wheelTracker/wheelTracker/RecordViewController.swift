@@ -7,6 +7,7 @@
 
 import UIKit
 import Charts
+import Foundation
 
 public var dayWeekMonth = ""
 public var pushDistanceCalorieDuration = ""
@@ -40,13 +41,13 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
             dateFormatter.string(from: $0.createdAt)
         }
         let calorie = pushDatas.sorted(by: {$0.createdAt > $1.createdAt}).map{
-            $0.calorie
+            round($0.calorie * 1000) / 1000
         }
         let distance = pushDatas.sorted(by: {$0.createdAt > $1.createdAt}).map{
-            $0.distance
+            round($0.distance * 1000 ) / 1000
         }
         let duration = pushDatas.sorted(by: {$0.createdAt > $1.createdAt}).map{
-            $0.duration
+            round($0.duration * 1000 ) / 1000
         }
         let pushCount = pushDatas.sorted(by: {$0.createdAt > $1.createdAt}).map{
             $0.pushCount
