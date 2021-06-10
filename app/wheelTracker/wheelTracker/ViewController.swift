@@ -21,8 +21,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var backgroundSuperview: UIView!
     
     var nowDistance = pushDatas[pushDatas.count-1].distance {didSet{loadUserData()}}
-    //let healthStore = HKHealthStore()
-
+    var lastTime = Date()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -81,11 +81,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             if(pushDatas[pushDatas.count-1].createdAt.isInToday){
                 pushDatas[pushDatas.count-1].distance += unitDistance
                 nowDistance = pushDatas[pushDatas.count-1].distance
-                //print(pushDatas[pushDatas.count-1].distance)
-                //print(pushDatas[pushDatas.count-1].createdAt)
+                pushDatas[pushDatas.count-1].duration -= lastTime.timeIntervalSinceNow
             }
             
         }
+        lastTime = Date()
         nowLocation = locations[locations.count-1]
         distanceEvent.trigger(eventName: "distance", information: "distance has been changed!")
     }
@@ -105,27 +105,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             print("HealthKit Successfully Authorized.")
         }
     }
-    /*func getTodayPushes(completion: @escaping (Double) -> Void) {
-        let stepsQuantityType = HKQuantityType.quantityType(forIdentifier: .pushCount)!
-        let now = Date()
-        let startOfDay = Calendar.current.startOfDay(for: now)
-        let predicate = HKQuery.predicateForSamples(withStart: startOfDay, end: now, options: .strictStartDate)
-        let query = HKStatisticsQuery(quantityType: stepsQuantityType, quantitySamplePredicate: predicate, options: .cumulativeSum) { (_, result, error) in
-            guard let result = result,
-                  let sum = result.sumQuantity()
-            else {
-                print("Failed to fetch steps = \(error?.localizedDescription ?? "N/A")")
-                completion(0.0)
-                return
-                
-            }
-            DispatchQueue.main.async{
-                completion(sum.doubleValue(for: HKUnit.count()))
-                
-            }
-        }
-        healthStore.execute(query)
-    }*/
+    
     
     func insertImage(view:UIImageView, imageIdentifier:String, seedX: CGFloat, seedY: CGFloat){
         let tileWidth = backgroundSuperview.frame.width/10

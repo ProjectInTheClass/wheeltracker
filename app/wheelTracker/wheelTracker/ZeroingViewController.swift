@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ZeroingViewController: UIViewController {
 
@@ -14,7 +15,7 @@ class ZeroingViewController: UIViewController {
     
     var startDistance = pushDatas[pushDatas.count-1].distance
     var nowDistance = pushDatas[pushDatas.count-1].distance
-    
+    let systemSoundID: SystemSoundID = 1016
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,8 +69,12 @@ class ZeroingViewController: UIViewController {
                 mytextField.placeholder = "숫자만 입력해주세요."
             }
             
+            AudioServicesPlaySystemSound(systemSoundID)
             self.present(alert, animated: true, completion: nil)
             distanceEvent.removeListeners(eventNameToRemoveOrNil: "distance")
+            
+            zeroing.font = zeroing.font.withSize(17)
+            zeroing.text = "설정이 완료되었습니다."
         }
     }
     
