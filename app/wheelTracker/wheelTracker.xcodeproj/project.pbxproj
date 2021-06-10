@@ -10,6 +10,7 @@
 		13FFC1D09E7459D92581E363 /* Pods_wheeltracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F9C3FD9214EEADFBA4A4AEE /* Pods_wheeltracker.framework */; };
 		4625D6892643EC7100C448A7 /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4625D6882643EC7100C448A7 /* DummyData.swift */; };
 		4631089C2671044400B820ED /* AlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4631089B2671044400B820ED /* AlbumViewController.swift */; };
+		4693501126719ED20028E09F /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4693501026719ED20028E09F /* UserProfileViewController.swift */; };
 		4699055A263AA85D004BCB77 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46990559263AA85D004BCB77 /* AppDelegate.swift */; };
 		4699055C263AA85D004BCB77 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4699055B263AA85D004BCB77 /* SceneDelegate.swift */; };
 		4699055E263AA85D004BCB77 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4699055D263AA85D004BCB77 /* ViewController.swift */; };
@@ -32,6 +33,7 @@
 		122C7227C709D593C3C6B8A9 /* Pods-wheeltracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wheeltracker.release.xcconfig"; path = "Target Support Files/Pods-wheeltracker/Pods-wheeltracker.release.xcconfig"; sourceTree = "<group>"; };
 		4625D6882643EC7100C448A7 /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
 		4631089B2671044400B820ED /* AlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AlbumViewController.swift; path = wheelTracker/AlbumViewController.swift; sourceTree = SOURCE_ROOT; };
+		4693501026719ED20028E09F /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserProfileViewController.swift; path = wheelTracker/UserProfileViewController.swift; sourceTree = SOURCE_ROOT; };
 		46990556263AA85D004BCB77 /* wheeltracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wheeltracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46990559263AA85D004BCB77 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4699055B263AA85D004BCB77 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 				4631089B2671044400B820ED /* AlbumViewController.swift */,
 				DD06C63D26714D6C00F9976B /* ZeroingViewController.swift */,
 				DD06C63F267159FA00F9976B /* Event.swift */,
+				4693501026719ED20028E09F /* UserProfileViewController.swift */,
 			);
 			path = wheeltracker;
 			sourceTree = "<group>";
@@ -166,7 +169,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 46990551263AA85D004BCB77 /* Build configuration list for PBXProject "wheelTracker" */;
+			buildConfigurationList = 46990551263AA85D004BCB77 /* Build configuration list for PBXProject "wheeltracker" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -254,6 +257,7 @@
 				4699055A263AA85D004BCB77 /* AppDelegate.swift in Sources */,
 				4631089C2671044400B820ED /* AlbumViewController.swift in Sources */,
 				DD871A622670CA6D004AD08A /* HealthkitAssistant.swift in Sources */,
+				4693501126719ED20028E09F /* UserProfileViewController.swift in Sources */,
 				4625D6892643EC7100C448A7 /* DummyData.swift in Sources */,
 				4699057A263BF76A004BCB77 /* TabBarController.swift in Sources */,
 				4699055C263AA85D004BCB77 /* SceneDelegate.swift in Sources */,
@@ -446,7 +450,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		46990551263AA85D004BCB77 /* Build configuration list for PBXProject "wheelTracker" */ = {
+		46990551263AA85D004BCB77 /* Build configuration list for PBXProject "wheeltracker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				46990568263AA85E004BCB77 /* Debug */,

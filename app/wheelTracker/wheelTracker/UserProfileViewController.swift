@@ -7,13 +7,18 @@
 
 import UIKit
 
-class SettingViewController: UIViewController {
+class UserProfileViewController: UIViewController {
 
-    @IBOutlet weak var zeroing: UIButton!
+    @IBOutlet weak var heightLabel: UILabel!
+    @IBOutlet weak var weightLabel: UILabel!
+    @IBOutlet weak var wheelsizeLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        heightLabel.text = String(height)+" cm"
+        weightLabel.text = String(weight)+" kg"
+        wheelsizeLabel.text = String(wheelSize)+" inch"
         
         
         do{
