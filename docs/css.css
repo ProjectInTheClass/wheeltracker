@@ -12,6 +12,13 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'SEBANG_Gothic_Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2104@1.0/SEBANG_Gothic_Bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -58,6 +65,34 @@
         margin-top: 20vh;
         margin-left: 10%;
         z-index: 100;
+    }
+    .fifth h2 {
+        margin: 0;
+        margin-top: 14vh;
+        text-align: center;
+    }
+    .fifth .box {
+        width: 1020px;
+        margin: 0 auto;
+        padding-top: 75px;
+    }
+    .fifth .left, .fifth .right{
+        width: 220px;
+        float: left;
+    }
+    .fifth img {
+        margin: 0 15px;
+        display: block;
+        float: left;
+    }
+    .fifth h5 {
+        padding-top: 25px;
+    }
+    .fifth h4 {
+        height: 270px;
+    }
+    .fifth .left h4, .fifth .left h5 {
+        text-align: right;
     }
     .design {
         position: absolute;
@@ -141,6 +176,34 @@
         margin-top: 20vh;
         margin-left: 20%;
         z-index: 100;
+    }
+    .fifth h2 {
+        margin: 0;
+        margin-top: 14vh;
+        text-align: center;
+    }
+    .fifth .box {
+        width: 1020px;
+        margin: 0 auto;
+        padding-top: 75px;
+    }
+    .fifth .left, .fifth .right{
+        width: 220px;
+        float: left;
+    }
+    .fifth img {
+        margin: 0 15px;
+        display: block;
+        float: left;
+    }
+    .fifth h5 {
+        padding-top: 25px;
+    }
+    .fifth h4 {
+        height: 270px;
+    }
+    .fifth .left h4, .fifth .left h5 {
+        text-align: right;
     }
     .design {
         position: absolute;
@@ -258,6 +321,35 @@
         margin: 0 auto;
         margin-top: 2.5vh;
     }
+    .fifth h2 {
+        margin: 0;
+        margin-top: 12vh;
+        text-align: center;
+    }
+    .fifth .box {
+        width: 320px;
+        margin: 0 auto;
+        padding-top: 70px;
+        position: relative;
+    }
+    .fifth .left {
+        width: 160px;
+        float: left;
+    }
+    .fifth .right {
+        width: 160px;
+        float: left;
+        text-align: right;
+    }
+    .fifth img {
+        display: block;
+        position: absolute;
+        top: 180px;
+        width: 100%;
+    }
+    .fifth .bottom h5 {
+        padding-top: 350px;
+    }
     .contribution > h1 {
         margin-top: 8vh;
     }
@@ -337,6 +429,13 @@ header {
     overflow: hidden;
 }
 
+.fifth {
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+    overflow: hidden;
+}
+
 .grid {
     position: relative;
     width: 100%;
@@ -355,7 +454,7 @@ h2 {
     font-family: 'paybooc-Bold';
     font-size: 0.916rem;
     letter-spacing: -0.07rem;
-    line- height: 1.27rem;
+    line-height: 1.27rem;
     color: black;
 }
     
@@ -376,12 +475,48 @@ h4 {
     color: #5D5E4A;
     margin-top: 0.417rem;
 }
+
+h5 {
+    font-family: 'paybooc-Bold';
+    font-size: 0.6rem;
+    letter-spacing: -0.03rem;
+    line-height: 1.27rem;
+    color: black;
+}
+
+.fifth h4 {
+    margin: 0;
+}
+
+header a {
+    display: block;
+}
     
 #logo {
     position: absolute;
     height: 1.354rem;
     top: 0.833rem;
     left: 0.833rem;
+    z-index: 1;
+}
+
+#logo img {
+    height: 1.354rem;
+    z-index: 100;
+}
+
+#more {
+    position: absolute;
+    top: 1rem;
+    right: 1.1rem;
+    z-index: 200;
+}
+
+.more {
+    font-family: 'SEBANG_Gothic_Bold';
+    font-size: 0.6rem;
+    color: black;
+    text-decoration: none;
 }
 
 #name {
