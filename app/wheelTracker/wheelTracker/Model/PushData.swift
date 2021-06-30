@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct PushData {
+struct PushData : Codable{
     var createdAt: Date
     var distance: Double
     

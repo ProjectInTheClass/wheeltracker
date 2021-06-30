@@ -23,6 +23,7 @@
 		46C119D2268C6B710065845C /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C119D1268C6B710065845C /* DateExtension.swift */; };
 		46C119D4268C6BBB0065845C /* PushData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C119D3268C6BBB0065845C /* PushData.swift */; };
 		46C119D9268C72F70065845C /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C119D8268C72F70065845C /* UserProfile.swift */; };
+		46C119DB268C741F0065845C /* PushDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C119DA268C741F0065845C /* PushDataController.swift */; };
 		CCA75FC6263BEA7100A5985E /* Record.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCA75FC5263BEA7000A5985E /* Record.storyboard */; };
 		DD06C63E26714D6C00F9976B /* ZeroingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD06C63D26714D6C00F9976B /* ZeroingViewController.swift */; };
 		DD06C640267159FA00F9976B /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD06C63F267159FA00F9976B /* Event.swift */; };
@@ -50,6 +51,7 @@
 		46C119D1268C6B710065845C /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DateExtension.swift; path = wheelTracker/Extension/DateExtension.swift; sourceTree = SOURCE_ROOT; };
 		46C119D3268C6BBB0065845C /* PushData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PushData.swift; path = wheelTracker/Model/PushData.swift; sourceTree = SOURCE_ROOT; };
 		46C119D8268C72F70065845C /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserProfile.swift; path = wheelTracker/Model/UserProfile.swift; sourceTree = SOURCE_ROOT; };
+		46C119DA268C741F0065845C /* PushDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PushDataController.swift; path = wheelTracker/Controller/PushDataController.swift; sourceTree = SOURCE_ROOT; };
 		8F9C3FD9214EEADFBA4A4AEE /* Pods_wheeltracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_wheeltracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C5312D8A452629ED99042C7 /* Pods-wheeltracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wheeltracker.debug.xcconfig"; path = "Target Support Files/Pods-wheeltracker/Pods-wheeltracker.debug.xcconfig"; sourceTree = "<group>"; };
 		CCA75FC5263BEA7000A5985E /* Record.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Record.storyboard; path = wheeltracker/View/Record.storyboard; sourceTree = SOURCE_ROOT; };
@@ -117,6 +119,7 @@
 				4631089B2671044400B820ED /* AlbumViewController.swift */,
 				DD06C63D26714D6C00F9976B /* ZeroingViewController.swift */,
 				4693501026719ED20028E09F /* UserProfileViewController.swift */,
+				46C119DA268C741F0065845C /* PushDataController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				46990578263BF441004BCB77 /* SettingViewController.swift in Sources */,
+				46C119DB268C741F0065845C /* PushDataController.swift in Sources */,
 				46C119D2268C6B710065845C /* DateExtension.swift in Sources */,
 				46C119D9268C72F70065845C /* UserProfile.swift in Sources */,
 				DD4E422D26710CDD00DE797F /* ProfileDataStore.swift in Sources */,
