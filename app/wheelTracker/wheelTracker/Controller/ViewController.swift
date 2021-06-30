@@ -25,53 +25,17 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        authorizeHealthKit()
+        initLocationManager()
+        initPushDatas()
+        loadUserData()
+    }
+    
+    func initLocationManager(){
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestAlwaysAuthorization()
         locationManager.startUpdatingLocation()
-                
-        // Do any additional setup after loading the view.
-        
-      /*  let healthKitTypes: Set = [
-                // access push count
-                HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.pushCount)!
-    
-            
-            ]
-            healthStore.requestAuthorization(toShare: healthKitTypes, read: healthKitTypes) { (_, _) in
-                print("authorized???")
-                
-            }
-            healthStore.requestAuthorization(toShare: healthKitTypes, read: healthKitTypes) { (bool, error) in
-                if let e = error {
-                    print("oops something went wrong during authorisation \(e.localizedDescription)")
-                    
-                } else {
-                    print("User has completed the authorization flow")
-                    self.getTodayPushes(completion: { (step) in
-                        print(step)
-                    })
-            
-                }
-                
-            }
-            /*if HKHealthStore.isHealthDataAvailable() {
-                let authorizationStatus = healthStore.authorizationStatus(for: .workoutType())
-                if authorizationStatus == .notDetermined {
-                    enableHealthKitButton.isHidden = false
-                    
-                } else if authorizationStatus == .sharingDenied {
-                    messageLabel.isHidden = false
-                    messageLabel.text = "Meditations doesn't have access to your workout data. You can enable access in the Settings application."         }
-                    
-            } else{
-                messageLabel.isHidden = false
-                messageLabel.text = "HealthKit is not available on this device."
-            }*/*/
-        initPushDatas()
-        authorizeHealthKit()
-        loadUserData()
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]){

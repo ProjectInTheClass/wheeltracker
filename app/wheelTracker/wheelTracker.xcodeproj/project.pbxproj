@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		13FFC1D09E7459D92581E363 /* Pods_wheeltracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F9C3FD9214EEADFBA4A4AEE /* Pods_wheeltracker.framework */; };
-		4625D6892643EC7100C448A7 /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4625D6882643EC7100C448A7 /* DummyData.swift */; };
 		4631089C2671044400B820ED /* AlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4631089B2671044400B820ED /* AlbumViewController.swift */; };
 		4693501126719ED20028E09F /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4693501026719ED20028E09F /* UserProfileViewController.swift */; };
 		4699055A263AA85D004BCB77 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46990559263AA85D004BCB77 /* AppDelegate.swift */; };
@@ -21,6 +20,9 @@
 		46990576263BF434004BCB77 /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46990575263BF434004BCB77 /* RecordViewController.swift */; };
 		46990578263BF441004BCB77 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46990577263BF441004BCB77 /* SettingViewController.swift */; };
 		4699057A263BF76A004BCB77 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46990579263BF76A004BCB77 /* TabBarController.swift */; };
+		46C119D2268C6B710065845C /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C119D1268C6B710065845C /* DateExtension.swift */; };
+		46C119D4268C6BBB0065845C /* PushData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C119D3268C6BBB0065845C /* PushData.swift */; };
+		46C119D6268C6C9B0065845C /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C119D5268C6C9B0065845C /* UserProfile.swift */; };
 		CCA75FC6263BEA7100A5985E /* Record.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCA75FC5263BEA7000A5985E /* Record.storyboard */; };
 		DD06C63E26714D6C00F9976B /* ZeroingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD06C63D26714D6C00F9976B /* ZeroingViewController.swift */; };
 		DD06C640267159FA00F9976B /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD06C63F267159FA00F9976B /* Event.swift */; };
@@ -31,9 +33,8 @@
 
 /* Begin PBXFileReference section */
 		122C7227C709D593C3C6B8A9 /* Pods-wheeltracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wheeltracker.release.xcconfig"; path = "Target Support Files/Pods-wheeltracker/Pods-wheeltracker.release.xcconfig"; sourceTree = "<group>"; };
-		4625D6882643EC7100C448A7 /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
-		4631089B2671044400B820ED /* AlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AlbumViewController.swift; path = wheelTracker/AlbumViewController.swift; sourceTree = SOURCE_ROOT; };
-		4693501026719ED20028E09F /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserProfileViewController.swift; path = wheelTracker/UserProfileViewController.swift; sourceTree = SOURCE_ROOT; };
+		4631089B2671044400B820ED /* AlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AlbumViewController.swift; path = wheeltracker/Controller/AlbumViewController.swift; sourceTree = SOURCE_ROOT; };
+		4693501026719ED20028E09F /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserProfileViewController.swift; path = wheeltracker/Controller/UserProfileViewController.swift; sourceTree = SOURCE_ROOT; };
 		46990556263AA85D004BCB77 /* wheeltracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wheeltracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46990559263AA85D004BCB77 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4699055B263AA85D004BCB77 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -46,15 +47,18 @@
 		46990575263BF434004BCB77 /* RecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
 		46990577263BF441004BCB77 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		46990579263BF76A004BCB77 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		46C119D1268C6B710065845C /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DateExtension.swift; path = wheelTracker/Extension/DateExtension.swift; sourceTree = SOURCE_ROOT; };
+		46C119D3268C6BBB0065845C /* PushData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PushData.swift; path = wheelTracker/Model/PushData.swift; sourceTree = SOURCE_ROOT; };
+		46C119D5268C6C9B0065845C /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserProfile.swift; path = wheelTracker/Model/UserProfile.swift; sourceTree = SOURCE_ROOT; };
 		8F9C3FD9214EEADFBA4A4AEE /* Pods_wheeltracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_wheeltracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C5312D8A452629ED99042C7 /* Pods-wheeltracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wheeltracker.debug.xcconfig"; path = "Target Support Files/Pods-wheeltracker/Pods-wheeltracker.debug.xcconfig"; sourceTree = "<group>"; };
-		CCA75FC5263BEA7000A5985E /* Record.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Record.storyboard; path = wheelTracker/Record.storyboard; sourceTree = SOURCE_ROOT; };
-		DD06C63D26714D6C00F9976B /* ZeroingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZeroingViewController.swift; path = wheelTracker/ZeroingViewController.swift; sourceTree = SOURCE_ROOT; };
-		DD06C63F267159FA00F9976B /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Event.swift; path = wheelTracker/Event.swift; sourceTree = SOURCE_ROOT; };
-		DD4E422C26710CDD00DE797F /* ProfileDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileDataStore.swift; path = wheelTracker/ProfileDataStore.swift; sourceTree = SOURCE_ROOT; };
+		CCA75FC5263BEA7000A5985E /* Record.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Record.storyboard; path = wheeltracker/View/Record.storyboard; sourceTree = SOURCE_ROOT; };
+		DD06C63D26714D6C00F9976B /* ZeroingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZeroingViewController.swift; path = wheeltracker/Controller/ZeroingViewController.swift; sourceTree = SOURCE_ROOT; };
+		DD06C63F267159FA00F9976B /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Event.swift; path = wheeltracker/API/Event.swift; sourceTree = SOURCE_ROOT; };
+		DD4E422C26710CDD00DE797F /* ProfileDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileDataStore.swift; path = wheeltracker/API/ProfileDataStore.swift; sourceTree = SOURCE_ROOT; };
 		DD7F92AE266B7D4A0083CAF7 /* wheeltracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = wheeltracker.entitlements; sourceTree = "<group>"; };
 		DD7F92AF266B7D4A0083CAF7 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
-		DD871A612670CA6D004AD08A /* HealthkitAssistant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HealthkitAssistant.swift; path = wheelTracker/HealthkitAssistant.swift; sourceTree = SOURCE_ROOT; };
+		DD871A612670CA6D004AD08A /* HealthkitAssistant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HealthkitAssistant.swift; path = wheeltracker/API/HealthkitAssistant.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,28 +95,78 @@
 		46990558263AA85D004BCB77 /* wheeltracker */ = {
 			isa = PBXGroup;
 			children = (
-				DD7F92AE266B7D4A0083CAF7 /* wheeltracker.entitlements */,
-				46990559263AA85D004BCB77 /* AppDelegate.swift */,
-				4699055B263AA85D004BCB77 /* SceneDelegate.swift */,
-				4699055D263AA85D004BCB77 /* ViewController.swift */,
-				4699055F263AA85D004BCB77 /* Main.storyboard */,
-				CCA75FC5263BEA7000A5985E /* Record.storyboard */,
+				46C119D0268C6B640065845C /* Extension */,
+				46C119CD268C69030065845C /* Helper */,
+				46C119CC268C68CA0065845C /* API */,
+				46C119CB268C68C50065845C /* Model */,
+				46C119CA268C68BE0065845C /* View */,
+				46C119C9268C68AE0065845C /* Controller */,
 				46990562263AA85D004BCB77 /* Assets.xcassets */,
-				46990564263AA85D004BCB77 /* LaunchScreen.storyboard */,
 				46990567263AA85E004BCB77 /* Info.plist */,
-				46990573263BF295004BCB77 /* Setting.storyboard */,
+			);
+			path = wheeltracker;
+			sourceTree = "<group>";
+		};
+		46C119C9268C68AE0065845C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4699055D263AA85D004BCB77 /* ViewController.swift */,
 				46990575263BF434004BCB77 /* RecordViewController.swift */,
 				46990577263BF441004BCB77 /* SettingViewController.swift */,
 				46990579263BF76A004BCB77 /* TabBarController.swift */,
-				4625D6882643EC7100C448A7 /* DummyData.swift */,
-				DD871A612670CA6D004AD08A /* HealthkitAssistant.swift */,
-				DD4E422C26710CDD00DE797F /* ProfileDataStore.swift */,
 				4631089B2671044400B820ED /* AlbumViewController.swift */,
 				DD06C63D26714D6C00F9976B /* ZeroingViewController.swift */,
-				DD06C63F267159FA00F9976B /* Event.swift */,
 				4693501026719ED20028E09F /* UserProfileViewController.swift */,
 			);
-			path = wheeltracker;
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		46C119CA268C68BE0065845C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4699055F263AA85D004BCB77 /* Main.storyboard */,
+				CCA75FC5263BEA7000A5985E /* Record.storyboard */,
+				46990564263AA85D004BCB77 /* LaunchScreen.storyboard */,
+				46990573263BF295004BCB77 /* Setting.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		46C119CB268C68C50065845C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				46C119D3268C6BBB0065845C /* PushData.swift */,
+				46C119D5268C6C9B0065845C /* UserProfile.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		46C119CC268C68CA0065845C /* API */ = {
+			isa = PBXGroup;
+			children = (
+				DD7F92AE266B7D4A0083CAF7 /* wheeltracker.entitlements */,
+				DD871A612670CA6D004AD08A /* HealthkitAssistant.swift */,
+				DD4E422C26710CDD00DE797F /* ProfileDataStore.swift */,
+				DD06C63F267159FA00F9976B /* Event.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		46C119CD268C69030065845C /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				46990559263AA85D004BCB77 /* AppDelegate.swift */,
+				4699055B263AA85D004BCB77 /* SceneDelegate.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		46C119D0268C6B640065845C /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				46C119D1268C6B710065845C /* DateExtension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		CFB039EDB3BED914C59FA555 /* Pods */ = {
@@ -169,7 +223,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 46990551263AA85D004BCB77 /* Build configuration list for PBXProject "wheeltracker" */;
+			buildConfigurationList = 46990551263AA85D004BCB77 /* Build configuration list for PBXProject "wheelTracker" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -250,7 +304,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				46990578263BF441004BCB77 /* SettingViewController.swift in Sources */,
+				46C119D2268C6B710065845C /* DateExtension.swift in Sources */,
 				DD4E422D26710CDD00DE797F /* ProfileDataStore.swift in Sources */,
+				46C119D4268C6BBB0065845C /* PushData.swift in Sources */,
 				DD06C63E26714D6C00F9976B /* ZeroingViewController.swift in Sources */,
 				4699055E263AA85D004BCB77 /* ViewController.swift in Sources */,
 				DD06C640267159FA00F9976B /* Event.swift in Sources */,
@@ -258,7 +314,7 @@
 				4631089C2671044400B820ED /* AlbumViewController.swift in Sources */,
 				DD871A622670CA6D004AD08A /* HealthkitAssistant.swift in Sources */,
 				4693501126719ED20028E09F /* UserProfileViewController.swift in Sources */,
-				4625D6892643EC7100C448A7 /* DummyData.swift in Sources */,
+				46C119D6268C6C9B0065845C /* UserProfile.swift in Sources */,
 				4699057A263BF76A004BCB77 /* TabBarController.swift in Sources */,
 				4699055C263AA85D004BCB77 /* SceneDelegate.swift in Sources */,
 				46990576263BF434004BCB77 /* RecordViewController.swift in Sources */,
@@ -450,7 +506,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		46990551263AA85D004BCB77 /* Build configuration list for PBXProject "wheeltracker" */ = {
+		46990551263AA85D004BCB77 /* Build configuration list for PBXProject "wheelTracker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				46990568263AA85E004BCB77 /* Debug */,
