@@ -25,9 +25,9 @@
 	<key>NSHealthUpdateUsageDescription</key>
 	<string>WheelTracker</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string></string>
+	<string>WheelTracking</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string>WheelTracking</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
