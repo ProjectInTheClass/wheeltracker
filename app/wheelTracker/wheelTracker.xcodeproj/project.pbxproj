@@ -224,7 +224,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 46990551263AA85D004BCB77 /* Build configuration list for PBXProject "wheeltracker" */;
+			buildConfigurationList = 46990551263AA85D004BCB77 /* Build configuration list for PBXProject "wheelTracker" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -476,7 +476,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.lingostar.WT;
+				PRODUCT_BUNDLE_IDENTIFIER = com.codershigh.wheeltrack;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -498,7 +498,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.lingostar.WT;
+				PRODUCT_BUNDLE_IDENTIFIER = com.codershigh.wheeltrack;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -508,7 +508,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		46990551263AA85D004BCB77 /* Build configuration list for PBXProject "wheeltracker" */ = {
+		46990551263AA85D004BCB77 /* Build configuration list for PBXProject "wheelTracker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				46990568263AA85E004BCB77 /* Debug */,
