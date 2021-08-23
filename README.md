@@ -1,12 +1,12 @@
 # Wheel Tracker
-소프트웨어 스튜디오 앱 개발
 ![KakaoTalk_20210823_233820141](https://user-images.githubusercontent.com/55349655/130466710-7bfd6300-e26e-444d-918d-c8a19b330493.png)
 
 ## 앱 소개
 ### 휠체어 만보기
-https://projectintheclass.github.io/wheeltracker/img/logo.png
+![image](https://user-images.githubusercontent.com/55349655/130468111-691bfcf0-7e38-4f04-801e-f419cc6c33da.png)
+
 #### main 화면
-<img width="539" alt="KakaoTalk_20210823_233820141_02" src="https://user-images.githubusercontent.com/55349655/130466995-6484cb1f-f0de-41a3-9a51-8c13ed6c655f.png">
+<img width="527" alt="KakaoTalk_20210823_233820141_02" src="https://user-images.githubusercontent.com/55349655/130466995-6484cb1f-f0de-41a3-9a51-8c13ed6c655f.png">
 하루동안 얼마나 많이 움직였는지 시각적으로 정보를 제공
 
 ![캡처](https://user-images.githubusercontent.com/55349655/130467470-52bb02ba-5703-46a0-b925-9388410fdd55.PNG)
