@@ -31,3 +31,12 @@
 
 -----------------------------------------------------------------------------------------------------
 
+## 코코아팟 설치 방법
+* 차트화면을 위해 코코아팟을 설치해야 한다. 조 : https://yeniful.tistory.com/25
+1. 터미널에서 설치 : sudo gem install cocoapods ( pw는 mac 암호)
+2. 터미널에서 프로젝트 경로로 이동한 후 pop 파일 생성 : pod init
+3. pop 파일 생성 : pop init
+4. popfile 열기 : open -e podfile
+5. 사용할 pop 코드 입력 : pod '라이브러리 이름' 형식으로
+6. 프로젝트에서 설치 pod install
+7. import Charts
